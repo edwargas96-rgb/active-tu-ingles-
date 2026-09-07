@@ -24,16 +24,53 @@
   <body>
     <div class="topbar"></div>
 
+    <!-- Marca "Activa tu Inglés": A navy envuelta por una cinta EE.UU. (estrellas + rayas) con destellos rojos. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="logo-mark" viewBox="0 0 230 220">
+          <path
+            id="a-shape"
+            d="M100,14 L168,196 Q171,206 160,206 L40,206 Q29,206 32,196 Z"
+            fill="#16215c"
+          />
+          <clipPath id="a-clip">
+            <use href="#a-shape" />
+          </clipPath>
+          <path
+            id="star"
+            d="M0,-4 L1,-1.2 L4,-1 L1.6,0.9 L2.5,4 L0,2.1 L-2.5,4 L-1.6,0.9 L-4,-1 L-1,-1.2 Z"
+            fill="#fff"
+          />
+          <g clip-path="url(#a-clip)">
+            <g transform="translate(100,150) rotate(-20)">
+              <rect x="-130" y="-19" width="130" height="38" fill="#16215c" />
+              <rect x="-10" y="-19" width="150" height="38" fill="#e63946" />
+              <rect x="-10" y="-11.4" width="150" height="7.6" fill="#fff" />
+              <rect x="-10" y="3.8" width="150" height="7.6" fill="#fff" />
+              <use href="#star" x="-105" y="-9" />
+              <use href="#star" x="-85" y="3" />
+              <use href="#star" x="-65" y="-8" />
+              <use href="#star" x="-45" y="5" />
+              <use href="#star" x="-25" y="-6" />
+              <rect x="-130" y="-19" width="260" height="38" fill="none" stroke="#fff" stroke-width="2" />
+            </g>
+          </g>
+          <g stroke="#e63946" stroke-width="7" stroke-linecap="round">
+            <line x1="184" y1="72" x2="199" y2="57" />
+            <line x1="195" y1="88" x2="216" y2="78" />
+            <line x1="200" y1="104" x2="224" y2="99" />
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
     <!-- NAV -->
     <header class="nav">
       <div class="nav-inner">
         <a class="logo" href="#top">
           <span class="logo-badge">
-            <svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
-              <circle cx="20" cy="20" r="19" fill="#fff" stroke="#16215c" stroke-width="2" />
-              <path d="M20 8 L28 30 H12 Z" fill="#16215c" />
-              <path d="M14.5 24 H25.5" stroke="#fff" stroke-width="2" />
-              <path d="M11 12 L29 26" stroke="#e63946" stroke-width="3" stroke-linecap="round" />
+            <svg viewBox="0 0 230 220" width="38" height="36" aria-hidden="true">
+              <use href="#logo-mark" />
             </svg>
           </span>
           <span class="logo-text">
@@ -305,10 +342,20 @@
 
     <footer class="footer">
       <div class="footer-inner">
-        <span class="logo-text">
-          <span class="logo-navy">Activa</span> <span class="logo-red">tu</span>
-          <span class="logo-navy">Inglés</span>
-        </span>
+        <div class="footer-logo">
+          <svg viewBox="0 0 230 220" width="56" height="53" aria-hidden="true">
+            <use href="#logo-mark" />
+          </svg>
+          <div class="footer-logo-lockup">
+            <span class="logo-text footer-logo-text">
+              <span class="logo-navy">Activa</span> <span class="logo-red">tu</span>
+              <span class="logo-navy">Inglés</span>
+            </span>
+            <svg class="footer-logo-underline" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M4,8 Q100,-2 196,7" fill="none" stroke="#e63946" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
         <p>Estudia. Practica. Avanza.</p>
       </div>
     </footer>
