@@ -1,20 +1,22 @@
-// Ramas del mapa mental — cada una es un pilar del método.
+// Ramas del mapa mental — alternan rojo/azul marino, como en el mapa mental físico.
 var RAMAS = [
-  { label: "Vocabulario esencial", color: "#2563EB", emoji: "✨" },
-  { label: "Gramática simple", color: "#7C3AED", emoji: "💬" },
-  { label: "Pronunciación", color: "#DB2777", emoji: "🎤" },
-  { label: "Listening real", color: "#EA580C", emoji: "🎧" },
-  { label: "Inglés para viajar", color: "#059669", emoji: "✈️" },
-  { label: "Conversación diaria", color: "#0891B2", emoji: "🛡️" },
+  { num: 1, label: "Vocabulario esencial", color: "red" },
+  { num: 2, label: "Gramática simple", color: "navy" },
+  { num: 3, label: "Pronunciación", color: "red" },
+  { num: 4, label: "Listening real", color: "navy" },
+  { num: 5, label: "Inglés para viajar", color: "red" },
+  { num: 6, label: "Conversación diaria", color: "navy" },
 ];
 
 function buildMindMap() {
   var wrap = document.getElementById("mindmap");
   var svg = wrap.querySelector(".mindmap-lines");
-  var cx = 180;
-  var cy = 160;
-  var rLine = { x: 128, y: 108 };
-  var rPct = { x: 35.5, y: 33.7 };
+  var cx = 260;
+  var cy = 230;
+  var rLine = { x: 190, y: 165 };
+  var rPct = { x: 36.5, y: 35.9 };
+
+  var colorHex = { red: "#e63946", navy: "#16215c" };
 
   var lines = "";
   RAMAS.forEach(function (r, i) {
@@ -31,11 +33,11 @@ function buildMindMap() {
       '" y2="' +
       y +
       '" stroke="' +
-      r.color +
+      colorHex[r.color] +
       '" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round" opacity="0.55" />';
   });
   svg.innerHTML = lines;
-  svg.setAttribute("viewBox", "0 0 360 320");
+  svg.setAttribute("viewBox", "0 0 520 460");
 
   RAMAS.forEach(function (r, i) {
     var angle = (Math.PI * 2 * i) / RAMAS.length - Math.PI / 2;
@@ -47,17 +49,20 @@ function buildMindMap() {
     node.style.left = xPct + "%";
     node.style.top = yPct + "%";
 
-    var icon = document.createElement("span");
-    icon.className = "mindmap-icon";
-    icon.style.backgroundColor = r.color + "1a";
-    icon.textContent = r.emoji;
+    var card = document.createElement("div");
+    card.className = "mm-card c-" + r.color;
 
-    var label = document.createElement("span");
-    label.className = "mindmap-label";
-    label.textContent = r.label;
+    var numEl = document.createElement("span");
+    numEl.className = "mm-num";
+    numEl.textContent = r.num;
 
-    node.appendChild(icon);
-    node.appendChild(label);
+    var labelEl = document.createElement("span");
+    labelEl.className = "mm-label";
+    labelEl.textContent = r.label;
+
+    card.appendChild(numEl);
+    card.appendChild(labelEl);
+    node.appendChild(card);
     wrap.appendChild(node);
   });
 }
