@@ -152,10 +152,9 @@ function setupSocialProof() {
 // que avanza solo y que se puede arrastrar con el dedo o el mouse en cualquier momento.
 function setupTestimonialCarousel() {
   var track = document.getElementById("testiTrack");
-  var dotsWrap = document.getElementById("testiDots");
   var prevBtn = document.getElementById("testiPrev");
   var nextBtn = document.getElementById("testiNext");
-  if (!track || !dotsWrap) return;
+  if (!track) return;
 
   var originals = Array.prototype.slice.call(track.children);
   var count = originals.length;
@@ -174,22 +173,6 @@ function setupTestimonialCarousel() {
 
   var slides = Array.prototype.slice.call(track.children); // [clonesA(count), originals(count), clonesB(count)]
 
-  var dots = [];
-  for (var i = 0; i < count; i++) {
-    (function (i) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "carousel-dot";
-      dot.setAttribute("aria-label", "Ir al testimonio " + (i + 1));
-      dot.addEventListener("click", function () {
-        goTo(count + i, true);
-        restartAutoplay();
-      });
-      dotsWrap.appendChild(dot);
-      dots.push(dot);
-    })(i);
-  }
-
   function domIndex() {
     var pos = track.scrollLeft;
     var closest = count;
@@ -202,13 +185,6 @@ function setupTestimonialCarousel() {
       }
     });
     return closest;
-  }
-
-  function updateDots(idx) {
-    var real = ((idx - count) % count + count) % count;
-    dots.forEach(function (d, i) {
-      d.classList.toggle("active", i === real);
-    });
   }
 
   function goTo(idx, smooth) {
@@ -226,17 +202,13 @@ function setupTestimonialCarousel() {
     var idx = domIndex();
     if (idx < count) {
       track.scrollTo({ left: slides[idx + count].offsetLeft, behavior: "auto" });
-      idx = idx + count;
     } else if (idx >= count * 2) {
       track.scrollTo({ left: slides[idx - count].offsetLeft, behavior: "auto" });
-      idx = idx - count;
     }
-    updateDots(idx);
   }
 
   // Posición inicial: primer testimonio real, sin animación.
   track.scrollTo({ left: slides[count].offsetLeft, behavior: "auto" });
-  updateDots(count);
 
   // ---- Avance automático ----
   var AUTOPLAY_MS = 3200;
