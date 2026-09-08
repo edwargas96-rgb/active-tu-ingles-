@@ -703,7 +703,7 @@ blockquote {
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: none;
   -webkit-overflow-scrolling: touch;
   cursor: grab;
   user-select: none;
@@ -713,7 +713,6 @@ blockquote {
 
 .carousel-track.is-dragging {
   cursor: grabbing;
-  scroll-snap-type: none;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -722,7 +721,6 @@ blockquote {
 
 .testimonial-slide {
   flex: 0 0 78%;
-  scroll-snap-align: center;
   margin: 0;
   border-radius: 20px;
   border: 1px solid var(--border);

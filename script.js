@@ -210,27 +210,49 @@ function setupTestimonialCarousel() {
   // Posición inicial: primer testimonio real, sin animación.
   track.scrollTo({ left: slides[count].offsetLeft, behavior: "auto" });
 
-  // ---- Avance automático ----
-  var AUTOPLAY_MS = 3200;
-  var autoplayTimer;
+  // ---- Avance automático: desplazamiento continuo, sin pausas entre pasos ----
+  var SPEED_PX_S = 34;
+  var running = true;
+  var lastTs = null;
+  var loopWidth = null;
+
+  function measureLoopWidth() {
+    loopWidth = slides[count * 2].offsetLeft - slides[count].offsetLeft;
+  }
+  measureLoopWidth();
+  window.addEventListener("resize", measureLoopWidth);
+
+  function frame(ts) {
+    if (running && !dragging) {
+      if (lastTs !== null) {
+        var dt = (ts - lastTs) / 1000;
+        track.scrollLeft += SPEED_PX_S * dt;
+        if (track.scrollLeft >= slides[count * 2].offsetLeft) {
+          track.scrollLeft -= loopWidth;
+        }
+      }
+      lastTs = ts;
+    } else {
+      lastTs = null;
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 
   function stopAutoplay() {
-    window.clearInterval(autoplayTimer);
+    running = false;
   }
 
   function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = window.setInterval(function () {
-      go(1);
-    }, AUTOPLAY_MS);
+    running = true;
   }
 
   function restartAutoplay() {
     startAutoplay();
   }
 
-  if (prevBtn) prevBtn.addEventListener("click", function () { go(-1); restartAutoplay(); });
-  if (nextBtn) nextBtn.addEventListener("click", function () { go(1); restartAutoplay(); });
+  if (prevBtn) prevBtn.addEventListener("click", function () { stopAutoplay(); go(-1); window.setTimeout(restartAutoplay, 500); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { stopAutoplay(); go(1); window.setTimeout(restartAutoplay, 500); });
 
   // ---- Arrastre con mouse (touch ya funciona nativo vía overflow-x scroll) ----
   var dragging = false;
