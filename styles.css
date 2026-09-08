@@ -446,8 +446,13 @@ h1 {
 .product-mockup-wrap {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  margin: 0 auto 18px;
+  max-width: 620px;
+  margin: 0 auto 22px;
+  border-radius: 22px;
+  padding: 6px;
+  background: linear-gradient(135deg, rgba(230, 57, 70, 0.35), rgba(244, 196, 48, 0.35), rgba(22, 33, 92, 0.35));
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  animation: mockupFloat 5s ease-in-out infinite;
 }
 
 .product-mockup-img {
@@ -455,7 +460,23 @@ h1 {
   height: auto;
   display: block;
   border-radius: 18px;
-  box-shadow: 0 20px 46px rgba(22, 33, 92, 0.2);
+  box-shadow: 0 26px 60px rgba(22, 33, 92, 0.3), 0 0 0 6px #fff;
+}
+
+@keyframes mockupFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.015);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-mockup-wrap {
+    animation: none;
+  }
 }
 
 .product-mockup-placeholder {
@@ -1430,7 +1451,15 @@ blockquote {
   }
 
   .hero-visual {
-    flex: 1;
+    flex: 1.2;
+  }
+
+  .product-mockup-wrap {
+    max-width: 100%;
+  }
+
+  .mindmap {
+    max-width: 360px;
   }
 
   h1 {
