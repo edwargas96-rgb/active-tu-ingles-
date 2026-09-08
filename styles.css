@@ -716,6 +716,11 @@ h2 {
     min-width: 240px;
     max-width: 240px;
   }
+
+  .testimonial-slide {
+    min-width: 270px;
+    max-width: 270px;
+  }
 }
 
 /* STEPS */
@@ -786,40 +791,33 @@ blockquote {
   color: var(--muted-fg);
 }
 
-/* TESTIMONIAL CAROUSEL */
+/* TESTIMONIAL CAROUSEL — mismo marquee infinito en CSS puro que "Así se ve tu Mapa Mental" */
 
-.testimonial-carousel {
-  position: relative;
+.testi-carousel .carousel-track {
+  animation-duration: 55s;
 }
 
-.carousel-track {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: none;
-  -webkit-overflow-scrolling: touch;
-  cursor: grab;
-  user-select: none;
-  scrollbar-width: none;
-  padding: 4px 2px 8px;
-}
-
-.carousel-track.is-dragging {
-  cursor: grabbing;
-}
-
-.carousel-track::-webkit-scrollbar {
-  display: none;
+.testi-group {
+  gap: 20px;
+  padding-right: 20px;
 }
 
 .testimonial-slide {
-  flex: 0 0 78%;
+  flex: none;
+  min-width: 320px;
+  max-width: 320px;
   margin: 0;
   border-radius: 20px;
   border: 1px solid var(--border);
   background: var(--card);
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(22, 33, 92, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-slide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(22, 33, 92, 0.14);
 }
 
 .testimonial-slide img {
@@ -895,38 +893,6 @@ blockquote {
 .testimonial-body .t-place {
   font-size: 12px;
   color: var(--faint-fg);
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 40%;
-  z-index: 5;
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--navy);
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(22, 33, 92, 0.15);
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.carousel-arrow.prev {
-  left: -6px;
-}
-
-.carousel-arrow.next {
-  right: -6px;
-}
-
-.carousel-arrow:hover {
-  background: var(--navy);
-  color: #fff;
 }
 
 
@@ -1503,20 +1469,8 @@ blockquote {
     padding: 36px 44px;
   }
 
-  .testimonial-slide {
-    flex-basis: 320px;
-  }
-
   .testimonial-photo-wrap {
     aspect-ratio: 4 / 3;
-  }
-
-  .carousel-arrow.prev {
-    left: -18px;
-  }
-
-  .carousel-arrow.next {
-    right: -18px;
   }
 
   h2 {

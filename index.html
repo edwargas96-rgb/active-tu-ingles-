@@ -228,14 +228,12 @@
               Historias reales de personas en toda Latinoamérica aprendiendo inglés con el mapa mental.
             </p>
           </div>
-          <div class="testimonial-carousel">
-            <button type="button" class="carousel-arrow prev" id="testiPrev" aria-label="Testimonio anterior">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6">
-                <path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
+        </div>
 
-            <div class="carousel-track" id="testiTrack">
+        <div class="preview-carousel testi-carousel">
+          <div class="carousel-track">
+            <!-- Grupo 1 -->
+            <div class="carousel-group testi-group">
               <figure class="testimonial-slide">
                 <div class="testimonial-photo-wrap">
                   <img src="testimonial-1.png" alt="María José usando el Mapa Mental de Inglés" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
@@ -308,12 +306,80 @@
                 </div>
               </figure>
             </div>
+            <!-- Grupo 2: copia exacta del grupo 1, necesaria para el loop infinito sin salto -->
+            <div class="carousel-group testi-group" aria-hidden="true">
+              <figure class="testimonial-slide">
+                <div class="testimonial-photo-wrap">
+                  <img src="testimonial-1.png" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
+                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
+                </div>
+                <div class="testimonial-body">
+                  <div class="stars">★★★★★</div>
+                  <blockquote>
+                    Siempre me perdía entre tantos cursos. El Mapa Mental me mostró exactamente qué estudiar cada
+                    semana. En un mes ya entendía videos sin subtítulos.
+                  </blockquote>
+                  <figcaption>
+                    <span class="t-name">María José</span>
+                    <span class="t-place">Bogotá, Colombia</span>
+                  </figcaption>
+                </div>
+              </figure>
 
-            <button type="button" class="carousel-arrow next" id="testiNext" aria-label="Siguiente testimonio">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6">
-                <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
+              <figure class="testimonial-slide">
+                <div class="testimonial-photo-wrap">
+                  <img src="testimonial-2.png" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
+                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
+                </div>
+                <div class="testimonial-body">
+                  <div class="stars">★★★★★</div>
+                  <blockquote>
+                    Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método
+                    de inglés.
+                  </blockquote>
+                  <figcaption>
+                    <span class="t-name">Franco Ríos</span>
+                    <span class="t-place">Buenos Aires, Argentina</span>
+                  </figcaption>
+                </div>
+              </figure>
+
+              <figure class="testimonial-slide">
+                <div class="testimonial-photo-wrap">
+                  <img src="testimonial-3.png" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
+                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
+                </div>
+                <div class="testimonial-body">
+                  <div class="stars">★★★★★</div>
+                  <blockquote>
+                    Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué
+                    aprender primero.
+                  </blockquote>
+                  <figcaption>
+                    <span class="t-name">Carla Andrade</span>
+                    <span class="t-place">Ciudad de México, México</span>
+                  </figcaption>
+                </div>
+              </figure>
+
+              <figure class="testimonial-slide">
+                <div class="testimonial-photo-wrap">
+                  <img src="testimonial-4.png" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
+                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
+                </div>
+                <div class="testimonial-body">
+                  <div class="stars">★★★★★</div>
+                  <blockquote>
+                    Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y
+                    series sin traducir todo.
+                  </blockquote>
+                  <figcaption>
+                    <span class="t-name">Yohana Pérez</span>
+                    <span class="t-place">Caracas, Venezuela</span>
+                  </figcaption>
+                </div>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
