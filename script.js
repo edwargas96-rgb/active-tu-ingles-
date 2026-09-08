@@ -192,14 +192,54 @@ function setupTestimonialCarousel() {
     });
   }
 
-  function go(delta) {
-    var idx = currentIndex();
-    var next = Math.max(0, Math.min(slides.length - 1, idx + delta));
-    track.scrollTo({ left: slides[next].offsetLeft, behavior: "smooth" });
+  function goTo(index) {
+    var wrapped = (index + slides.length) % slides.length;
+    track.scrollTo({ left: slides[wrapped].offsetLeft, behavior: "smooth" });
   }
 
-  if (prevBtn) prevBtn.addEventListener("click", function () { go(-1); });
-  if (nextBtn) nextBtn.addEventListener("click", function () { go(1); });
+  function go(delta) {
+    goTo(currentIndex() + delta);
+  }
+
+  // Avance automático — vuelve al inicio al llegar al final, como en la referencia.
+  var AUTOPLAY_MS = 4500;
+  var autoplayTimer;
+  var carousel = track.closest(".testimonial-carousel");
+
+  function stopAutoplay() {
+    window.clearInterval(autoplayTimer);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = window.setInterval(function () {
+      goTo(currentIndex() + 1);
+    }, AUTOPLAY_MS);
+  }
+
+  function restartAutoplay() {
+    startAutoplay();
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", function () { go(-1); restartAutoplay(); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { go(1); restartAutoplay(); });
+
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", restartAutoplay);
+  });
+
+  if (carousel) {
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+  }
+  track.addEventListener("pointerdown", stopAutoplay);
+  track.addEventListener("pointerup", restartAutoplay);
+  track.addEventListener("touchstart", stopAutoplay, { passive: true });
+  track.addEventListener("touchend", restartAutoplay);
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) stopAutoplay();
+    else startAutoplay();
+  });
 
   var scrollTimer;
   track.addEventListener("scroll", function () {
@@ -209,6 +249,7 @@ function setupTestimonialCarousel() {
 
   window.addEventListener("resize", updateDots);
   updateDots();
+  startAutoplay();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
