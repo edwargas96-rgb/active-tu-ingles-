@@ -103,8 +103,54 @@ function setupReveal() {
   });
 }
 
+// Notificación flotante de prueba social — nombres ficticios, ciclan en pantalla.
+var COMPRAS = [
+  { nombre: "María J.", lugar: "Bogotá, Colombia" },
+  { nombre: "Franco R.", lugar: "Buenos Aires, Argentina" },
+  { nombre: "Carla A.", lugar: "Ciudad de México, México" },
+  { nombre: "Yohana P.", lugar: "Caracas, Venezuela" },
+  { nombre: "Diego S.", lugar: "Lima, Perú" },
+  { nombre: "Camila V.", lugar: "Santiago, Chile" },
+];
+
+function setupSocialProof() {
+  var el = document.getElementById("social-proof");
+  if (!el) return;
+  var nameEl = el.querySelector(".social-proof-name");
+  var timeEl = el.querySelector(".social-proof-time");
+  var idx = 0;
+  var hideTimer, nextTimer;
+
+  function show() {
+    var c = COMPRAS[idx % COMPRAS.length];
+    var mins = 1 + Math.floor(Math.random() * 8);
+    nameEl.textContent = c.nombre + " ✓ Verificada — " + c.lugar;
+    timeEl.textContent = "hace " + mins + " min";
+    el.hidden = false;
+    requestAnimationFrame(function () {
+      el.classList.add("is-visible");
+    });
+    hideTimer = window.setTimeout(function () {
+      el.classList.remove("is-visible");
+      window.setTimeout(function () {
+        el.hidden = true;
+      }, 400);
+    }, 5000);
+    idx++;
+    nextTimer = window.setTimeout(show, idx * 60000);
+  }
+
+  var firstTimer = window.setTimeout(show, 10000);
+  window.addEventListener("beforeunload", function () {
+    window.clearTimeout(firstTimer);
+    window.clearTimeout(hideTimer);
+    window.clearTimeout(nextTimer);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   buildMindMap();
   rotateFlags();
   setupReveal();
+  setupSocialProof();
 });
