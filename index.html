@@ -27,59 +27,11 @@
 
     <div class="topbar"></div>
 
-    <!-- Marca "Activa tu Inglés": A navy envuelta por una cinta EE.UU. (estrellas + rayas) con destellos rojos. -->
-    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
-      <defs>
-        <symbol id="logo-mark" viewBox="0 0 230 220">
-          <path
-            id="a-shape"
-            d="M100,14 L168,196 Q171,206 160,206 L40,206 Q29,206 32,196 Z"
-            fill="#16215c"
-          />
-          <clipPath id="a-clip">
-            <use href="#a-shape" />
-          </clipPath>
-          <path
-            id="star"
-            d="M0,-4 L1,-1.2 L4,-1 L1.6,0.9 L2.5,4 L0,2.1 L-2.5,4 L-1.6,0.9 L-4,-1 L-1,-1.2 Z"
-            fill="#fff"
-          />
-          <g clip-path="url(#a-clip)">
-            <g transform="translate(100,150) rotate(-20)">
-              <rect x="-130" y="-19" width="130" height="38" fill="#16215c" />
-              <rect x="-10" y="-19" width="150" height="38" fill="#e63946" />
-              <rect x="-10" y="-11.4" width="150" height="7.6" fill="#fff" />
-              <rect x="-10" y="3.8" width="150" height="7.6" fill="#fff" />
-              <use href="#star" x="-105" y="-9" />
-              <use href="#star" x="-85" y="3" />
-              <use href="#star" x="-65" y="-8" />
-              <use href="#star" x="-45" y="5" />
-              <use href="#star" x="-25" y="-6" />
-              <rect x="-130" y="-19" width="260" height="38" fill="none" stroke="#fff" stroke-width="2" />
-            </g>
-          </g>
-          <g stroke="#e63946" stroke-width="7" stroke-linecap="round">
-            <line x1="184" y1="72" x2="199" y2="57" />
-            <line x1="195" y1="88" x2="216" y2="78" />
-            <line x1="200" y1="104" x2="224" y2="99" />
-          </g>
-        </symbol>
-      </defs>
-    </svg>
-
     <!-- NAV -->
     <header class="nav">
       <div class="nav-inner">
         <a class="logo" href="#top">
-          <span class="logo-badge">
-            <svg viewBox="0 0 230 220" width="38" height="36" aria-hidden="true">
-              <use href="#logo-mark" />
-            </svg>
-          </span>
-          <span class="logo-text">
-            <span class="logo-navy">Activa</span> <span class="logo-red">tu</span>
-            <span class="logo-navy">Inglés</span>
-          </span>
+          <img src="logo.png" alt="Activa tu Inglés" class="nav-logo-img" />
         </a>
         <nav class="nav-links">
           <a href="#mapa">Mapa Mental</a>
@@ -371,16 +323,14 @@
           </div>
           <div class="bonus-grid">
             <div class="bonus-card">
-              <!-- PLACEHOLDER DE IMAGEN: mockup/ícono del Bono #1 -->
-              <div class="bonus-placeholder">Bono #1</div>
+              <img src="bonus-500-frases.png" alt="500 Frases Más Usadas con Pronunciación" class="bonus-image" />
               <span class="bonus-kicker">Bono #1 — Inglés Para Usar Ahora</span>
               <h3>🗣️ 500 Frases Más Usadas con Pronunciación</h3>
               <p>Aprende frases útiles para conversaciones, viajes, trabajo, mensajes y situaciones del día a día.</p>
               <p class="bonus-price"><span class="price-old">Valor $19 USD</span> → <strong>GRATIS</strong></p>
             </div>
             <div class="bonus-card">
-              <!-- PLACEHOLDER DE IMAGEN: mockup/ícono del Bono #2 -->
-              <div class="bonus-placeholder">Bono #2</div>
+              <img src="bonus-rota-fluencia.png" alt="Plan Diario de Estudio — Ruta de la Fluidez" class="bonus-image" />
               <span class="bonus-kicker">Bono #2 — Ruta de la Fluidez</span>
               <h3>📅 Plan Diario de Estudio</h3>
               <p>Descubre exactamente qué estudiar cada día y avanza sin sentirte perdido.</p>
@@ -544,20 +494,7 @@
 
     <footer class="footer">
       <div class="footer-inner">
-        <div class="footer-logo">
-          <svg viewBox="0 0 230 220" width="56" height="53" aria-hidden="true">
-            <use href="#logo-mark" />
-          </svg>
-          <div class="footer-logo-lockup">
-            <span class="logo-text footer-logo-text">
-              <span class="logo-navy">Activa</span> <span class="logo-red">tu</span>
-              <span class="logo-navy">Inglés</span>
-            </span>
-            <svg class="footer-logo-underline" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M4,8 Q100,-2 196,7" fill="none" stroke="#e63946" stroke-width="5" stroke-linecap="round" />
-            </svg>
-          </div>
-        </div>
+        <img src="logo.png" alt="Activa tu Inglés" class="footer-logo-img" />
         <p>Estudia. Practica. Avanza.</p>
 
         <p class="footer-legal">
