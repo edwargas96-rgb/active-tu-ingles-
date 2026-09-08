@@ -148,29 +148,58 @@
         </div>
       </section>
 
-      <!-- ASÍ SE VE TU MAPA MENTAL (imágenes pendientes) -->
+      <!-- ASÍ SE VE TU MAPA MENTAL: marquee infinito en CSS puro, sin librerías. -->
       <section class="section muted reveal" id="ejemplos">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
             <h2>Así se ve tu Mapa Mental</h2>
-            <p class="section-sub">Vista previa disponible muy pronto.</p>
+            <p class="section-sub">
+              Mapas ilustrados y organizados para facilitar tus estudios y repasos rápidos.
+            </p>
           </div>
-          <!-- PLACEHOLDER DE IMAGEN x3: prints reales de ramas del mapa (vocabulario, gramática, pronunciación). -->
-          <div class="examples-grid">
-            <div class="example-card">
-              <div class="example-placeholder">Imagen próximamente</div>
-              <p class="example-title">Rama: Vocabulario</p>
+        </div>
+
+        <div class="preview-carousel">
+          <div class="carousel-track">
+            <!-- Grupo 1 -->
+            <div class="carousel-group">
+              <div class="carousel-slide"><img src="mapa-preview-1.png" alt="Vista previa del mapa mental: Nacionalidades" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-2.png" alt="Vista previa del mapa mental: Partes de la Casa" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-3.png" alt="Vista previa del mapa mental: Profesiones" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-4.png" alt="Vista previa del mapa mental: Países" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-5.png" alt="Vista previa del mapa mental: La Familia" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-6.png" alt="Vista previa del mapa mental: Personas" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-7.png" alt="Vista previa del mapa mental: Singular y Plural" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-8.png" alt="Vista previa del mapa mental: This, That, These y Those" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-9.png" alt="Vista previa del mapa mental: There is y There are" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-10.png" alt="Vista previa del mapa mental: Artículos A, AN y THE" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-11.png" alt="Vista previa del mapa mental: Verbo To Be: Preguntas" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-12.png" alt="Vista previa del mapa mental: Contracciones con To Be" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-13.png" alt="Vista previa del mapa mental: Adjetivos Posesivos" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-14.png" alt="Vista previa del mapa mental: Pronombres Posesivos" onerror="this.parentElement.classList.add('slide-missing')" /></div>
             </div>
-            <div class="example-card">
-              <div class="example-placeholder">Imagen próximamente</div>
-              <p class="example-title">Rama: Gramática</p>
-            </div>
-            <div class="example-card">
-              <div class="example-placeholder">Imagen próximamente</div>
-              <p class="example-title">Rama: Pronunciación</p>
+            <!-- Grupo 2: copia exacta del grupo 1, necesaria para el loop infinito sin salto -->
+            <div class="carousel-group" aria-hidden="true">
+              <div class="carousel-slide"><img src="mapa-preview-1.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-2.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-3.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-4.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-5.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-6.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-7.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-8.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-9.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-10.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-11.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-12.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-13.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-14.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
             </div>
           </div>
+        </div>
+
+        <div class="section-inner">
           <div class="section-cta">
             <a href="#comprar" class="cta">
               Quiero mi Mapa Mental de Inglés
