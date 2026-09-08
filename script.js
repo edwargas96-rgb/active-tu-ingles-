@@ -148,7 +148,8 @@ function setupSocialProof() {
   });
 }
 
-// Carrusel de testimonios: swipe/scroll nativo + flechas y puntos sincronizados.
+// Carrusel de testimonios: varias tarjetas visibles a la vez, en bucle infinito,
+// que avanza solo y que se puede arrastrar con el dedo o el mouse en cualquier momento.
 function setupTestimonialCarousel() {
   var track = document.getElementById("testiTrack");
   var dotsWrap = document.getElementById("testiDots");
@@ -156,24 +157,42 @@ function setupTestimonialCarousel() {
   var nextBtn = document.getElementById("testiNext");
   if (!track || !dotsWrap) return;
 
-  var slides = Array.prototype.slice.call(track.children);
-  if (!slides.length) return;
+  var originals = Array.prototype.slice.call(track.children);
+  var count = originals.length;
+  if (!count) return;
 
-  slides.forEach(function (_, i) {
-    var dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "carousel-dot";
-    dot.setAttribute("aria-label", "Ir al testimonio " + (i + 1));
-    dot.addEventListener("click", function () {
-      track.scrollTo({ left: slides[i].offsetLeft, behavior: "smooth" });
-    });
-    dotsWrap.appendChild(dot);
+  // Clones antes y después del set real: permiten desplazarse en cualquier
+  // dirección sin nunca "acabarse" el carrusel.
+  originals.forEach(function (s) {
+    track.appendChild(s.cloneNode(true));
   });
-  var dots = Array.prototype.slice.call(dotsWrap.children);
+  var prependFrag = document.createDocumentFragment();
+  originals.forEach(function (s) {
+    prependFrag.appendChild(s.cloneNode(true));
+  });
+  track.insertBefore(prependFrag, track.firstChild);
 
-  function currentIndex() {
+  var slides = Array.prototype.slice.call(track.children); // [clonesA(count), originals(count), clonesB(count)]
+
+  var dots = [];
+  for (var i = 0; i < count; i++) {
+    (function (i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel-dot";
+      dot.setAttribute("aria-label", "Ir al testimonio " + (i + 1));
+      dot.addEventListener("click", function () {
+        goTo(count + i, true);
+        restartAutoplay();
+      });
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    })(i);
+  }
+
+  function domIndex() {
     var pos = track.scrollLeft;
-    var closest = 0;
+    var closest = count;
     var min = Infinity;
     slides.forEach(function (s, i) {
       var d = Math.abs(s.offsetLeft - pos);
@@ -185,26 +204,43 @@ function setupTestimonialCarousel() {
     return closest;
   }
 
-  function updateDots() {
-    var idx = currentIndex();
+  function updateDots(idx) {
+    var real = ((idx - count) % count + count) % count;
     dots.forEach(function (d, i) {
-      d.classList.toggle("active", i === idx);
+      d.classList.toggle("active", i === real);
     });
   }
 
-  function goTo(index) {
-    var wrapped = (index + slides.length) % slides.length;
-    track.scrollTo({ left: slides[wrapped].offsetLeft, behavior: "smooth" });
+  function goTo(idx, smooth) {
+    track.scrollTo({ left: slides[idx].offsetLeft, behavior: smooth ? "smooth" : "auto" });
   }
 
   function go(delta) {
-    goTo(currentIndex() + delta);
+    goTo(domIndex() + delta, true);
   }
 
-  // Avance automático — vuelve al inicio al llegar al final, como en la referencia.
-  var AUTOPLAY_MS = 4500;
+  // Si el usuario (o el autoplay) llega a la zona de clones, salta sin animación
+  // a la posición equivalente en el set real — el salto es invisible porque el
+  // contenido del clon es idéntico.
+  function normalizeIfNeeded() {
+    var idx = domIndex();
+    if (idx < count) {
+      track.scrollTo({ left: slides[idx + count].offsetLeft, behavior: "auto" });
+      idx = idx + count;
+    } else if (idx >= count * 2) {
+      track.scrollTo({ left: slides[idx - count].offsetLeft, behavior: "auto" });
+      idx = idx - count;
+    }
+    updateDots(idx);
+  }
+
+  // Posición inicial: primer testimonio real, sin animación.
+  track.scrollTo({ left: slides[count].offsetLeft, behavior: "auto" });
+  updateDots(count);
+
+  // ---- Avance automático ----
+  var AUTOPLAY_MS = 3200;
   var autoplayTimer;
-  var carousel = track.closest(".testimonial-carousel");
 
   function stopAutoplay() {
     window.clearInterval(autoplayTimer);
@@ -213,7 +249,7 @@ function setupTestimonialCarousel() {
   function startAutoplay() {
     stopAutoplay();
     autoplayTimer = window.setInterval(function () {
-      goTo(currentIndex() + 1);
+      go(1);
     }, AUTOPLAY_MS);
   }
 
@@ -224,31 +260,78 @@ function setupTestimonialCarousel() {
   if (prevBtn) prevBtn.addEventListener("click", function () { go(-1); restartAutoplay(); });
   if (nextBtn) nextBtn.addEventListener("click", function () { go(1); restartAutoplay(); });
 
-  dots.forEach(function (dot) {
-    dot.addEventListener("click", restartAutoplay);
+  // ---- Arrastre con mouse (touch ya funciona nativo vía overflow-x scroll) ----
+  var dragging = false;
+  var dragStartX = 0;
+  var dragStartScroll = 0;
+  var moved = false;
+
+  track.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "mouse") {
+      dragging = true;
+      moved = false;
+      dragStartX = e.clientX;
+      dragStartScroll = track.scrollLeft;
+      track.classList.add("is-dragging");
+      track.setPointerCapture(e.pointerId);
+    }
+    stopAutoplay();
   });
 
+  track.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var delta = e.clientX - dragStartX;
+    if (Math.abs(delta) > 3) moved = true;
+    track.scrollLeft = dragStartScroll - delta;
+  });
+
+  function endDrag() {
+    if (dragging) {
+      dragging = false;
+      track.classList.remove("is-dragging");
+    }
+    normalizeIfNeeded();
+    restartAutoplay();
+  }
+
+  track.addEventListener("pointerup", endDrag);
+  track.addEventListener("pointercancel", endDrag);
+  track.addEventListener("touchend", endDrag);
+
+  // Evita que un arrastre se interprete como clic dentro de la tarjeta.
+  track.addEventListener("click", function (e) {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }
+  }, true);
+
+  var carousel = track.closest(".testimonial-carousel");
   if (carousel) {
     carousel.addEventListener("mouseenter", stopAutoplay);
-    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("mouseleave", function () {
+      if (!dragging) restartAutoplay();
+    });
   }
-  track.addEventListener("pointerdown", stopAutoplay);
-  track.addEventListener("pointerup", restartAutoplay);
-  track.addEventListener("touchstart", stopAutoplay, { passive: true });
-  track.addEventListener("touchend", restartAutoplay);
+
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stopAutoplay();
-    else startAutoplay();
+    else restartAutoplay();
   });
 
   var scrollTimer;
   track.addEventListener("scroll", function () {
     window.clearTimeout(scrollTimer);
-    scrollTimer = window.setTimeout(updateDots, 80);
+    scrollTimer = window.setTimeout(function () {
+      if (!dragging) normalizeIfNeeded();
+    }, 120);
   });
 
-  window.addEventListener("resize", updateDots);
-  updateDots();
+  window.addEventListener("resize", function () {
+    track.scrollTo({ left: slides[domIndex()].offsetLeft, behavior: "auto" });
+  });
+
   startAutoplay();
 }
 
