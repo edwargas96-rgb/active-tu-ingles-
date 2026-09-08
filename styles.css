@@ -55,6 +55,17 @@ a {
   padding: 8px 16px;
 }
 
+.countdown-clock {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.urgency-bar .countdown-clock {
+  color: var(--yellow);
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -233,6 +244,16 @@ h1 {
   letter-spacing: -0.01em;
   color: var(--navy);
   max-width: 640px;
+}
+
+.h1-accent {
+  color: var(--red);
+}
+
+.h1-rest {
+  display: inline;
+  font-weight: 700;
+  color: var(--muted-fg);
 }
 
 .sub {
@@ -636,6 +657,88 @@ h2 {
   font-size: 14.5px;
   line-height: 1.5;
   color: var(--muted-fg);
+}
+
+/* DOLOR (¿Te suena familiar?) */
+
+.pain-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pain-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 14px 16px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--muted-fg);
+  box-shadow: 0 8px 20px rgba(22, 33, 92, 0.05);
+}
+
+.pain-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--red-soft);
+  color: var(--red-dark);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.pain-turn {
+  margin: 0;
+  border-radius: 14px;
+  border-left: 4px solid var(--red);
+  background: var(--red-soft);
+  padding: 16px 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.pain-turn strong {
+  color: var(--red-dark);
+}
+
+/* MECANISMO (¿Por qué un mapa mental?) */
+
+.mechanism-body p {
+  margin: 0 0 16px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--muted-fg);
+}
+
+.mechanism-body strong {
+  color: var(--navy);
+}
+
+.mechanism-body p.mechanism-analogy {
+  margin: 0;
+  border-radius: 14px;
+  border-left: 4px solid var(--navy);
+  background: var(--navy-soft);
+  padding: 16px 18px;
+  color: var(--navy);
+  font-style: italic;
+}
+
+.mechanism-analogy strong {
+  font-style: normal;
+  color: var(--red-dark);
 }
 
 /* PREVIEW CAROUSEL — marquee infinito en CSS puro (sin JS, sin librerías) */
@@ -1170,6 +1273,26 @@ blockquote {
   color: var(--navy);
 }
 
+.price-justify {
+  margin: 0 0 20px;
+  border-radius: 12px;
+  background: var(--muted-bg);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+}
+
+.price-justify p {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--faint-fg);
+}
+
+.price-stack .cta-microcopy {
+  text-align: center;
+}
+
 /* FAQ */
 
 .faq-list {
@@ -1453,6 +1576,12 @@ blockquote {
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+
+  .pain-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .audience-grid {

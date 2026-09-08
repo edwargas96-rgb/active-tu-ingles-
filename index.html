@@ -11,7 +11,7 @@
     <meta property="og:title" content="Activa tu Inglés — Mapa Mental de Inglés" />
     <meta
       property="og:description"
-      content="Un solo mapa, todo el camino: vocabulario, gramática, pronunciación y conversación en un mismo lugar. Incluye 4 bonos exclusivos."
+      content="Una colección de mapas mentales que conectan vocabulario, gramática, pronunciación y conversación en un solo sistema visual. Incluye 4 bonos exclusivos."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,8 +22,11 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Franja de urgencia. Si se agrega un contador, debe reiniciarse por sesión/visitante — nunca una fecha límite fija engañosa. -->
-    <div class="urgency-bar">⚠️ Oferta de lanzamiento por tiempo limitado</div>
+    <!-- Franja de urgencia: contador de 24h que se reinicia por sesión/visitante (localStorage), nunca una fecha límite fija engañosa. -->
+    <div class="urgency-bar">
+      ⏳ Precio de lanzamiento por tiempo limitado. La oferta de $7,99 termina en:
+      <span id="countdown-bar" class="countdown-clock">24:00:00</span>
+    </div>
 
     <div class="topbar"></div>
 
@@ -40,7 +43,7 @@
           <a href="#testimonios">Testimonios</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a href="#comprar" class="nav-cta">Quiero mi Mapa Mental</a>
+        <a href="#comprar" class="nav-cta">Sí, quiero mi acceso hoy</a>
       </div>
     </header>
 
@@ -106,19 +109,22 @@
               <span class="level-badge">Nivel <strong>A1 → B2</strong></span>
             </div>
 
-            <h1>El Mapa Mental que te lleva de cero a hablar inglés con confianza</h1>
+            <h1>
+              <span class="h1-accent">Aprende a entender y hablar inglés en 15 minutos al día</span>
+              <span class="h1-rest">— con un solo sistema visual, aunque hayas empezado y abandonado mil veces.</span>
+            </h1>
             <p class="sub">
-              Un solo mapa con todo lo que necesitas: vocabulario, gramática, pronunciación y conversación —
-              pensado para hispanohablantes de toda Latinoamérica.
+              Una colección de mapas mentales ilustrados que conectan vocabulario, gramática, pronunciación y
+              conversación en un solo sistema visual — pensado para hispanohablantes de toda Latinoamérica.
             </p>
 
             <a href="#comprar" class="cta">
-              Quiero mi Mapa Mental de Inglés
+              Sí, quiero mi acceso hoy
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
-            <p class="cta-microcopy">🛡️ Compra 100% segura · Garantía de 7 días</p>
+            <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99</p>
 
             <div class="avatar-row">
               <span class="mini-avatar" style="background: #e63946">MJ</span>
@@ -155,8 +161,94 @@
         </div>
       </section>
 
+      <!-- DOLOR -->
+      <section class="section muted reveal" id="dolor">
+        <div class="section-inner narrow">
+          <div class="section-head center">
+            <span class="accent"></span>
+            <h2>¿Te suena familiar?</h2>
+          </div>
+          <ul class="pain-list">
+            <li>
+              <span class="pain-icon">✗</span>
+              <span>Empezaste inglés en apps, YouTube y cursos… y siempre lo dejaste a la mitad.</span>
+            </li>
+            <li>
+              <span class="pain-icon">✗</span>
+              <span>Estudiaste años, pero cuando un extranjero te habla, la mente se queda en blanco.</span>
+            </li>
+            <li>
+              <span class="pain-icon">✗</span>
+              <span>Sabes reglas de gramática de memoria, pero no logras armar una frase real.</span>
+            </li>
+            <li>
+              <span class="pain-icon">✗</span>
+              <span>Tienes mil PDFs y videos guardados que nunca terminas de ver.</span>
+            </li>
+          </ul>
+          <p class="pain-turn">
+            <strong>El problema no eres tú. Es el método.</strong> Aprendiste inglés como se estudia para un
+            examen — no como el cerebro realmente aprende un idioma: <strong>por asociación visual.</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- MECANISMO -->
+      <section class="section reveal" id="mecanismo">
+        <div class="section-inner narrow">
+          <div class="section-head center">
+            <span class="accent"></span>
+            <h2>¿Por qué un mapa mental y no otro curso?</h2>
+          </div>
+          <div class="mechanism-body">
+            <p>
+              Tu cerebro no memoriza listas — memoriza <strong>conexiones e imágenes.</strong> Un mapa mental
+              agrupa el inglés por bloques visuales, así que en vez de estudiar 300 páginas sueltas, ves
+              <em>todo el idioma en una sola imagen</em> y tu memoria lo retiene sin esfuerzo.
+            </p>
+            <p class="mechanism-analogy">
+              Es la diferencia entre intentar recordar un número de teléfono suelto… y recordar la letra de tu
+              canción favorita. <strong>Lo visual se queda. Lo aburrido se olvida.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUÉ VAS A ENCONTRAR EN TU MAPA MENTAL -->
+      <section class="section muted reveal" id="incluye">
+        <div class="section-inner">
+          <div class="section-head center">
+            <span class="accent"></span>
+            <h2>Qué vas a encontrar en tu Mapa Mental</h2>
+            <p class="section-sub">Todo organizado por bloques, dentro de un mismo mapa A1 → B2.</p>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <span class="feature-icon">🌱</span>
+              <h3>Fundamentos</h3>
+              <p>Alfabeto, pronunciación, números, días, meses, horas, colores</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">📘</span>
+              <h3>Estructuras esenciales</h3>
+              <p>Pronombres, verbo To Be, artículos, singular/plural, there is/there are</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">🗂️</span>
+              <h3>Vocabulario básico e intermedio</h3>
+              <p>Familia, profesiones, comida, rutina, viajes, trabajo, tecnología</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">💬</span>
+              <h3>Comunicación real</h3>
+              <p>Saludos, preguntas clave, cómo mantener una conversación, frases de supervivencia</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ASÍ SE VE TU MAPA MENTAL: marquee infinito en CSS puro, sin librerías. -->
-      <section class="section muted reveal" id="ejemplos">
+      <section class="section reveal" id="ejemplos">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
@@ -209,7 +301,7 @@
         <div class="section-inner">
           <div class="section-cta">
             <a href="#comprar" class="cta">
-              Quiero mi Mapa Mental de Inglés
+              Sí, quiero mi acceso hoy
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -219,7 +311,7 @@
       </section>
 
       <!-- DEPOIMENTOS -->
-      <section class="section reveal" id="testimonios">
+      <section class="section muted reveal" id="testimonios">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
@@ -384,39 +476,6 @@
         </div>
       </section>
 
-      <!-- QUÉ VAS A ENCONTRAR EN TU MAPA MENTAL -->
-      <section class="section muted reveal" id="incluye">
-        <div class="section-inner">
-          <div class="section-head center">
-            <span class="accent"></span>
-            <h2>Qué vas a encontrar en tu Mapa Mental</h2>
-            <p class="section-sub">Todo organizado por bloques, dentro de un mismo mapa A1 → B2.</p>
-          </div>
-          <div class="feature-grid">
-            <div class="feature-card">
-              <span class="feature-icon">🌱</span>
-              <h3>Fundamentos</h3>
-              <p>Alfabeto, pronunciación, números, días, meses, horas, colores</p>
-            </div>
-            <div class="feature-card">
-              <span class="feature-icon">📘</span>
-              <h3>Estructuras esenciales</h3>
-              <p>Pronombres, verbo To Be, artículos, singular/plural, there is/there are</p>
-            </div>
-            <div class="feature-card">
-              <span class="feature-icon">🗂️</span>
-              <h3>Vocabulario básico e intermedio</h3>
-              <p>Familia, profesiones, comida, rutina, viajes, trabajo, tecnología</p>
-            </div>
-            <div class="feature-card">
-              <span class="feature-icon">💬</span>
-              <h3>Comunicación real</h3>
-              <p>Saludos, preguntas clave, cómo mantener una conversación, frases de supervivencia</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- PARA QUIÉN ES ESTE MATERIAL -->
       <section class="section reveal" id="para-quien">
         <div class="section-inner">
@@ -491,7 +550,7 @@
           <div class="price-stack">
             <h2 class="price-stack-title">Resumen de tu compra</h2>
             <ul class="price-lines">
-              <li><span>✅ Mapa Mental de Inglés (A1 → B2)</span><span class="dots"></span><span>$29 USD</span></li>
+              <li><span>✅ Colección de Mapas Mentales (A1 → B2)</span><span class="dots"></span><span>$29 USD</span></li>
               <li><span>✅ Bono #1: 500 Frases Más Usadas</span><span class="dots"></span><span>$19 USD</span></li>
               <li><span>✅ Bono #2: Plan Diario de Estudio</span><span class="dots"></span><span>$15 USD</span></li>
               <li><span>✅ Bono #3: 100 Phrasal Verbs Esenciales</span><span class="dots"></span><span>$12 USD</span></li>
@@ -508,12 +567,20 @@
             </div>
             <p class="price-guarantee">🛡️ Garantía incondicional de 7 días</p>
 
+            <div class="price-justify">
+              <p>
+                ¿Por qué tan barato? Porque es un producto digital: lo creamos una vez y lo entregamos a miles sin
+                costo de imprenta. Preferimos que llegue a toda Latinoamérica a $7,99 que venderlo caro a pocos.
+              </p>
+            </div>
+
             <a href="https://pay.hotmart.com/D107506999L" target="_blank" rel="noopener" class="cta cta-block">
-              Quiero Adquirir Ahora
+              Quiero empezar a hablar inglés
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
+            <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99</p>
           </div>
         </div>
       </section>
@@ -600,18 +667,22 @@
         <div class="section-inner narrow center-col">
           <span class="accent"></span>
           <p class="final-cta-kicker">Aprovecha la oferta</p>
-          <h2>Consigue tu Mapa Mental hoy al menor precio</h2>
-          <p class="section-sub">El precio promocional de lanzamiento pronto va a subir.</p>
+          <h2>Consigue tu colección de Mapas Mentales hoy al menor precio</h2>
+          <p class="section-sub">
+            ⏳ Precio de lanzamiento por tiempo limitado. La oferta de $7,99 termina en:
+            <span id="countdown-final" class="countdown-clock">24:00:00</span>
+          </p>
 
           <a href="https://pay.hotmart.com/D107506999L" target="_blank" rel="noopener" class="cta">
-            Quiero Adquirir Ahora
+            Quiero empezar a hablar inglés
             <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
+          <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99</p>
 
           <ul class="final-recap">
-            <li>✓ Mapa Mental de Inglés (A1 → B2)</li>
+            <li>✓ Colección de Mapas Mentales (A1 → B2)</li>
             <li>✓ 4 bonos exclusivos incluidos</li>
             <li>✓ Garantía incondicional de 7 días</li>
           </ul>

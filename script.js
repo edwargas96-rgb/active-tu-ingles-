@@ -148,9 +148,69 @@ function setupSocialProof() {
   });
 }
 
+// Contador de oferta: 24h que se reinician por sesión/visitante (localStorage),
+// nunca una fecha límite fija engañosa.
+function setupCountdown() {
+  var elBar = document.getElementById("countdown-bar");
+  var elFinal = document.getElementById("countdown-final");
+  if (!elBar && !elFinal) return;
+
+  var STORAGE_KEY = "atiOfferDeadline";
+  var DURATION_MS = 24 * 60 * 60 * 1000;
+
+  function readDeadline() {
+    try {
+      return Number(window.localStorage.getItem(STORAGE_KEY)) || 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function writeDeadline(value) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, String(value));
+    } catch (e) {
+      // localStorage no disponible (modo privado, etc.) — el contador sigue
+      // funcionando en memoria durante esta visita.
+    }
+  }
+
+  var deadline = readDeadline();
+  if (!deadline || deadline < Date.now()) {
+    deadline = Date.now() + DURATION_MS;
+    writeDeadline(deadline);
+  }
+
+  function pad(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  function tick() {
+    var remaining = deadline - Date.now();
+    if (remaining <= 0) {
+      deadline = Date.now() + DURATION_MS;
+      writeDeadline(deadline);
+      remaining = DURATION_MS;
+    }
+    var totalSeconds = Math.floor(remaining / 1000);
+    var text =
+      pad(Math.floor(totalSeconds / 3600)) +
+      ":" +
+      pad(Math.floor((totalSeconds % 3600) / 60)) +
+      ":" +
+      pad(totalSeconds % 60);
+    if (elBar) elBar.textContent = text;
+    if (elFinal) elFinal.textContent = text;
+  }
+
+  tick();
+  window.setInterval(tick, 1000);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   buildMindMap();
   rotateFlags();
   setupReveal();
+  setupCountdown();
   setupSocialProof();
 });
