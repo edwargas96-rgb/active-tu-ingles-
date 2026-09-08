@@ -148,9 +148,73 @@ function setupSocialProof() {
   });
 }
 
+// Carrusel de testimonios: swipe/scroll nativo + flechas y puntos sincronizados.
+function setupTestimonialCarousel() {
+  var track = document.getElementById("testiTrack");
+  var dotsWrap = document.getElementById("testiDots");
+  var prevBtn = document.getElementById("testiPrev");
+  var nextBtn = document.getElementById("testiNext");
+  if (!track || !dotsWrap) return;
+
+  var slides = Array.prototype.slice.call(track.children);
+  if (!slides.length) return;
+
+  slides.forEach(function (_, i) {
+    var dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", "Ir al testimonio " + (i + 1));
+    dot.addEventListener("click", function () {
+      track.scrollTo({ left: slides[i].offsetLeft, behavior: "smooth" });
+    });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function currentIndex() {
+    var pos = track.scrollLeft;
+    var closest = 0;
+    var min = Infinity;
+    slides.forEach(function (s, i) {
+      var d = Math.abs(s.offsetLeft - pos);
+      if (d < min) {
+        min = d;
+        closest = i;
+      }
+    });
+    return closest;
+  }
+
+  function updateDots() {
+    var idx = currentIndex();
+    dots.forEach(function (d, i) {
+      d.classList.toggle("active", i === idx);
+    });
+  }
+
+  function go(delta) {
+    var idx = currentIndex();
+    var next = Math.max(0, Math.min(slides.length - 1, idx + delta));
+    track.scrollTo({ left: slides[next].offsetLeft, behavior: "smooth" });
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", function () { go(-1); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { go(1); });
+
+  var scrollTimer;
+  track.addEventListener("scroll", function () {
+    window.clearTimeout(scrollTimer);
+    scrollTimer = window.setTimeout(updateDots, 80);
+  });
+
+  window.addEventListener("resize", updateDots);
+  updateDots();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   buildMindMap();
   rotateFlags();
   setupReveal();
   setupSocialProof();
+  setupTestimonialCarousel();
 });
