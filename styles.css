@@ -484,6 +484,30 @@ h1 {
   box-shadow: 0 26px 60px rgba(22, 33, 92, 0.3), 0 0 0 6px #fff;
 }
 
+.mockup-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: block;
+  max-width: 90%;
+  text-align: center;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  padding: 8px 16px;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(22, 33, 92, 0.35);
+}
+
+.product-mockup-wrap.mockup-missing .mockup-badge {
+  display: none;
+}
+
 @keyframes mockupFloat {
   0%,
   100% {
@@ -1526,21 +1550,25 @@ blockquote {
   }
 
   .hero {
-    padding: 64px 40px 88px;
+    padding: 40px 40px 48px;
   }
 
   .hero-inner {
     flex-direction: row;
     align-items: center;
-    gap: 56px;
+    gap: 40px;
   }
 
   .hero-copy {
-    flex: 1;
+    flex: 1.2;
   }
 
   .hero-visual {
-    flex: 1.2;
+    flex: 0.9;
+  }
+
+  .hero-badges-row {
+    margin-top: 10px;
   }
 
   .product-mockup-wrap {
@@ -1552,11 +1580,22 @@ blockquote {
   }
 
   h1 {
-    font-size: 44px;
+    font-size: 32px;
+    line-height: 1.15;
+    margin-top: 10px;
   }
 
   .sub {
-    font-size: 17px;
+    font-size: 15.5px;
+    margin-top: 10px;
+  }
+
+  .hero .cta {
+    margin-top: 16px;
+  }
+
+  .hero .cta-microcopy {
+    margin-top: 8px;
   }
 
   .section {
@@ -1609,6 +1648,6 @@ blockquote {
 
 @media (min-width: 1200px) {
   h1 {
-    font-size: 48px;
+    font-size: 34px;
   }
 }
