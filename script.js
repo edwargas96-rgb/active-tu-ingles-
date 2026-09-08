@@ -279,14 +279,6 @@ function setupTestimonialCarousel() {
     }
   }, true);
 
-  var carousel = track.closest(".testimonial-carousel");
-  if (carousel) {
-    carousel.addEventListener("mouseenter", stopAutoplay);
-    carousel.addEventListener("mouseleave", function () {
-      if (!dragging) restartAutoplay();
-    });
-  }
-
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stopAutoplay();
     else restartAutoplay();
