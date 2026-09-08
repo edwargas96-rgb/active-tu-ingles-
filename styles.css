@@ -443,21 +443,44 @@ h1 {
   color: var(--navy);
 }
 
+.product-mockup-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 18px;
+}
+
+.product-mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 20px 46px rgba(22, 33, 92, 0.2);
+}
+
 .product-mockup-placeholder {
+  display: none;
   width: 100%;
   max-width: 320px;
   aspect-ratio: 4 / 5;
-  margin: 0 auto 18px;
+  margin: 0 auto;
   border-radius: 18px;
   border: 2px dashed var(--border);
   background: #eef1f7;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
   text-align: center;
   padding: 16px;
+}
+
+.product-mockup-wrap.mockup-missing .product-mockup-img {
+  display: none;
+}
+
+.product-mockup-wrap.mockup-missing .product-mockup-placeholder {
+  display: flex;
 }
 
 .product-mockup-placeholder span {

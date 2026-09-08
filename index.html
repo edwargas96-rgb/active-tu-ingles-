@@ -130,10 +130,17 @@
           </div>
 
           <div class="hero-visual">
-            <!-- PLACEHOLDER DE IMAGEN: mockup real del Mapa Mental (portada/preview del producto). -->
-            <div class="product-mockup-placeholder">
-              <span>Mockup del Mapa Mental</span>
-              <span class="placeholder-hint">Imagen próximamente</span>
+            <div class="product-mockup-wrap">
+              <img
+                src="hero-mockup.png"
+                alt="+200 Mapas Mentales de Inglés — mockup del material en computadora, tablet, celular e impreso"
+                class="product-mockup-img"
+                onerror="this.parentElement.classList.add('mockup-missing')"
+              />
+              <div class="product-mockup-placeholder">
+                <span>Mockup del Mapa Mental</span>
+                <span class="placeholder-hint">Imagen próximamente</span>
+              </div>
             </div>
             <div class="mindmap" id="mindmap">
               <svg class="mindmap-lines" viewBox="0 0 520 460" role="img" aria-label="Mapa mental del inglés"></svg>
