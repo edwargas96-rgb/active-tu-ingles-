@@ -4,6 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "1630176038721645");
+      fbq("track", "PageView");
+    </script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1630176038721645&ev=PageView&noscript=1"
+      />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
     <title>Activa tu Inglés — Mapas Mentales de Inglés</title>
     <meta
       name="description"
@@ -576,7 +608,13 @@
               </p>
             </div>
 
-            <a href="https://pay.hotmart.com/D107506999L" target="_blank" rel="noopener" class="cta cta-block">
+            <a
+              href="https://pay.hotmart.com/D107506999L"
+              target="_blank"
+              rel="noopener"
+              class="cta cta-block"
+              onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}"
+            >
               Quiero empezar a hablar inglés
               <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
@@ -675,7 +713,13 @@
             <span id="countdown-final" class="countdown-clock">24:00:00</span>
           </p>
 
-          <a href="https://pay.hotmart.com/D107506999L" target="_blank" rel="noopener" class="cta">
+          <a
+            href="https://pay.hotmart.com/D107506999L"
+            target="_blank"
+            rel="noopener"
+            class="cta"
+            onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}"
+          >
             Quiero empezar a hablar inglés
             <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
