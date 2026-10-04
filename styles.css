@@ -1224,24 +1224,28 @@ blockquote {
 .price-lines li {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   font-size: 13.5px;
   color: var(--muted-fg);
 }
 
 .price-lines li span:first-child {
-  flex: none;
-  white-space: nowrap;
+  flex: 1 1 150px;
+  min-width: 0;
+  white-space: normal;
 }
 
 .price-lines .dots {
-  flex: 1;
+  flex: 1 1 16px;
+  min-width: 12px;
   border-bottom: 2px dotted var(--border);
   margin-bottom: 4px;
 }
 
 .price-lines li span:last-child {
   flex: none;
+  white-space: nowrap;
   font-weight: 700;
   color: var(--navy);
 }
