@@ -212,6 +212,7 @@ function setupLevelTabs() {
   var tablist = document.querySelector(".level-tabs");
   if (!tablist) return;
   var tabs = Array.prototype.slice.call(tablist.querySelectorAll(".level-tab"));
+  var placeholder = document.getElementById("level-placeholder");
 
   function select(tab, focus) {
     tabs.forEach(function (t) {
@@ -221,8 +222,8 @@ function setupLevelTabs() {
       t.tabIndex = on ? 0 : -1;
       document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
     });
+    if (placeholder) placeholder.hidden = true;
     if (focus) tab.focus();
-    tab.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
   }
 
   tabs.forEach(function (tab, i) {
