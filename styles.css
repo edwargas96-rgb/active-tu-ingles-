@@ -1896,6 +1896,9 @@ blockquote {
 
 /* Hero móvil: insignia → título → subtítulo → mockup → CTA → microcopy → avatares → mapa */
 @media (max-width: 899px) {
+  .hero {
+    padding-top: 24px;
+  }
   .hero-inner {
     gap: 16px;
     align-items: stretch;
