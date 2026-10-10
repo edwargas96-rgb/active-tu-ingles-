@@ -773,20 +773,33 @@ h2 {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
   padding: 24px 0;
 }
 
+.preview-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.preview-carousel.is-dragging {
+  cursor: grabbing;
+}
+
+/* El avance automático lo hace script.js (scrollLeft); el usuario puede deslizar en ambas direcciones. */
 .carousel-track {
   display: flex;
   width: max-content;
-  animation: scrollMarquee 95s linear infinite;
-  will-change: transform;
   user-select: none;
+  -webkit-user-select: none;
 }
 
-.preview-carousel:hover .carousel-track {
-  animation-play-state: paused;
+.carousel-slide img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .carousel-group {

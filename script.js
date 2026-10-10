@@ -244,11 +244,124 @@ function setupLevelTabs() {
   });
 }
 
+// Carruseles (mapas y testimonios): avance automático + deslizar con el dedo/mouse
+// en ambas direcciones; tocar el carrusel lo detiene o lo reanuda.
+function setupCarousels() {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  Array.prototype.forEach.call(document.querySelectorAll(".preview-carousel"), function (el) {
+    var group = el.querySelector(".carousel-group");
+    if (!group) return;
+    var duration = el.classList.contains("testi-carousel") ? 55 : 60;
+    var pos = 0;
+    var userPaused = false;
+    var touching = false;
+    var resumeAt = 0;
+    var last = 0;
+    var down = null;
+    var moved = false;
+
+    function width() {
+      return group.offsetWidth;
+    }
+
+    function wrap() {
+      var g = width();
+      if (!g) return;
+      if (pos < g * 0.25) pos += g;
+      else if (pos > g * 1.25) pos -= g;
+      el.scrollLeft = pos;
+    }
+
+    function holdOff(ms) {
+      resumeAt = Date.now() + ms;
+    }
+
+    function tick(t) {
+      var dt = last ? Math.min(t - last, 64) : 16;
+      last = t;
+      var g = width();
+      if (g && !reduce && !userPaused && !touching && !down && Date.now() >= resumeAt) {
+        pos += (g / duration) * (dt / 1000);
+        wrap();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function init() {
+      var g = width();
+      if (!g) return false;
+      pos = g * 0.5;
+      el.scrollLeft = pos;
+      return true;
+    }
+
+    el.addEventListener(
+      "scroll",
+      function () {
+        if (Math.abs(el.scrollLeft - pos) > 1.5) {
+          pos = el.scrollLeft;
+          holdOff(2500);
+          var g = width();
+          if (g && (pos < g * 0.25 || pos > g * 1.25)) wrap();
+        }
+      },
+      { passive: true },
+    );
+
+    el.addEventListener("touchstart", function () { touching = true; }, { passive: true });
+    el.addEventListener("touchend", function () { touching = false; holdOff(2500); }, { passive: true });
+    el.addEventListener("touchcancel", function () { touching = false; holdOff(2500); }, { passive: true });
+
+    // Arrastre con mouse (en pantallas táctiles el desplazamiento es nativo).
+    el.addEventListener("pointerdown", function (e) {
+      moved = false;
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      down = { x: e.clientX, left: el.scrollLeft };
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!down) return;
+      var dx = e.clientX - down.x;
+      if (Math.abs(dx) > 6) {
+        moved = true;
+        el.classList.add("is-dragging");
+      }
+      if (moved) {
+        pos = down.left - dx;
+        wrap();
+      }
+    });
+    window.addEventListener("pointerup", function () {
+      if (!down) return;
+      down = null;
+      el.classList.remove("is-dragging");
+      holdOff(2500);
+    });
+
+    // Tocar / hacer clic: detener o reanudar.
+    el.addEventListener("click", function () {
+      if (moved) {
+        moved = false;
+        return;
+      }
+      userPaused = !userPaused;
+      el.classList.toggle("is-paused", userPaused);
+    });
+
+    function start() {
+      if (!init()) return;
+      requestAnimationFrame(tick);
+    }
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   buildMindMap();
   rotateFlags();
   setupReveal();
   setupLevelTabs();
+  setupCarousels();
   setupCountdown();
   setupSocialProof();
 });
