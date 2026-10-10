@@ -207,10 +207,47 @@ function setupCountdown() {
   window.setInterval(tick, 1000);
 }
 
+// Pestañas de niveles A1 → C2: clic y teclado (flechas, Home, End).
+function setupLevelTabs() {
+  var tablist = document.querySelector(".level-tabs");
+  if (!tablist) return;
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll(".level-tab"));
+
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) tab.focus();
+    tab.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener("click", function () {
+      select(tab, false);
+    });
+    tab.addEventListener("keydown", function (e) {
+      var next = null;
+      if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+      else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+      else if (e.key === "Home") next = tabs[0];
+      else if (e.key === "End") next = tabs[tabs.length - 1];
+      if (next) {
+        e.preventDefault();
+        select(next, true);
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   buildMindMap();
   rotateFlags();
   setupReveal();
+  setupLevelTabs();
   setupCountdown();
   setupSocialProof();
 });

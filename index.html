@@ -156,7 +156,7 @@
 
             <div class="hero-badges-row">
               <span class="rating-badge">★★★★★ <strong>+8.300</strong> mapas descargados en Latinoamérica</span>
-              <span class="level-badge">Nivel <strong>A1 → B2</strong></span>
+              <span class="level-badge">Nivel <strong>A1 → C2</strong></span>
             </div>
 
             <h1>
@@ -187,10 +187,10 @@
 
           <div class="hero-visual">
             <div class="product-mockup-wrap">
-              <span class="mockup-badge">+200 mapas mentales ilustrados — del básico al avanzado (A1 → B2)</span>
+              <span class="mockup-badge">+200 mapas mentales ilustrados — del básico al avanzado (A1 → C2)</span>
               <img
                 src="hero-mockup.png"
-                alt="+200 mapas mentales ilustrados de Inglés, del básico al avanzado (A1 → B2) — mockup del material en computadora, tablet, celular e impreso"
+                alt="+200 mapas mentales ilustrados de Inglés, del básico al avanzado (A1 → C2) — mockup del material en computadora, tablet, celular e impreso"
                 class="product-mockup-img"
                 onerror="this.parentElement.classList.add('mockup-missing')"
               />
@@ -265,35 +265,552 @@
         </div>
       </section>
 
-      <!-- QUÉ VAS A ENCONTRAR EN TU MAPA MENTAL -->
+      <!-- QUÉ VAS A ENCONTRAR EN TUS MAPAS: explorador de niveles A1-C2 con pestañas -->
       <section class="section muted reveal" id="incluye">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
             <h2>Qué vas a encontrar en tus mapas</h2>
-            <p class="section-sub">Todo organizado por bloques visuales, dentro de una colección A1 → B2.</p>
+            <p class="section-sub">Todo organizado por bloques visuales, dentro de una colección A1 → C2.</p>
+            <p class="levels-stat"><strong>+200</strong> mapas mentales · <strong>6</strong> niveles · de cero a dominio</p>
           </div>
-          <div class="feature-grid">
-            <div class="feature-card">
-              <span class="feature-icon">🌱</span>
-              <h3>Fundamentos</h3>
-              <p>Alfabeto, pronunciación, números, días, meses, horas, colores</p>
+          <div class="levels">
+            <div class="level-tabs" role="tablist" aria-label="Niveles de la colección de mapas mentales">
+              <button type="button" class="level-tab is-active" role="tab" id="tab-a1" aria-controls="panel-a1" aria-selected="true" tabindex="0">
+                <span class="level-code">A1</span>
+                <span class="level-meta"><strong>Fundación</strong><small>50 Mapas</small></span>
+              </button>
+              <button type="button" class="level-tab" role="tab" id="tab-a2" aria-controls="panel-a2" aria-selected="false" tabindex="-1">
+                <span class="level-code">A2</span>
+                <span class="level-meta"><strong>Construcción</strong><small>55 Mapas</small></span>
+              </button>
+              <button type="button" class="level-tab" role="tab" id="tab-b1" aria-controls="panel-b1" aria-selected="false" tabindex="-1">
+                <span class="level-code">B1</span>
+                <span class="level-meta"><strong>Independiente</strong><small>55 Mapas</small></span>
+              </button>
+              <button type="button" class="level-tab" role="tab" id="tab-b2" aria-controls="panel-b2" aria-selected="false" tabindex="-1">
+                <span class="level-code">B2</span>
+                <span class="level-meta"><strong>Natural</strong><small>55 Mapas</small></span>
+              </button>
+              <button type="button" class="level-tab" role="tab" id="tab-c1" aria-controls="panel-c1" aria-selected="false" tabindex="-1">
+                <span class="level-code">C1</span>
+                <span class="level-meta"><strong>Avanzado</strong><small>50 Mapas</small></span>
+              </button>
+              <button type="button" class="level-tab" role="tab" id="tab-c2" aria-controls="panel-c2" aria-selected="false" tabindex="-1">
+                <span class="level-code">C2</span>
+                <span class="level-meta"><strong>Dominio</strong><small>45 Mapas</small></span>
+              </button>
             </div>
-            <div class="feature-card">
-              <span class="feature-icon">📘</span>
-              <h3>Estructuras esenciales</h3>
-              <p>Pronombres, verbo To Be, artículos, singular/plural, there is/there are</p>
+            <div class="level-panel" role="tabpanel" id="panel-a1" aria-labelledby="tab-a1">
+              <div class="level-head">
+                <div>
+                  <h3>Nivel A1 — Fundación del Inglés</h3>
+                  <p><strong>Objetivo:</strong> Enseñar al alumno a reconocer palabras esenciales, armar frases cortas, hacer preguntas básicas y comunicarse en situaciones simples.</p>
+                </div>
+                <span class="level-count">🌱 50 mapas mentales</span>
+              </div>
+              <div class="level-grid">
+                <div class="level-card">
+                  <h4>Fundamentos</h4>
+                  <ul class="topic-list">
+                    <li>Alfabeto en inglés</li>
+                    <li>Deletreo</li>
+                    <li>Pronunciación de las letras</li>
+                    <li>Números del 0 al 20</li>
+                    <li>Números del 20 al 100</li>
+                    <li>Números grandes</li>
+                    <li>Días de la semana</li>
+                    <li>Meses del año</li>
+                    <li>Fechas</li>
+                    <li>Horas</li>
+                    <li>Colores</li>
+                    <li>Símbolos y señales comunes</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Estructuras esenciales</h4>
+                  <ul class="topic-list">
+                    <li>Pronombres personales</li>
+                    <li>Pronombres objeto</li>
+                    <li>Adjetivos posesivos</li>
+                    <li>Pronombres posesivos</li>
+                    <li>Verbo To Be: afirmativo</li>
+                    <li>Verbo To Be: negativo</li>
+                    <li>Verbo To Be: preguntas</li>
+                    <li>Contracciones con To Be</li>
+                    <li>Artículos A, An y The</li>
+                    <li>Singular y plural</li>
+                    <li>This, That, These y Those</li>
+                    <li>There Is y There Are</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Vocabulario básico</h4>
+                  <ul class="topic-list">
+                    <li>Familia</li>
+                    <li>Personas</li>
+                    <li>Profesiones</li>
+                    <li>Países</li>
+                    <li>Nacionalidades</li>
+                    <li>Partes de la casa</li>
+                    <li>Objetos de la casa</li>
+                    <li>Objetos personales</li>
+                    <li>Comidas</li>
+                    <li>Bebidas</li>
+                    <li>Frutas</li>
+                    <li>Animales</li>
+                    <li>Partes del cuerpo</li>
+                    <li>Ropa</li>
+                    <li>Clima</li>
+                    <li>Emociones</li>
+                    <li>Adjetivos básicos</li>
+                    <li>Verbos esenciales</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Comunicación</h4>
+                  <ul class="topic-list">
+                    <li>Saludos</li>
+                    <li>Presentaciones personales</li>
+                    <li>Preguntas con What, Where, Who y How</li>
+                    <li>Frases con I Am</li>
+                    <li>Frases con You Are</li>
+                    <li>Frases con He, She, We y They</li>
+                    <li>Frases de supervivencia</li>
+                    <li>Repaso general A1</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="feature-card">
-              <span class="feature-icon">🗂️</span>
-              <h3>Vocabulario básico e intermedio</h3>
-              <p>Familia, profesiones, comida, rutina, viajes, trabajo, tecnología</p>
+            <div class="level-panel" role="tabpanel" id="panel-a2" aria-labelledby="tab-a2" hidden>
+              <div class="level-head">
+                <div>
+                  <h3>Nivel A2 — Construcción de Frases</h3>
+                  <p><strong>Objetivo:</strong> Ayudar al alumno a hablar sobre su rutina, preferencias, habilidades, pasado básico y planes.</p>
+                </div>
+                <span class="level-count">💬 55 mapas mentales</span>
+              </div>
+              <div class="level-grid">
+                <div class="level-card">
+                  <h4>Presente y rutina</h4>
+                  <ul class="topic-list">
+                    <li>Simple Present: usos</li>
+                    <li>Simple Present: afirmativo</li>
+                    <li>Simple Present: negativo</li>
+                    <li>Simple Present: preguntas</li>
+                    <li>Do y Does</li>
+                    <li>Don’t y Doesn’t</li>
+                    <li>Tercera persona con S</li>
+                    <li>Adverbios de frecuencia</li>
+                    <li>Rutina de la mañana</li>
+                    <li>Rutina de trabajo y estudio</li>
+                    <li>Rutina de la noche</li>
+                    <li>Hábitos semanales</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Verbos y estructuras</h4>
+                  <ul class="topic-list">
+                    <li>Have y Has</li>
+                    <li>Like, Love y Hate</li>
+                    <li>Want y Need</li>
+                    <li>Can y Can’t</li>
+                    <li>Habilidades</li>
+                    <li>Pedidos con Can</li>
+                    <li>Imperativo</li>
+                    <li>Let’s</li>
+                    <li>Some y Any</li>
+                    <li>Much y Many</li>
+                    <li>A Lot Of</li>
+                    <li>How Much y How Many</li>
+                    <li>Sustantivos contables e incontables</li>
+                    <li>Preposiciones de lugar</li>
+                    <li>Preposiciones de tiempo</li>
+                    <li>In, On y At</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Pasado y futuro inicial</h4>
+                  <ul class="topic-list">
+                    <li>Simple Past con To Be</li>
+                    <li>Was y Were</li>
+                    <li>Verbos regulares en pasado</li>
+                    <li>Verbos irregulares básicos</li>
+                    <li>Did y Didn’t</li>
+                    <li>Preguntas en pasado</li>
+                    <li>Going To</li>
+                    <li>Planes futuros</li>
+                    <li>Will para decisiones simples</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Vocabulario y situaciones</h4>
+                  <ul class="topic-list">
+                    <li>Lugares de la ciudad</li>
+                    <li>Direcciones</li>
+                    <li>Medios de transporte</li>
+                    <li>Compras</li>
+                    <li>Precios y dinero</li>
+                    <li>Restaurante</li>
+                    <li>Hotel</li>
+                    <li>Aeropuerto</li>
+                    <li>Salud básica</li>
+                    <li>Farmacia</li>
+                    <li>Hobbies</li>
+                    <li>Deportes</li>
+                    <li>Música y películas</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Comunicación práctica</h4>
+                  <ul class="topic-list">
+                    <li>Hacer invitaciones</li>
+                    <li>Aceptar y rechazar invitaciones</li>
+                    <li>Pedir información</li>
+                    <li>Mini conversaciones A2</li>
+                    <li>Repaso general A2</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="feature-card">
-              <span class="feature-icon">💬</span>
-              <h3>Comunicación real</h3>
-              <p>Saludos, preguntas clave, cómo mantener una conversación, frases de supervivencia</p>
+            <div class="level-panel" role="tabpanel" id="panel-b1" aria-labelledby="tab-b1" hidden>
+              <div class="level-head">
+                <div>
+                  <h3>Nivel B1 — Inglés Independiente</h3>
+                  <p><strong>Objetivo:</strong> Permitir que el alumno converse sobre experiencias, acontecimientos, opiniones, planes y problemas cotidianos.</p>
+                </div>
+                <span class="level-count">🧭 55 mapas mentales</span>
+              </div>
+              <div class="level-grid">
+                <div class="level-card">
+                  <h4>Tiempos verbales</h4>
+                  <ul class="topic-list">
+                    <li>Repaso del Simple Present</li>
+                    <li>Repaso del Simple Past</li>
+                    <li>Present Continuous</li>
+                    <li>Past Continuous</li>
+                    <li>Simple Past x Past Continuous</li>
+                    <li>Present Perfect: introducción</li>
+                    <li>Have You Ever</li>
+                    <li>Ever y Never</li>
+                    <li>Already y Yet</li>
+                    <li>Since y For</li>
+                    <li>Present Perfect x Simple Past</li>
+                    <li>Going To x Will</li>
+                    <li>Present Continuous para el futuro</li>
+                    <li>Future Time Expressions</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Estructuras intermedias</h4>
+                  <ul class="topic-list">
+                    <li>Comparativos</li>
+                    <li>Superlativos</li>
+                    <li>As…As</li>
+                    <li>Too y Enough</li>
+                    <li>Should y Shouldn’t</li>
+                    <li>Must y Mustn’t</li>
+                    <li>Have To y Don’t Have To</li>
+                    <li>May y Might</li>
+                    <li>First Conditional</li>
+                    <li>Zero Conditional</li>
+                    <li>Relative Pronouns</li>
+                    <li>Who, Which y That</li>
+                    <li>Gerundio después de verbos</li>
+                    <li>Infinitivo con To</li>
+                    <li>Used To</li>
+                    <li>Question Tags</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Comunicación y fluidez</h4>
+                  <ul class="topic-list">
+                    <li>Cómo dar tu opinión</li>
+                    <li>Cómo pedir una opinión</li>
+                    <li>Cómo estar de acuerdo</li>
+                    <li>Cómo no estar de acuerdo con educación</li>
+                    <li>Cómo explicar motivos</li>
+                    <li>Cómo contar historias</li>
+                    <li>Secuenciadores de historia</li>
+                    <li>Cómo describir experiencias</li>
+                    <li>Cómo hablar de problemas</li>
+                    <li>Cómo dar consejos</li>
+                    <li>Cómo hacer sugerencias</li>
+                    <li>Cómo pedir aclaraciones</li>
+                    <li>Frases para ganar tiempo</li>
+                    <li>Cómo mantener una conversación</li>
+                    <li>Small Talk</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Vocabulario contextual</h4>
+                  <ul class="topic-list">
+                    <li>Trabajo y carrera</li>
+                    <li>Educación</li>
+                    <li>Tecnología</li>
+                    <li>Internet y redes sociales</li>
+                    <li>Viajes y turismo</li>
+                    <li>Salud y bienestar</li>
+                    <li>Medio ambiente</li>
+                    <li>Relaciones</li>
+                    <li>Errores comunes del nivel B1</li>
+                    <li>Repaso general B1</li>
+                  </ul>
+                </div>
+              </div>
             </div>
+            <div class="level-panel" role="tabpanel" id="panel-b2" aria-labelledby="tab-b2" hidden>
+              <div class="level-head">
+                <div>
+                  <h3>Nivel B2 — Inglés Natural</h3>
+                  <p><strong>Objetivo:</strong> Desarrollar fluidez, naturalidad, comprensión de textos más complejos y comunicación profesional.</p>
+                </div>
+                <span class="level-count">⚡ 55 mapas mentales</span>
+              </div>
+              <div class="level-grid">
+                <div class="level-card">
+                  <h4>Gramática intermedia-avanzada</h4>
+                  <ul class="topic-list">
+                    <li>Present Perfect Continuous</li>
+                    <li>Past Perfect</li>
+                    <li>Past Perfect Continuous</li>
+                    <li>Future Continuous</li>
+                    <li>Future Perfect</li>
+                    <li>Tiempos narrativos</li>
+                    <li>Second Conditional</li>
+                    <li>Third Conditional</li>
+                    <li>Mixed Conditionals</li>
+                    <li>Passive Voice en presente</li>
+                    <li>Passive Voice en pasado</li>
+                    <li>Passive Voice con modales</li>
+                    <li>Reported Speech</li>
+                    <li>Reported Questions</li>
+                    <li>Reported Commands</li>
+                    <li>Gerund x Infinitive</li>
+                    <li>Causative Have y Get</li>
+                    <li>Wish e If Only</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Inglés natural</h4>
+                  <ul class="topic-list">
+                    <li>Phrasal Verbs con Get</li>
+                    <li>Phrasal Verbs con Take</li>
+                    <li>Phrasal Verbs con Make</li>
+                    <li>Phrasal Verbs con Put</li>
+                    <li>Phrasal Verbs con Look</li>
+                    <li>Phrasal Verbs con Turn</li>
+                    <li>Phrasal Verbs con Bring</li>
+                    <li>Phrasal Verbs con Come</li>
+                    <li>Collocations con Make y Do</li>
+                    <li>Collocations con Take y Have</li>
+                    <li>Expresiones idiomáticas comunes</li>
+                    <li>Linking Words</li>
+                    <li>Conectores de contraste</li>
+                    <li>Conectores de causa y consecuencia</li>
+                    <li>Intensificadores</li>
+                    <li>Hedging: cómo suavizar afirmaciones</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Comunicación avanzada</h4>
+                  <ul class="topic-list">
+                    <li>Argumentar una opinión</li>
+                    <li>Presentar ventajas y desventajas</li>
+                    <li>Especular</li>
+                    <li>Hacer hipótesis</li>
+                    <li>Persuadir a alguien</li>
+                    <li>Negociar</li>
+                    <li>Interrumpir con educación</li>
+                    <li>Retomar una conversación</li>
+                    <li>Explicar ideas complejas</li>
+                    <li>Debates en inglés</li>
+                    <li>Presentaciones en inglés</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Inglés profesional</h4>
+                  <ul class="topic-list">
+                    <li>Reuniones</li>
+                    <li>E-mails profesionales</li>
+                    <li>Entrevistas de trabajo</li>
+                    <li>Currículum y LinkedIn</li>
+                    <li>Atención al cliente</li>
+                    <li>Trabajo remoto</li>
+                    <li>Networking</li>
+                    <li>Falsos cognados avanzados</li>
+                    <li>Errores comunes del nivel B2</li>
+                    <li>Repaso general B2</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="level-panel" role="tabpanel" id="panel-c1" aria-labelledby="tab-c1" hidden>
+              <div class="level-head">
+                <div>
+                  <h3>Nivel C1 — Inglés Avanzado</h3>
+                  <p><strong>Objetivo:</strong> Enseñar precisión, flexibilidad, vocabulario sofisticado y comunicación académica o profesional.</p>
+                </div>
+                <span class="level-count">✈️ 50 mapas mentales</span>
+              </div>
+              <div class="level-grid">
+                <div class="level-card">
+                  <h4>Estructuras avanzadas</h4>
+                  <ul class="topic-list">
+                    <li>Inversión después de expresiones negativas</li>
+                    <li>Inversión con Hardly y Barely</li>
+                    <li>Cleft Sentences</li>
+                    <li>Emphasis con Do</li>
+                    <li>Participle Clauses</li>
+                    <li>Reduced Relative Clauses</li>
+                    <li>Advanced Passive Voice</li>
+                    <li>Reporting Verbs</li>
+                    <li>Modal Verbs en pasado</li>
+                    <li>Deducción en presente</li>
+                    <li>Deducción en pasado</li>
+                    <li>Unreal Past</li>
+                    <li>Advanced Conditionals</li>
+                    <li>Subjunctive en inglés</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Precisión de vocabulario</h4>
+                  <ul class="topic-list">
+                    <li>Verbos formales</li>
+                    <li>Adjetivos sofisticados</li>
+                    <li>Adverbios avanzados</li>
+                    <li>Collocations académicas</li>
+                    <li>Collocations profesionales</li>
+                    <li>Phrasal Verbs avanzados</li>
+                    <li>Idioms avanzados</li>
+                    <li>Binomials: safe and sound</li>
+                    <li>Word Families</li>
+                    <li>Prefijos avanzados</li>
+                    <li>Sufijos avanzados</li>
+                    <li>Formación de palabras</li>
+                    <li>Palabras fácilmente confundidas</li>
+                    <li>Matices entre sinónimos</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Construcción de discurso</h4>
+                  <ul class="topic-list">
+                    <li>Conectores académicos</li>
+                    <li>Introducción de argumentos</li>
+                    <li>Desarrollo de argumentos</li>
+                    <li>Contraargumentos</li>
+                    <li>Conclusiones fuertes</li>
+                    <li>Cómo reformular una idea</li>
+                    <li>Cómo ejemplificar</li>
+                    <li>Cómo resumir</li>
+                    <li>Cómo generalizar con cautela</li>
+                    <li>Cómo expresar certeza y duda</li>
+                    <li>Cohesión textual</li>
+                    <li>Coherencia textual</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Aplicaciones</h4>
+                  <ul class="topic-list">
+                    <li>Escritura académica</li>
+                    <li>Informes profesionales</li>
+                    <li>Propuestas comerciales</li>
+                    <li>Presentaciones ejecutivas</li>
+                    <li>Debates avanzados</li>
+                    <li>Comunicación diplomática</li>
+                    <li>Análisis de datos en inglés</li>
+                    <li>Noticias y lenguaje periodístico</li>
+                    <li>Errores comunes del nivel C1</li>
+                    <li>Repaso general C1</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="level-panel" role="tabpanel" id="panel-c2" aria-labelledby="tab-c2" hidden>
+              <div class="level-head">
+                <div>
+                  <h3>Nivel C2 — Dominio del Inglés</h3>
+                  <p><strong>Objetivo:</strong> Trabajar sutilezas, registros, persuasión, interpretación y una comunicación cercana a la de un usuario altamente competente.</p>
+                </div>
+                <span class="level-count">🏆 45 mapas mentales</span>
+              </div>
+              <div class="level-grid">
+                <div class="level-card">
+                  <h4>Matiz y precisión</h4>
+                  <ul class="topic-list">
+                    <li>Diferencias sutiles entre sinónimos</li>
+                    <li>Connotación positiva y negativa</li>
+                    <li>Lenguaje literal x figurado</li>
+                    <li>Ambigüedad en inglés</li>
+                    <li>Ironía</li>
+                    <li>Sarcasmo</li>
+                    <li>Eufemismos</li>
+                    <li>Understatement</li>
+                    <li>Overstatement</li>
+                    <li>Implicatura</li>
+                    <li>Tono e intención</li>
+                    <li>Elección léxica precisa</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Estilo y registro</h4>
+                  <ul class="topic-list">
+                    <li>Inglés formal</li>
+                    <li>Inglés informal</li>
+                    <li>Inglés académico</li>
+                    <li>Inglés periodístico</li>
+                    <li>Inglés jurídico básico</li>
+                    <li>Inglés corporativo</li>
+                    <li>Inglés literario</li>
+                    <li>Cambio de registro</li>
+                    <li>Comunicación diplomática</li>
+                    <li>Lenguaje políticamente sensible</li>
+                    <li>Lenguaje inclusivo</li>
+                    <li>Variaciones entre inglés británico y americano</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Retórica y argumentación</h4>
+                  <ul class="topic-list">
+                    <li>Recursos retóricos</li>
+                    <li>Persuasión avanzada</li>
+                    <li>Estructura de discursos</li>
+                    <li>Storytelling avanzado</li>
+                    <li>Analogías y metáforas</li>
+                    <li>Refutación de argumentos</li>
+                    <li>Falacias lógicas en inglés</li>
+                    <li>Debate formal</li>
+                    <li>Negociación de alto nivel</li>
+                    <li>Respuestas diplomáticas</li>
+                  </ul>
+                </div>
+                <div class="level-card">
+                  <h4>Producción avanzada</h4>
+                  <ul class="topic-list">
+                    <li>Síntesis de información</li>
+                    <li>Paráfrasis avanzada</li>
+                    <li>Resúmenes ejecutivos</li>
+                    <li>Crítica y evaluación</li>
+                    <li>Análisis de textos</li>
+                    <li>Escritura persuasiva</li>
+                    <li>Presentaciones de alto impacto</li>
+                    <li>Entrevistas complejas</li>
+                    <li>Humor y juegos de palabras</li>
+                    <li>Errores de alta competencia</li>
+                    <li>Revisión final C2</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-cta">
+            <a href="#comprar" class="cta">
+              Sí, quiero mi acceso hoy
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -601,7 +1118,7 @@
           <div class="price-stack">
             <h2 class="price-stack-title">Resumen de tu compra</h2>
             <ul class="price-lines">
-              <li><span>✅ Colección de Mapas Mentales (A1 → B2)</span><span class="dots"></span><span>$29 USD</span></li>
+              <li><span>✅ Colección de +200 Mapas Mentales (A1 → C2)</span><span class="dots"></span><span>$29 USD</span></li>
               <li><span>✅ Bono #1: 500 Frases Más Usadas</span><span class="dots"></span><span>$19 USD</span></li>
               <li><span>✅ Bono #2: Plan Diario de Estudio</span><span class="dots"></span><span>$15 USD</span></li>
               <li><span>✅ Bono #3: 100 Phrasal Verbs Esenciales</span><span class="dots"></span><span>$12 USD</span></li>
@@ -685,7 +1202,7 @@
           <div class="faq-list">
             <details class="faq-item">
               <summary>¿Necesito saber inglés para empezar?</summary>
-              <p>No. El material cubre desde lo básico (A1) hasta un nivel intermedio-alto (B2).</p>
+              <p>No. El material cubre desde lo básico (A1) hasta un nivel avanzado (C2).</p>
             </details>
             <details class="faq-item">
               <summary>¿El material es físico?</summary>
@@ -745,7 +1262,7 @@
           <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99 USD</p>
 
           <ul class="final-recap">
-            <li>✓ Colección de Mapas Mentales (A1 → B2)</li>
+            <li>✓ Colección de +200 Mapas Mentales (A1 → C2)</li>
             <li>✓ 4 bonos exclusivos incluidos</li>
             <li>✓ Garantía incondicional de 7 días</li>
           </ul>
