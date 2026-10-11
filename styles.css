@@ -435,8 +435,9 @@ h1 {
 }
 
 .mini-avatar {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
   border-radius: 999px;
   border: 2px solid #fff;
   margin-left: -10px;
