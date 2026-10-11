@@ -363,5 +363,4 @@ document.addEventListener("DOMContentLoaded", function () {
   setupLevelTabs();
   setupCarousels();
   setupCountdown();
-  setupSocialProof();
 });
