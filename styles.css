@@ -2560,3 +2560,21 @@ blockquote {
     flex: 1 1 60%;
   }
 }
+
+/* Video del hero: formato vertical 4:5 */
+.hero-video-wrap {
+  aspect-ratio: 4 / 5;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-video {
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .hero-video-wrap {
+    max-width: 400px;
+  }
+}

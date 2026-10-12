@@ -19,8 +19,8 @@ GitHub Pages o cualquier hosting estático.
 
 - El link de checkout está en una sola constante: `CHECKOUT_URL` al inicio de
   `script.js`. Todos los botones con `data-checkout` lo usan.
-- Video del hero: subir `hero-mapas.mp4` junto a `index.html`. Mientras no
-  exista, se muestra `hero-poster.jpg`.
+- Video del hero: `hero-mapas.mp4` (junto a `index.html`). Si falta, se muestra
+  `hero-poster.jpg`.
 
 ## Pendiente
 
