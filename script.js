@@ -2,7 +2,7 @@
 // LINK DE CHECKOUT (Hotmart): cambiarlo SOLO aquí.
 // Todos los botones con el atributo data-checkout lo usan.
 // ============================================================
-var CHECKOUT_URL = "https://pay.hotmart.com/D107506999L?off=9wbwnvp0&checkoutMode=10&bid=1791166905280";
+var CHECKOUT_URL = "https://pay.hotmart.com/D107506999L?checkoutMode=10";
 
 // Se aplica de inmediato (antes de DOMContentLoaded) para que cualquier script
 // de atribución (UTMify) encuentre los enlaces ya listos.
