@@ -1,3 +1,15 @@
+// ============================================================
+// LINK DE CHECKOUT (Hotmart): cambiarlo SOLO aquí.
+// Todos los botones con el atributo data-checkout lo usan.
+// ============================================================
+var CHECKOUT_URL = "https://pay.hotmart.com/D107506999L?off=9wbwnvp0&checkoutMode=10&bid=1791166905280";
+
+// Se aplica de inmediato (antes de DOMContentLoaded) para que cualquier script
+// de atribución (UTMify) encuentre los enlaces ya listos.
+Array.prototype.forEach.call(document.querySelectorAll("a[data-checkout]"), function (a) {
+  a.href = CHECKOUT_URL;
+});
+
 // Ramas del mapa mental — alternan rojo/azul marino, como en el mapa mental físico.
 var RAMAS = [
   { num: 1, label: "Vocabulario esencial", color: "red" },
@@ -10,6 +22,7 @@ var RAMAS = [
 
 function buildMindMap() {
   var wrap = document.getElementById("mindmap");
+  if (!wrap) return;
   var svg = wrap.querySelector(".mindmap-lines");
   var cx = 260;
   var cy = 230;
@@ -311,11 +324,47 @@ function setupCarousels() {
   });
 }
 
+// Video del hero: se carga después de la primera pantalla para no retrasarla.
+// Si hero-mapas.mp4 no existe, se queda el póster.
+function setupHeroVideo() {
+  var video = document.getElementById("hero-video");
+  if (!video) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) return;
+  function start() {
+    var source = video.querySelector("source[data-src]");
+    if (!source) return;
+    source.src = source.getAttribute("data-src");
+    video.load();
+    var p = video.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+  if (document.readyState === "complete") window.setTimeout(start, 300);
+  else window.addEventListener("load", function () { window.setTimeout(start, 300); });
+}
+
+// Barra fija de compra (solo celular): aparece cuando el hero sale de la pantalla.
+function setupStickyBuy() {
+  var bar = document.getElementById("sticky-buy");
+  var hero = document.getElementById("mapa");
+  if (!bar || !hero || !("IntersectionObserver" in window)) return;
+  var link = bar.querySelector("a");
+  new IntersectionObserver(function (entries) {
+    var e = entries[0];
+    var show = !e.isIntersecting && e.boundingClientRect.top < 0;
+    bar.classList.toggle("is-visible", show);
+    bar.setAttribute("aria-hidden", show ? "false" : "true");
+    if (link) link.tabIndex = show ? 0 : -1;
+  }).observe(hero);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   buildMindMap();
   rotateFlags();
   setupReveal();
   setupLevelTabs();
   setupCarousels();
+  setupHeroVideo();
+  setupStickyBuy();
   setupCountdown();
 });

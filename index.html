@@ -56,12 +56,12 @@
     <title>Activa tu Inglés | Mapas Mentales de Inglés</title>
     <meta
       name="description"
-      content="La colección de Mapas Mentales de Inglés de Activa tu Inglés: la forma más simple de organizar tu aprendizaje y empezar a hablar inglés con confianza. Incluye 4 bonos. Pensado para Latinoamérica."
+      content="+300 mapas mentales ilustrados que ordenan el inglés paso a paso, del básico al avanzado. Incluye 4 bonos. Pago único de US$ 10. Pensado para Latinoamérica."
     />
     <meta property="og:title" content="Activa tu Inglés | Mapas Mentales de Inglés" />
     <meta
       property="og:description"
-      content="Una colección de mapas mentales que conectan vocabulario, gramática, pronunciación y conversación en un solo sistema visual. Incluye 4 bonos exclusivos."
+      content="+300 mapas mentales ilustrados para estudiar inglés 15 minutos al día, del básico al avanzado. Incluye 4 bonos."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -74,7 +74,7 @@
   <body>
     <!-- Franja de urgencia: contador de 24h que se reinicia por sesión/visitante (localStorage), nunca una fecha límite fija engañosa. -->
     <div class="urgency-bar">
-      ⏳ Precio de lanzamiento por tiempo limitado. La oferta de $7,99 USD termina en:
+      ⏳ Precio de lanzamiento por tiempo limitado. La oferta de US$ 10 termina en:
       <span id="countdown-bar" class="countdown-clock">24:00:00</span>
     </div>
 
@@ -87,13 +87,14 @@
           <img src="logo.png" alt="Activa tu Inglés" class="nav-logo-img" />
         </a>
         <nav class="nav-links">
-          <a href="#mapa">Mapa Mental</a>
-          <a href="#incluye">Qué incluye</a>
-          <a href="#bonos">Bonos</a>
+          <a href="#mapa">Inicio</a>
+          <a href="#metodo">Método</a>
+          <a href="#niveles">Niveles</a>
+          <a href="#oferta">Oferta</a>
           <a href="#testimonios">Testimonios</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a href="#comprar" class="nav-cta">Sí, quiero mi acceso hoy</a>
+        <a href="#oferta" data-checkout target="_blank" rel="noopener" class="nav-cta">Sí, quiero mis mapas</a>
       </div>
     </header>
 
@@ -102,27 +103,19 @@
       <section class="hero" id="mapa">
         <div class="hero-inner">
           <div class="hero-copy">
-            <div class="hero-badges-row">
-              <span class="rating-badge"><strong>+8.300</strong> estudiantes en Latinoamérica</span>
-              <span class="level-badge">Nivel <strong>A1 → C2</strong></span>
-            </div>
+            <p class="eyebrow">Inglés del básico al avanzado · en mapas mentales</p>
 
             <h1>
-              <span class="h1-accent">Entiende y habla inglés en 15 minutos al día</span>
-              <span class="h1-rest">con un sistema visual, aunque ya lo hayas abandonado mil veces.</span>
+              <span class="h1-accent">Llevas años estudiando inglés y sigues sin entenderlo.</span>
+              <span class="h1-rest">No eres tú: es que nadie te lo explicó en orden.</span>
             </h1>
             <p class="sub">
-              Una colección de mapas mentales ilustrados que conectan vocabulario, gramática, pronunciación y
-              conversación en un solo sistema visual, pensado para hispanohablantes de toda Latinoamérica.
+              +300 mapas mentales ilustrados que ordenan el inglés paso a paso, para estudiar solo 15 minutos al día.
             </p>
 
-            <a href="#comprar" class="cta">
-              Sí, quiero mi acceso hoy
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
-            <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99 USD</p>
+            <p class="hero-price"><strong>Hoy US$ 10</strong> <span class="hero-price-old">Valor total US$ 87</span></p>
+            <a href="#oferta" data-checkout target="_blank" rel="noopener" class="cta">Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            <p class="cta-microcopy">Pago único · Acceso inmediato · Garantía de 7 días</p>
 
             <div class="avatar-row">
               <img class="mini-avatar" src="avatar-1.jpg" alt="Estudiante de Activa tu Inglés" width="36" height="36" loading="lazy" />
@@ -134,27 +127,11 @@
           </div>
 
           <div class="hero-visual">
-            <div class="product-mockup-wrap">
-              <span class="mockup-badge">+300 mapas mentales ilustrados, del básico al avanzado (A1 → C2)</span>
-              <img
-                src="hero-mockup.jpg"
-                alt="+300 mapas mentales ilustrados de Inglés, del básico al avanzado (A1 → C2). Mockup del material en computadora, tablet, celular e impreso"
-                class="product-mockup-img"
-                onerror="this.parentElement.classList.add('mockup-missing')"
-              />
-              <div class="product-mockup-placeholder">
-                <span>Mockup de tus Mapas Mentales</span>
-                <span class="placeholder-hint">Imagen próximamente</span>
-              </div>
-            </div>
-            <div class="mindmap" id="mindmap">
-              <svg class="mindmap-lines" viewBox="0 0 520 460" role="img" aria-label="Mapa mental del inglés"></svg>
-              <div class="mindmap-center">
-                <span class="mm-title">MÉTODO</span>
-                <span class="mm-title">INGLÉS</span>
-                <span class="mm-sub">Activa tu Inglés</span>
-              </div>
-              <!-- Nodos de las ramas: generados por script.js -->
+            <!-- Para activar el video: subir hero-mapas.mp4 junto a index.html. Mientras no exista, se muestra el póster. -->
+            <div class="hero-video-wrap">
+              <video class="hero-video" id="hero-video" muted loop playsinline preload="none" poster="hero-poster.jpg" aria-label="Vista previa de los mapas mentales">
+                <source data-src="hero-mapas.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -168,110 +145,79 @@
             <h2>¿Te suena familiar?</h2>
           </div>
           <ul class="pain-list">
-            <li>
-              <span class="pain-icon">✗</span>
-              <span>Empezaste inglés en apps, YouTube y cursos… y siempre lo dejaste a la mitad.</span>
-            </li>
-            <li>
-              <span class="pain-icon">✗</span>
-              <span>Estudiaste años, pero cuando un extranjero te habla, la mente se queda en blanco.</span>
-            </li>
-            <li>
-              <span class="pain-icon">✗</span>
-              <span>Sabes reglas de gramática de memoria, pero no logras armar una frase real.</span>
-            </li>
-            <li>
-              <span class="pain-icon">✗</span>
-              <span>Tienes mil PDFs y videos guardados que nunca terminas de ver.</span>
-            </li>
+            <li><span class="pain-icon">✗</span><span>Ves clases en YouTube… y a la semana ya no recuerdas nada.</span></li>
+            <li><span class="pain-icon">✗</span><span>Descargaste PDFs y apps que abriste dos veces.</span></li>
+            <li><span class="pain-icon">✗</span><span>Sabes palabras sueltas, pero no sabes armar una frase.</span></li>
+            <li><span class="pain-icon">✗</span><span>Cuando alguien te habla en inglés, te quedas en blanco.</span></li>
           </ul>
-          <p class="pain-turn">
-            <strong>El problema no eres tú. Es el método.</strong> Aprendiste inglés como se estudia para un
-            examen, no como el cerebro realmente aprende un idioma: <strong>por asociación visual.</strong>
-          </p>
+          <p class="pain-turn"><strong>No es falta de capacidad. Es falta de orden.</strong></p>
         </div>
       </section>
 
-      <!-- MECANISMO -->
-      <section class="section reveal" id="mecanismo">
+      <!-- EL MÉTODO -->
+      <section class="section reveal" id="metodo">
         <div class="section-inner narrow">
           <div class="section-head center">
             <span class="accent"></span>
-            <h2>¿Por qué un mapa mental y no otro curso?</h2>
+            <h2>No es otro curso. Es un mapa.</h2>
           </div>
           <div class="mechanism-body">
-            <p>
-              Tu cerebro no memoriza listas: memoriza <strong>conexiones e imágenes.</strong> Un mapa mental
-              agrupa el inglés por bloques visuales, así que en vez de estudiar 300 páginas sueltas, ves
-              <em>todo el idioma en una sola imagen</em> y tu memoria lo retiene sin esfuerzo.
-            </p>
-            <p class="mechanism-analogy">
-              Es la diferencia entre intentar recordar un número de teléfono suelto… y recordar la letra de tu
-              canción favorita. <strong>Lo visual se queda. Lo aburrido se olvida.</strong>
-            </p>
+            <p>Cada mapa mental sigue siempre el mismo camino. Siempre el mismo orden, por eso se queda en tu cabeza.</p>
           </div>
+          <ol class="method-steps">
+            <li class="method-step"><span class="method-num">1</span><span class="method-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="9" cy="10" r="1.6"/><path d="m5 18 5-5 3 3 2-2 4 4"/></svg></span><span class="method-label">Vocabulario con imágenes</span></li>
+            <li class="method-step"><span class="method-num">2</span><span class="method-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span><span class="method-label">Frases útiles con traducción</span></li>
+            <li class="method-step"><span class="method-num">3</span><span class="method-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></svg></span><span class="method-label">Cómo preguntar</span></li>
+            <li class="method-step"><span class="method-num">4</span><span class="method-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><span class="method-label">Tip útil</span></li>
+            <li class="method-step"><span class="method-num">5</span><span class="method-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5h.01"/></svg></span><span class="method-label">Errores comunes</span></li>
+            <li class="method-step"><span class="method-num">6</span><span class="method-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 3L8 19z"/><path d="M14 7l3 3"/></svg></span><span class="method-label">Mini ejercicio</span></li>
+          </ol>
         </div>
       </section>
 
-      <!-- ASÍ SE VE TU MAPA MENTAL: marquee infinito en CSS puro, sin librerías. -->
+      <!-- GALERÍA: carrusel deslizable con mapas reales del producto -->
       <section class="section ejemplos-dark reveal" id="ejemplos">
         <div class="section-inner">
           <div class="section-head center">
-            <span class="kicker">EL MATERIAL POR DENTRO</span>
-            <h2>Así se ven tus mapas mentales</h2>
-            <p class="section-sub">
-              Mapas ilustrados y organizados para facilitar tus estudios y repasos rápidos.
-            </p>
+            <h2>Mira cómo son por dentro</h2>
           </div>
         </div>
 
         <div class="preview-carousel">
           <div class="carousel-track">
-            <!-- Grupo 1 -->
             <div class="carousel-group">
-              <div class="carousel-slide"><img src="mapa-preview-1.png" alt="Vista previa del mapa mental: Nacionalidades" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-2.png" alt="Vista previa del mapa mental: Partes de la Casa" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-3.png" alt="Vista previa del mapa mental: Profesiones" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-4.png" alt="Vista previa del mapa mental: Países" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-5.png" alt="Vista previa del mapa mental: La Familia" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-6.png" alt="Vista previa del mapa mental: Personas" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-7.png" alt="Vista previa del mapa mental: Singular y Plural" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-8.png" alt="Vista previa del mapa mental: This, That, These y Those" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-9.png" alt="Vista previa del mapa mental: There is y There are" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-10.png" alt="Vista previa del mapa mental: Artículos A, AN y THE" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-11.png" alt="Vista previa del mapa mental: Verbo To Be: Preguntas" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-12.png" alt="Vista previa del mapa mental: Contracciones con To Be" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-13.png" alt="Vista previa del mapa mental: Adjetivos Posesivos" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-14.png" alt="Vista previa del mapa mental: Pronombres Posesivos" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-1.jpg" alt="Mapa mental de inglés: Nacionalidades" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-2.jpg" alt="Mapa mental de inglés: Partes de la Casa" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-3.jpg" alt="Mapa mental de inglés: Profesiones" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-4.jpg" alt="Mapa mental de inglés: Países" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-5.jpg" alt="Mapa mental de inglés: La Familia" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-6.jpg" alt="Mapa mental de inglés: Personas" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-7.jpg" alt="Mapa mental de inglés: Singular y Plural" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-8.jpg" alt="Mapa mental de inglés: This, That, These y Those" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-9.jpg" alt="Mapa mental de inglés: There is y There are" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-10.jpg" alt="Mapa mental de inglés: Artículos A, AN y THE" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-11.jpg" alt="Mapa mental de inglés: Verbo To Be: Preguntas" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-12.jpg" alt="Mapa mental de inglés: Contracciones con To Be" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-13.jpg" alt="Mapa mental de inglés: Adjetivos Posesivos" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-14.jpg" alt="Mapa mental de inglés: Pronombres Posesivos" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
             </div>
-            <!-- Grupo 2: copia exacta del grupo 1, necesaria para el loop infinito sin salto -->
+            <!-- Copia del grupo 1, necesaria para el loop infinito sin salto -->
             <div class="carousel-group" aria-hidden="true">
-              <div class="carousel-slide"><img src="mapa-preview-1.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-2.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-3.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-4.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-5.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-6.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-7.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-8.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-9.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-10.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-11.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-12.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-13.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
-              <div class="carousel-slide"><img src="mapa-preview-14.png" alt="" onerror="this.parentElement.classList.add('slide-missing')" /></div>
+              <div class="carousel-slide"><img src="mapa-preview-1.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-2.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-3.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-4.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-5.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-6.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-7.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-8.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-9.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-10.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-11.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-12.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-13.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-14.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
             </div>
-          </div>
-        </div>
-
-        <div class="section-inner">
-          <div class="section-cta">
-            <a href="#comprar" class="cta">
-              Sí, quiero mi acceso hoy
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
           </div>
         </div>
       </section>
@@ -443,720 +389,162 @@
 
         <div class="section-inner">
           <div class="section-cta">
-            <a href="#comprar" class="cta">
-              Sí, quiero mi acceso hoy
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
+            <a href="#oferta" data-checkout target="_blank" rel="noopener" class="cta">Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
         </div>
       </section>
 
-      <!-- QUÉ VAS A ENCONTRAR EN TUS MAPAS: explorador de niveles A1-C2 con pestañas -->
-      <section class="section reveal" id="incluye">
+      <!-- TUS 15 MINUTOS AL DÍA -->
+      <section class="section reveal" id="quince-minutos">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
-            <h2>Qué vas a encontrar en tus mapas</h2>
-            <p class="section-sub">Todo organizado por bloques visuales, dentro de una colección A1 → C2.</p>
-            <p class="levels-stat"><strong>+300</strong> mapas mentales · <strong>6</strong> niveles · de cero a dominio</p>
+            <h2>Así son tus 15 minutos al día</h2>
           </div>
-          <div class="levels">
-            <div class="level-tabs" role="tablist" aria-label="Niveles de la colección de mapas mentales">
-              <button type="button" class="level-tab" role="tab" id="tab-a1" aria-controls="panel-a1" aria-selected="false" tabindex="0">
-                <span class="level-code">A1</span>
-                <span class="level-meta"><strong>Fundación</strong><small>50 Mapas</small></span>
-              </button>
-              <button type="button" class="level-tab" role="tab" id="tab-a2" aria-controls="panel-a2" aria-selected="false" tabindex="-1">
-                <span class="level-code">A2</span>
-                <span class="level-meta"><strong>Construcción</strong><small>55 Mapas</small></span>
-              </button>
-              <button type="button" class="level-tab" role="tab" id="tab-b1" aria-controls="panel-b1" aria-selected="false" tabindex="-1">
-                <span class="level-code">B1</span>
-                <span class="level-meta"><strong>Independiente</strong><small>55 Mapas</small></span>
-              </button>
-              <button type="button" class="level-tab" role="tab" id="tab-b2" aria-controls="panel-b2" aria-selected="false" tabindex="-1">
-                <span class="level-code">B2</span>
-                <span class="level-meta"><strong>Natural</strong><small>55 Mapas</small></span>
-              </button>
-              <button type="button" class="level-tab" role="tab" id="tab-c1" aria-controls="panel-c1" aria-selected="false" tabindex="-1">
-                <span class="level-code">C1</span>
-                <span class="level-meta"><strong>Avanzado</strong><small>50 Mapas</small></span>
-              </button>
-              <button type="button" class="level-tab" role="tab" id="tab-c2" aria-controls="panel-c2" aria-selected="false" tabindex="-1">
-                <span class="level-code">C2</span>
-                <span class="level-meta"><strong>Dominio</strong><small>45 Mapas</small></span>
-              </button>
-            </div>
-            <div class="level-placeholder" id="level-placeholder">
-              <strong>👇 Haz clic en tu nivel para ver los contenidos</strong>
-              <span>Selecciona uno de los niveles de arriba para explorar los temas detallados de los mapas mentales.</span>
-            </div>
-            <div class="level-panel" role="tabpanel" id="panel-a1" aria-labelledby="tab-a1" hidden>
-              <div class="level-head">
-                <div>
-                  <h3>Nivel A1: Fundación del Inglés</h3>
-                  <p><strong>Objetivo:</strong> Enseñar al alumno a reconocer palabras esenciales, armar frases cortas, hacer preguntas básicas y comunicarse en situaciones simples.</p>
-                </div>
-                <span class="level-count">🌱 50 mapas mentales</span>
-              </div>
-              <div class="level-grid">
-                <div class="level-card">
-                  <h4>Fundamentos</h4>
-                  <ul class="topic-list">
-                    <li>Alfabeto en inglés</li>
-                    <li>Deletreo</li>
-                    <li>Pronunciación de las letras</li>
-                    <li>Números del 0 al 20</li>
-                    <li>Números del 20 al 100</li>
-                    <li>Números grandes</li>
-                    <li>Días de la semana</li>
-                    <li>Meses del año</li>
-                    <li>Fechas</li>
-                    <li>Horas</li>
-                    <li>Colores</li>
-                    <li>Símbolos y señales comunes</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Estructuras esenciales</h4>
-                  <ul class="topic-list">
-                    <li>Pronombres personales</li>
-                    <li>Pronombres objeto</li>
-                    <li>Adjetivos posesivos</li>
-                    <li>Pronombres posesivos</li>
-                    <li>Verbo To Be: afirmativo</li>
-                    <li>Verbo To Be: negativo</li>
-                    <li>Verbo To Be: preguntas</li>
-                    <li>Contracciones con To Be</li>
-                    <li>Artículos A, An y The</li>
-                    <li>Singular y plural</li>
-                    <li>This, That, These y Those</li>
-                    <li>There Is y There Are</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Vocabulario básico</h4>
-                  <ul class="topic-list">
-                    <li>Familia</li>
-                    <li>Personas</li>
-                    <li>Profesiones</li>
-                    <li>Países</li>
-                    <li>Nacionalidades</li>
-                    <li>Partes de la casa</li>
-                    <li>Objetos de la casa</li>
-                    <li>Objetos personales</li>
-                    <li>Comidas</li>
-                    <li>Bebidas</li>
-                    <li>Frutas</li>
-                    <li>Animales</li>
-                    <li>Partes del cuerpo</li>
-                    <li>Ropa</li>
-                    <li>Clima</li>
-                    <li>Emociones</li>
-                    <li>Adjetivos básicos</li>
-                    <li>Verbos esenciales</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Comunicación</h4>
-                  <ul class="topic-list">
-                    <li>Saludos</li>
-                    <li>Presentaciones personales</li>
-                    <li>Preguntas con What, Where, Who y How</li>
-                    <li>Frases con I Am</li>
-                    <li>Frases con You Are</li>
-                    <li>Frases con He, She, We y They</li>
-                    <li>Frases de supervivencia</li>
-                    <li>Repaso general A1</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="level-panel" role="tabpanel" id="panel-a2" aria-labelledby="tab-a2" hidden>
-              <div class="level-head">
-                <div>
-                  <h3>Nivel A2: Construcción de Frases</h3>
-                  <p><strong>Objetivo:</strong> Ayudar al alumno a hablar sobre su rutina, preferencias, habilidades, pasado básico y planes.</p>
-                </div>
-                <span class="level-count">💬 55 mapas mentales</span>
-              </div>
-              <div class="level-grid">
-                <div class="level-card">
-                  <h4>Presente y rutina</h4>
-                  <ul class="topic-list">
-                    <li>Simple Present: usos</li>
-                    <li>Simple Present: afirmativo</li>
-                    <li>Simple Present: negativo</li>
-                    <li>Simple Present: preguntas</li>
-                    <li>Do y Does</li>
-                    <li>Don’t y Doesn’t</li>
-                    <li>Tercera persona con S</li>
-                    <li>Adverbios de frecuencia</li>
-                    <li>Rutina de la mañana</li>
-                    <li>Rutina de trabajo y estudio</li>
-                    <li>Rutina de la noche</li>
-                    <li>Hábitos semanales</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Verbos y estructuras</h4>
-                  <ul class="topic-list">
-                    <li>Have y Has</li>
-                    <li>Like, Love y Hate</li>
-                    <li>Want y Need</li>
-                    <li>Can y Can’t</li>
-                    <li>Habilidades</li>
-                    <li>Pedidos con Can</li>
-                    <li>Imperativo</li>
-                    <li>Let’s</li>
-                    <li>Some y Any</li>
-                    <li>Much y Many</li>
-                    <li>A Lot Of</li>
-                    <li>How Much y How Many</li>
-                    <li>Sustantivos contables e incontables</li>
-                    <li>Preposiciones de lugar</li>
-                    <li>Preposiciones de tiempo</li>
-                    <li>In, On y At</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Pasado y futuro inicial</h4>
-                  <ul class="topic-list">
-                    <li>Simple Past con To Be</li>
-                    <li>Was y Were</li>
-                    <li>Verbos regulares en pasado</li>
-                    <li>Verbos irregulares básicos</li>
-                    <li>Did y Didn’t</li>
-                    <li>Preguntas en pasado</li>
-                    <li>Going To</li>
-                    <li>Planes futuros</li>
-                    <li>Will para decisiones simples</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Vocabulario y situaciones</h4>
-                  <ul class="topic-list">
-                    <li>Lugares de la ciudad</li>
-                    <li>Direcciones</li>
-                    <li>Medios de transporte</li>
-                    <li>Compras</li>
-                    <li>Precios y dinero</li>
-                    <li>Restaurante</li>
-                    <li>Hotel</li>
-                    <li>Aeropuerto</li>
-                    <li>Salud básica</li>
-                    <li>Farmacia</li>
-                    <li>Hobbies</li>
-                    <li>Deportes</li>
-                    <li>Música y películas</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Comunicación práctica</h4>
-                  <ul class="topic-list">
-                    <li>Hacer invitaciones</li>
-                    <li>Aceptar y rechazar invitaciones</li>
-                    <li>Pedir información</li>
-                    <li>Mini conversaciones A2</li>
-                    <li>Repaso general A2</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="level-panel" role="tabpanel" id="panel-b1" aria-labelledby="tab-b1" hidden>
-              <div class="level-head">
-                <div>
-                  <h3>Nivel B1: Inglés Independiente</h3>
-                  <p><strong>Objetivo:</strong> Permitir que el alumno converse sobre experiencias, acontecimientos, opiniones, planes y problemas cotidianos.</p>
-                </div>
-                <span class="level-count">🧭 55 mapas mentales</span>
-              </div>
-              <div class="level-grid">
-                <div class="level-card">
-                  <h4>Tiempos verbales</h4>
-                  <ul class="topic-list">
-                    <li>Repaso del Simple Present</li>
-                    <li>Repaso del Simple Past</li>
-                    <li>Present Continuous</li>
-                    <li>Past Continuous</li>
-                    <li>Simple Past x Past Continuous</li>
-                    <li>Present Perfect: introducción</li>
-                    <li>Have You Ever</li>
-                    <li>Ever y Never</li>
-                    <li>Already y Yet</li>
-                    <li>Since y For</li>
-                    <li>Present Perfect x Simple Past</li>
-                    <li>Going To x Will</li>
-                    <li>Present Continuous para el futuro</li>
-                    <li>Future Time Expressions</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Estructuras intermedias</h4>
-                  <ul class="topic-list">
-                    <li>Comparativos</li>
-                    <li>Superlativos</li>
-                    <li>As…As</li>
-                    <li>Too y Enough</li>
-                    <li>Should y Shouldn’t</li>
-                    <li>Must y Mustn’t</li>
-                    <li>Have To y Don’t Have To</li>
-                    <li>May y Might</li>
-                    <li>First Conditional</li>
-                    <li>Zero Conditional</li>
-                    <li>Relative Pronouns</li>
-                    <li>Who, Which y That</li>
-                    <li>Gerundio después de verbos</li>
-                    <li>Infinitivo con To</li>
-                    <li>Used To</li>
-                    <li>Question Tags</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Comunicación y fluidez</h4>
-                  <ul class="topic-list">
-                    <li>Cómo dar tu opinión</li>
-                    <li>Cómo pedir una opinión</li>
-                    <li>Cómo estar de acuerdo</li>
-                    <li>Cómo no estar de acuerdo con educación</li>
-                    <li>Cómo explicar motivos</li>
-                    <li>Cómo contar historias</li>
-                    <li>Secuenciadores de historia</li>
-                    <li>Cómo describir experiencias</li>
-                    <li>Cómo hablar de problemas</li>
-                    <li>Cómo dar consejos</li>
-                    <li>Cómo hacer sugerencias</li>
-                    <li>Cómo pedir aclaraciones</li>
-                    <li>Frases para ganar tiempo</li>
-                    <li>Cómo mantener una conversación</li>
-                    <li>Small Talk</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Vocabulario contextual</h4>
-                  <ul class="topic-list">
-                    <li>Trabajo y carrera</li>
-                    <li>Educación</li>
-                    <li>Tecnología</li>
-                    <li>Internet y redes sociales</li>
-                    <li>Viajes y turismo</li>
-                    <li>Salud y bienestar</li>
-                    <li>Medio ambiente</li>
-                    <li>Relaciones</li>
-                    <li>Errores comunes del nivel B1</li>
-                    <li>Repaso general B1</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="level-panel" role="tabpanel" id="panel-b2" aria-labelledby="tab-b2" hidden>
-              <div class="level-head">
-                <div>
-                  <h3>Nivel B2: Inglés Natural</h3>
-                  <p><strong>Objetivo:</strong> Desarrollar fluidez, naturalidad, comprensión de textos más complejos y comunicación profesional.</p>
-                </div>
-                <span class="level-count">⚡ 55 mapas mentales</span>
-              </div>
-              <div class="level-grid">
-                <div class="level-card">
-                  <h4>Gramática intermedia-avanzada</h4>
-                  <ul class="topic-list">
-                    <li>Present Perfect Continuous</li>
-                    <li>Past Perfect</li>
-                    <li>Past Perfect Continuous</li>
-                    <li>Future Continuous</li>
-                    <li>Future Perfect</li>
-                    <li>Tiempos narrativos</li>
-                    <li>Second Conditional</li>
-                    <li>Third Conditional</li>
-                    <li>Mixed Conditionals</li>
-                    <li>Passive Voice en presente</li>
-                    <li>Passive Voice en pasado</li>
-                    <li>Passive Voice con modales</li>
-                    <li>Reported Speech</li>
-                    <li>Reported Questions</li>
-                    <li>Reported Commands</li>
-                    <li>Gerund x Infinitive</li>
-                    <li>Causative Have y Get</li>
-                    <li>Wish e If Only</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Inglés natural</h4>
-                  <ul class="topic-list">
-                    <li>Phrasal Verbs con Get</li>
-                    <li>Phrasal Verbs con Take</li>
-                    <li>Phrasal Verbs con Make</li>
-                    <li>Phrasal Verbs con Put</li>
-                    <li>Phrasal Verbs con Look</li>
-                    <li>Phrasal Verbs con Turn</li>
-                    <li>Phrasal Verbs con Bring</li>
-                    <li>Phrasal Verbs con Come</li>
-                    <li>Collocations con Make y Do</li>
-                    <li>Collocations con Take y Have</li>
-                    <li>Expresiones idiomáticas comunes</li>
-                    <li>Linking Words</li>
-                    <li>Conectores de contraste</li>
-                    <li>Conectores de causa y consecuencia</li>
-                    <li>Intensificadores</li>
-                    <li>Hedging: cómo suavizar afirmaciones</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Comunicación avanzada</h4>
-                  <ul class="topic-list">
-                    <li>Argumentar una opinión</li>
-                    <li>Presentar ventajas y desventajas</li>
-                    <li>Especular</li>
-                    <li>Hacer hipótesis</li>
-                    <li>Persuadir a alguien</li>
-                    <li>Negociar</li>
-                    <li>Interrumpir con educación</li>
-                    <li>Retomar una conversación</li>
-                    <li>Explicar ideas complejas</li>
-                    <li>Debates en inglés</li>
-                    <li>Presentaciones en inglés</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Inglés profesional</h4>
-                  <ul class="topic-list">
-                    <li>Reuniones</li>
-                    <li>E-mails profesionales</li>
-                    <li>Entrevistas de trabajo</li>
-                    <li>Currículum y LinkedIn</li>
-                    <li>Atención al cliente</li>
-                    <li>Trabajo remoto</li>
-                    <li>Networking</li>
-                    <li>Falsos cognados avanzados</li>
-                    <li>Errores comunes del nivel B2</li>
-                    <li>Repaso general B2</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="level-panel" role="tabpanel" id="panel-c1" aria-labelledby="tab-c1" hidden>
-              <div class="level-head">
-                <div>
-                  <h3>Nivel C1: Inglés Avanzado</h3>
-                  <p><strong>Objetivo:</strong> Enseñar precisión, flexibilidad, vocabulario sofisticado y comunicación académica o profesional.</p>
-                </div>
-                <span class="level-count">✈️ 50 mapas mentales</span>
-              </div>
-              <div class="level-grid">
-                <div class="level-card">
-                  <h4>Estructuras avanzadas</h4>
-                  <ul class="topic-list">
-                    <li>Inversión después de expresiones negativas</li>
-                    <li>Inversión con Hardly y Barely</li>
-                    <li>Cleft Sentences</li>
-                    <li>Emphasis con Do</li>
-                    <li>Participle Clauses</li>
-                    <li>Reduced Relative Clauses</li>
-                    <li>Advanced Passive Voice</li>
-                    <li>Reporting Verbs</li>
-                    <li>Modal Verbs en pasado</li>
-                    <li>Deducción en presente</li>
-                    <li>Deducción en pasado</li>
-                    <li>Unreal Past</li>
-                    <li>Advanced Conditionals</li>
-                    <li>Subjunctive en inglés</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Precisión de vocabulario</h4>
-                  <ul class="topic-list">
-                    <li>Verbos formales</li>
-                    <li>Adjetivos sofisticados</li>
-                    <li>Adverbios avanzados</li>
-                    <li>Collocations académicas</li>
-                    <li>Collocations profesionales</li>
-                    <li>Phrasal Verbs avanzados</li>
-                    <li>Idioms avanzados</li>
-                    <li>Binomials: safe and sound</li>
-                    <li>Word Families</li>
-                    <li>Prefijos avanzados</li>
-                    <li>Sufijos avanzados</li>
-                    <li>Formación de palabras</li>
-                    <li>Palabras fácilmente confundidas</li>
-                    <li>Matices entre sinónimos</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Construcción de discurso</h4>
-                  <ul class="topic-list">
-                    <li>Conectores académicos</li>
-                    <li>Introducción de argumentos</li>
-                    <li>Desarrollo de argumentos</li>
-                    <li>Contraargumentos</li>
-                    <li>Conclusiones fuertes</li>
-                    <li>Cómo reformular una idea</li>
-                    <li>Cómo ejemplificar</li>
-                    <li>Cómo resumir</li>
-                    <li>Cómo generalizar con cautela</li>
-                    <li>Cómo expresar certeza y duda</li>
-                    <li>Cohesión textual</li>
-                    <li>Coherencia textual</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Aplicaciones</h4>
-                  <ul class="topic-list">
-                    <li>Escritura académica</li>
-                    <li>Informes profesionales</li>
-                    <li>Propuestas comerciales</li>
-                    <li>Presentaciones ejecutivas</li>
-                    <li>Debates avanzados</li>
-                    <li>Comunicación diplomática</li>
-                    <li>Análisis de datos en inglés</li>
-                    <li>Noticias y lenguaje periodístico</li>
-                    <li>Errores comunes del nivel C1</li>
-                    <li>Repaso general C1</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="level-panel" role="tabpanel" id="panel-c2" aria-labelledby="tab-c2" hidden>
-              <div class="level-head">
-                <div>
-                  <h3>Nivel C2: Dominio del Inglés</h3>
-                  <p><strong>Objetivo:</strong> Trabajar sutilezas, registros, persuasión, interpretación y una comunicación cercana a la de un usuario altamente competente.</p>
-                </div>
-                <span class="level-count">🏆 45 mapas mentales</span>
-              </div>
-              <div class="level-grid">
-                <div class="level-card">
-                  <h4>Matiz y precisión</h4>
-                  <ul class="topic-list">
-                    <li>Diferencias sutiles entre sinónimos</li>
-                    <li>Connotación positiva y negativa</li>
-                    <li>Lenguaje literal x figurado</li>
-                    <li>Ambigüedad en inglés</li>
-                    <li>Ironía</li>
-                    <li>Sarcasmo</li>
-                    <li>Eufemismos</li>
-                    <li>Understatement</li>
-                    <li>Overstatement</li>
-                    <li>Implicatura</li>
-                    <li>Tono e intención</li>
-                    <li>Elección léxica precisa</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Estilo y registro</h4>
-                  <ul class="topic-list">
-                    <li>Inglés formal</li>
-                    <li>Inglés informal</li>
-                    <li>Inglés académico</li>
-                    <li>Inglés periodístico</li>
-                    <li>Inglés jurídico básico</li>
-                    <li>Inglés corporativo</li>
-                    <li>Inglés literario</li>
-                    <li>Cambio de registro</li>
-                    <li>Comunicación diplomática</li>
-                    <li>Lenguaje políticamente sensible</li>
-                    <li>Lenguaje inclusivo</li>
-                    <li>Variaciones entre inglés británico y americano</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Retórica y argumentación</h4>
-                  <ul class="topic-list">
-                    <li>Recursos retóricos</li>
-                    <li>Persuasión avanzada</li>
-                    <li>Estructura de discursos</li>
-                    <li>Storytelling avanzado</li>
-                    <li>Analogías y metáforas</li>
-                    <li>Refutación de argumentos</li>
-                    <li>Falacias lógicas en inglés</li>
-                    <li>Debate formal</li>
-                    <li>Negociación de alto nivel</li>
-                    <li>Respuestas diplomáticas</li>
-                  </ul>
-                </div>
-                <div class="level-card">
-                  <h4>Producción avanzada</h4>
-                  <ul class="topic-list">
-                    <li>Síntesis de información</li>
-                    <li>Paráfrasis avanzada</li>
-                    <li>Resúmenes ejecutivos</li>
-                    <li>Crítica y evaluación</li>
-                    <li>Análisis de textos</li>
-                    <li>Escritura persuasiva</li>
-                    <li>Presentaciones de alto impacto</li>
-                    <li>Entrevistas complejas</li>
-                    <li>Humor y juegos de palabras</li>
-                    <li>Errores de alta competencia</li>
-                    <li>Revisión final C2</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-cta">
-            <a href="#comprar" class="cta">
-              Sí, quiero mi acceso hoy
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
+          <div class="minutes-grid">
+            <div class="minute-card"><span class="min-tag">Min 1–4</span><h3>Vocabulario</h3><p>Aprendes las palabras con imágenes.</p></div>
+            <div class="minute-card"><span class="min-tag">Min 5–9</span><h3>Frases</h3><p>Las ves usadas en situaciones reales.</p></div>
+            <div class="minute-card"><span class="min-tag">Min 10–12</span><h3>Errores comunes</h3><p>Evitas lo que todos dicen mal.</p></div>
+            <div class="minute-card"><span class="min-tag">Min 13–15</span><h3>Ejercicio</h3><p>Practicas y lo fijas.</p></div>
           </div>
         </div>
       </section>
 
-      <!-- PARA QUIÉN ES ESTE MATERIAL -->
-      <section class="section reveal" id="para-quien">
+      <!-- NIVELES -->
+      <section class="section muted reveal" id="niveles">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
-            <h2>¿Para quién es este material?</h2>
+            <h2>Empieza desde donde estás</h2>
           </div>
-          <div class="audience-grid">
-            <div class="audience-card">
-              <span class="feature-icon">🌱</span>
-              <h3>Para quien empieza de cero</h3>
-              <p>Ideal si estás iniciando y quieres un camino visual, directo, sin memorizar reglas complicadas.</p>
+          <div class="level-cards">
+            <div class="level-summary">
+              <span class="level-summary-tag">Básico</span>
+              <p>Enseñar a reconocer palabras esenciales, armar frases cortas, hacer preguntas básicas y comunicarse en situaciones simples. También hablar sobre tu rutina, tus preferencias y tus planes.</p>
+              <ul class="topic-list">
+                <li>Fundamentos</li>
+                <li>Estructuras esenciales</li>
+                <li>Vocabulario básico</li>
+                <li>Comunicación práctica</li>
+              </ul>
             </div>
-            <div class="audience-card">
-              <span class="feature-icon">⏰</span>
-              <h3>Para quien tiene poco tiempo</h3>
-              <p>15 minutos al día alcanzan. Revisa tus mapas desde el celular, tablet o computadora.</p>
+            <div class="level-summary">
+              <span class="level-summary-tag">Intermedio</span>
+              <p>Conversar sobre experiencias, opiniones, planes y problemas cotidianos, con más fluidez y naturalidad.</p>
+              <ul class="topic-list">
+                <li>Tiempos verbales</li>
+                <li>Estructuras intermedias</li>
+                <li>Comunicación y fluidez</li>
+                <li>Vocabulario contextual</li>
+              </ul>
             </div>
-            <div class="audience-card">
-              <span class="feature-icon">🚀</span>
-              <h3>Para quien quiere practicidad</h3>
-              <p>Para quien odia leer manuales largos y prefiere aprender de forma visual e intuitiva.</p>
+            <div class="level-summary">
+              <span class="level-summary-tag">Avanzado</span>
+              <p>Trabajar precisión, flexibilidad, vocabulario sofisticado y una comunicación académica o profesional.</p>
+              <ul class="topic-list">
+                <li>Estructuras avanzadas</li>
+                <li>Precisión de vocabulario</li>
+                <li>Construcción de discurso</li>
+                <li>Aplicaciones</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- BONOS EXCLUSIVOS -->
-      <section class="section muted reveal" id="bonos">
+      <!-- ¿ES PARA TI? -->
+      <section class="section reveal" id="para-ti">
         <div class="section-inner">
           <div class="section-head center">
             <span class="accent"></span>
-            <h2>Bonos exclusivos</h2>
-            <p class="section-sub">Al comprar hoy, te llevas estos 4 bonos totalmente gratis.</p>
+            <h2>¿Es para ti?</h2>
           </div>
-          <div class="bonus-grid">
-            <div class="bonus-card">
-              <img src="bonus-500-frases.png" alt="500 Frases Más Usadas con Pronunciación" class="bonus-image" />
-              <span class="bonus-kicker">Bono #1: Inglés Para Usar Ahora</span>
-              <h3>🗣️ 500 Frases Más Usadas con Pronunciación</h3>
-              <p>Aprende frases útiles para conversaciones, viajes, trabajo, mensajes y situaciones del día a día.</p>
-              <p class="bonus-price"><span class="price-old">Valor $19 USD</span> → <strong>GRATIS</strong></p>
+          <div class="fit-grid">
+            <div class="fit-card fit-yes">
+              <h3>Sí, si…</h3>
+              <ul>
+                <li>Empezaste inglés muchas veces y lo dejaste.</li>
+                <li>Aprendes mejor viendo que leyendo.</li>
+                <li>Tienes poco tiempo al día.</li>
+                <li>Quieres estudiar a tu ritmo, sin clases en vivo.</li>
+              </ul>
             </div>
-            <div class="bonus-card">
-              <img src="bonus-rota-fluencia.png" alt="Plan Diario de Estudio, Ruta de la Fluidez" class="bonus-image" />
-              <span class="bonus-kicker">Bono #2: Ruta de la Fluidez</span>
-              <h3>📅 Plan Diario de Estudio</h3>
-              <p>Descubre exactamente qué estudiar cada día y avanza sin sentirte perdido.</p>
-              <p class="bonus-price"><span class="price-old">Valor $15 USD</span> → <strong>GRATIS</strong></p>
-            </div>
-            <div class="bonus-card">
-              <img src="bonus-phrasal-verbs.png" alt="100 Phrasal Verbs Esenciales" class="bonus-image" />
-              <span class="bonus-kicker">Bono #3: 100 Phrasal Verbs Esenciales</span>
-              <h3>⚡ 100 Phrasal Verbs Esenciales</h3>
-              <p>Aprende los phrasal verbs más usados en el inglés real, con significado, ejemplos y aplicación práctica.</p>
-              <p class="bonus-price"><span class="price-old">Valor $12 USD</span> → <strong>GRATIS</strong></p>
-            </div>
-            <div class="bonus-card">
-              <img src="bonus-expresiones.png" alt="150 Expresiones y Modismos Más Usados" class="bonus-image" />
-              <span class="bonus-kicker">Bono #4: 150 Expresiones y Modismos</span>
-              <h3>🗣️ 150 Expresiones y Modismos Más Usados</h3>
-              <p>Aprende cómo hablan realmente los nativos, con expresiones naturales, abreviaciones y ejemplos para el día a día.</p>
-              <p class="bonus-price"><span class="price-old">Valor $12 USD</span> → <strong>GRATIS</strong></p>
+            <div class="fit-card fit-no">
+              <h3>No, si…</h3>
+              <ul>
+                <li>Buscas un curso con profesor en vivo.</li>
+                <li>Esperas hablar fluido sin practicar.</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- STACK DE VALOR / PRECIO -->
-      <section id="comprar" class="section reveal">
+      <!-- OFERTA -->
+      <section id="oferta" class="section muted reveal">
         <div class="section-inner narrow">
           <div class="price-stack">
-            <h2 class="price-stack-title">Resumen de tu compra</h2>
-            <ul class="price-lines">
-              <li><span>✅ Colección de +300 Mapas Mentales (A1 → C2)</span><span class="dots"></span><span>$29 USD</span></li>
-              <li><span>✅ Bono #1: 500 Frases Más Usadas</span><span class="dots"></span><span>$19 USD</span></li>
-              <li><span>✅ Bono #2: Plan Diario de Estudio</span><span class="dots"></span><span>$15 USD</span></li>
-              <li><span>✅ Bono #3: 100 Phrasal Verbs Esenciales</span><span class="dots"></span><span>$12 USD</span></li>
-              <li><span>✅ Bono #4: 150 Expresiones y Modismos</span><span class="dots"></span><span>$12 USD</span></li>
+            <h2 class="price-stack-title">Todo lo que recibes hoy</h2>
+            <ul class="stack-list">
+              <li class="stack-item stack-main">
+                <img src="hero-mockup.jpg" alt="+300 Mapas Mentales de Inglés y los 4 bonos" width="1448" height="1086" loading="lazy" decoding="async" />
+                <span class="stack-name">+300 Mapas Mentales de Inglés <small>del básico al avanzado</small></span>
+                <span class="stack-value">US$ 29</span>
+              </li>
+              <li class="stack-item">
+                <img src="bonus-500-frases.jpg" alt="Portada: 500 Frases Más Usadas en Inglés" width="600" height="450" loading="lazy" decoding="async" />
+                <span class="stack-name">Bono 1: 500 Frases Más Usadas en Inglés <small>con pronunciación en español</small></span>
+                <span class="stack-value">US$ 19</span>
+              </li>
+              <li class="stack-item">
+                <img src="bonus-rota-fluencia.jpg" alt="Portada: Ruta de Fluencia" width="600" height="450" loading="lazy" decoding="async" />
+                <span class="stack-name">Bono 2: Ruta de Fluencia <small>Plan de Estudio Paso a Paso</small></span>
+                <span class="stack-value">US$ 15</span>
+              </li>
+              <li class="stack-item">
+                <img src="bonus-phrasal-verbs.jpg" alt="Portada: 100 Phrasal Verbs Esenciales" width="600" height="450" loading="lazy" decoding="async" />
+                <span class="stack-name">Bono 3: 100 Phrasal Verbs Esenciales</span>
+                <span class="stack-value">US$ 12</span>
+              </li>
+              <li class="stack-item">
+                <img src="bonus-expresiones.jpg" alt="Portada: 150 Expresiones y Giros" width="600" height="450" loading="lazy" decoding="async" />
+                <span class="stack-name">Bono 4: 150 Expresiones y Giros <small>Usados por Nativos</small></span>
+                <span class="stack-value">US$ 12</span>
+              </li>
             </ul>
             <div class="price-total-row">
               <span>Valor total:</span>
-              <span class="price-total-value">$87 USD</span>
+              <span class="price-total-value">US$ 87</span>
             </div>
             <div class="price-final-row">
-              <span>Hoy, solo:</span>
-              <span class="price-final-value">$7,99 USD</span>
+              <span>Hoy:</span>
+              <span class="price-final-value">US$ 10</span>
               <span class="price-final-note">pago único</span>
             </div>
-            <p class="price-guarantee">🛡️ Garantía incondicional de 7 días</p>
 
-            <div class="price-justify">
-              <p>
-                ¿Por qué tan barato? Porque es un producto digital: lo creamos una vez y lo entregamos a miles sin
-                costo de imprenta. Preferimos que llegue a toda Latinoamérica a $7,99 USD que venderlo caro a pocos.
-              </p>
-            </div>
-
-            <a
-              href="https://pay.hotmart.com/D107506999L?off=9wbwnvp0&amp;checkoutMode=10&amp;bid=1791166905280"
-              target="_blank"
-              rel="noopener"
-              class="cta cta-block"
+            <a href="#oferta" data-checkout target="_blank" rel="noopener" class="cta cta-block"
               onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}"
             >
-              Quiero empezar a hablar inglés
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
             </a>
-            <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99 USD</p>
+            <p class="cta-microcopy">Recibes todo al instante por correo · Descarga en alta resolución · Celular, tablet o computadora · Imprimible</p>
           </div>
         </div>
       </section>
 
-      <!-- CÓMO RECIBES EL MATERIAL -->
-      <section class="section muted reveal" id="entrega">
-        <div class="section-inner">
-          <div class="section-head center">
-            <span class="accent"></span>
-            <h2>¿Cómo recibes el material?</h2>
-          </div>
-          <div class="steps">
-            <div class="step">
-              <span class="step-num">1</span>
-              <span
-                ><strong>Aprobación inmediata.</strong> En cuanto tu pago se procese, el sistema libera tu acceso
-                automáticamente.</span
-              >
-            </div>
-            <div class="step">
-              <span class="step-num">2</span>
-              <span
-                ><strong>Acceso por correo.</strong> Recibirás un correo con el enlace exclusivo a la carpeta de
-                Google Drive con tus mapas mentales y los 4 bonos.</span
-              >
-            </div>
-            <div class="step">
-              <span class="step-num">3</span>
-              <span
-                ><strong>Estudia o imprime.</strong> Descarga el material en alta resolución. Puedes estudiarlo
-                desde el celular, tablet o computadora, o imprimirlo cuando quieras.</span
-              >
-            </div>
+      <!-- GARANTÍA -->
+      <section class="section reveal" id="garantia">
+        <div class="section-inner narrow">
+          <div class="guarantee">
+            <svg class="guarantee-icon" viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.3 8 8 9 4.7-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+            <h2>Pruébalo 7 días sin riesgo</h2>
+            <p>Si en 7 días sientes que no es para ti, te devolvemos el 100% de tu dinero. Sin preguntas.</p>
           </div>
         </div>
       </section>
 
       <!-- FAQ -->
-      <section class="section reveal" id="faq">
+      <section class="section muted reveal" id="faq">
         <div class="section-inner narrow">
           <div class="section-head center">
             <span class="accent"></span>
@@ -1164,8 +552,16 @@
           </div>
           <div class="faq-list">
             <details class="faq-item">
+              <summary>¿Es un curso con profesor?</summary>
+              <p>No. Es material digital para estudiar a tu ritmo: mapas mentales en alta resolución que puedes ver en el celular o imprimir.</p>
+            </details>
+            <details class="faq-item">
               <summary>¿Necesito saber inglés para empezar?</summary>
-              <p>No. El material cubre desde lo básico (A1) hasta un nivel avanzado (C2).</p>
+              <p>No. Los mapas empiezan desde lo más básico y avanzan en orden, hasta un nivel avanzado.</p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Cuánto tiempo necesito al día?</summary>
+              <p>Con 15 minutos al día es suficiente para avanzar un mapa.</p>
             </details>
             <details class="faq-item">
               <summary>¿El material es físico?</summary>
@@ -1177,7 +573,7 @@
             </details>
             <details class="faq-item">
               <summary>¿Puedo imprimir mis mapas?</summary>
-              <p>Sí, está en alta resolución tanto para pantalla como para impresión.</p>
+              <p>Sí, están en alta resolución tanto para pantalla como para impresión.</p>
             </details>
             <details class="faq-item">
               <summary>¿Cómo recibo el acceso?</summary>
@@ -1185,11 +581,11 @@
             </details>
             <details class="faq-item">
               <summary>¿El pago es único o es una suscripción?</summary>
-              <p>Pago único. Sin mensualidades, acceso de por vida.</p>
+              <p>Pago único de US$ 10. Sin mensualidades, acceso de por vida.</p>
             </details>
             <details class="faq-item">
               <summary>¿Los bonos están incluidos?</summary>
-              <p>Sí, los 4 bonos forman parte de la oferta actual y se entregan junto con la colección principal.</p>
+              <p>Sí, los 4 bonos (500 Frases Más Usadas, Ruta de Fluencia, 100 Phrasal Verbs y 150 Expresiones y Giros) se entregan junto con los +300 mapas mentales.</p>
             </details>
             <details class="faq-item">
               <summary>¿Tengo garantía?</summary>
@@ -1203,35 +599,28 @@
       <section class="section final-cta reveal" id="cta-final">
         <div class="section-inner narrow center-col">
           <span class="accent"></span>
-          <p class="final-cta-kicker">Aprovecha la oferta</p>
-          <h2>Consigue tu colección de Mapas Mentales hoy al menor precio</h2>
+          <h2>Puedes seguir estudiando inglés en desorden… o empezar hoy con un mapa.</h2>
           <p class="section-sub">
-            ⏳ Precio de lanzamiento por tiempo limitado. La oferta de $7,99 USD termina en:
+            ⏳ Precio de lanzamiento por tiempo limitado. La oferta de US$ 10 termina en:
             <span id="countdown-final" class="countdown-clock">24:00:00</span>
           </p>
+          <p class="hero-price"><strong>Hoy US$ 10</strong></p>
 
-          <a
-            href="https://pay.hotmart.com/D107506999L?off=9wbwnvp0&amp;checkoutMode=10&amp;bid=1791166905280"
-            target="_blank"
-            rel="noopener"
-            class="cta"
-            onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}"
+          <a href="#oferta" data-checkout target="_blank" rel="noopener" class="cta"
+              onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}"
           >
-            Quiero empezar a hablar inglés
-            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </a>
-          <p class="cta-microcopy">Acceso inmediato · Garantía de 7 días · Pago único de $7,99 USD</p>
-
-          <ul class="final-recap">
-            <li>✓ Colección de +300 Mapas Mentales (A1 → C2)</li>
-            <li>✓ 4 bonos exclusivos incluidos</li>
-            <li>✓ Garantía incondicional de 7 días</li>
-          </ul>
+          <p class="cta-microcopy">Pago único · Acceso inmediato · Garantía de 7 días</p>
         </div>
       </section>
     </main>
+
+    <!-- Barra fija (solo celular): aparece al pasar el hero -->
+    <div class="sticky-buy" id="sticky-buy" aria-hidden="true">
+      <span class="sticky-buy-text"><strong>US$ 10</strong> · Garantía 7 días</span>
+      <a href="#oferta" data-checkout target="_blank" rel="noopener" class="cta" tabindex="-1">Comprar</a>
+    </div>
 
     <footer class="footer">
       <div class="footer-inner">

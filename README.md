@@ -15,6 +15,13 @@ GitHub Pages o cualquier hosting estático.
 - `script.js` — genera el diagrama del mapa mental, rota las banderas del
   hero y activa las animaciones de aparición al hacer scroll.
 
+## Checkout y video
+
+- El link de checkout está en una sola constante: `CHECKOUT_URL` al inicio de
+  `script.js`. Todos los botones con `data-checkout` lo usan.
+- Video del hero: subir `hero-mapas.mp4` junto a `index.html`. Mientras no
+  exista, se muestra `hero-poster.jpg`.
+
 ## Pendiente
 
 - Las secciones de ejemplos y los avatares de testimonios usan
