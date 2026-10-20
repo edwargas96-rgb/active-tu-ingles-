@@ -324,25 +324,6 @@ function setupCarousels() {
   });
 }
 
-// Video del hero: se carga después de la primera pantalla para no retrasarla.
-// Si hero-mapas.mp4 no existe, se queda el póster.
-function setupHeroVideo() {
-  var video = document.getElementById("hero-video");
-  if (!video) return;
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) return;
-  function start() {
-    var source = video.querySelector("source[data-src]");
-    if (!source) return;
-    source.src = source.getAttribute("data-src");
-    video.load();
-    var p = video.play();
-    if (p && p.catch) p.catch(function () {});
-  }
-  if (document.readyState === "complete") window.setTimeout(start, 300);
-  else window.addEventListener("load", function () { window.setTimeout(start, 300); });
-}
-
 // Barra fija de compra (solo celular): aparece cuando el hero sale de la pantalla.
 function setupStickyBuy() {
   var bar = document.getElementById("sticky-buy");
@@ -364,7 +345,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setupReveal();
   setupLevelTabs();
   setupCarousels();
-  setupHeroVideo();
   setupStickyBuy();
   setupCountdown();
 });

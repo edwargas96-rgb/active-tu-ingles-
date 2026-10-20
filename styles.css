@@ -2594,3 +2594,70 @@ blockquote {
 .hero-inner h1 {
   margin-top: 6px;
 }
+
+/* ==== Hero v3: gancho, video, texto, precio con bonos, botón ==== */
+.hero-offer {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 2px solid var(--navy);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 10px 26px rgba(22, 33, 92, 0.12);
+  max-width: 460px;
+}
+
+.hero-offer p {
+  margin: 0;
+}
+
+.hero-offer-line {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--muted-fg);
+}
+
+.hero-offer-line strong {
+  color: var(--navy);
+}
+
+.hero-offer-prices {
+  margin-top: 6px !important;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.hero-offer-old {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--faint-fg);
+  text-decoration: line-through;
+}
+
+.hero-offer-now {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--red);
+}
+
+.hero-offer-note {
+  margin-top: 8px !important;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--muted-fg);
+}
+
+.hero-offer + .cta {
+  margin-top: 14px;
+}
+
+@media (max-width: 899px) {
+  .hero-inner h1 { order: 1; margin-top: 0; }
+  .hero-video-wrap { order: 2; }
+  .hero-inner .sub { order: 3; margin-top: 0; }
+  .hero-inner .hero-offer { order: 4; margin-top: 0; max-width: none; }
+  .hero-inner .cta { order: 5; align-self: stretch; margin-top: 0; }
+}
