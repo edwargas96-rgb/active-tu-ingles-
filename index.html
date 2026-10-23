@@ -69,16 +69,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Creepster&family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="preload" as="image" href="hero-poster.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="halloween.css" />
+    <script>document.documentElement.classList.add("hw-js");</script>
   </head>
   <body>
     <!-- Franja de urgencia: contador de 24h que se reinicia por sesión/visitante (localStorage), nunca una fecha límite fija engañosa. -->
     <div class="urgency-bar">
-      ⏳ Precio de lanzamiento por tiempo limitado. La oferta de US$ 10 termina en:
+      🎃 Promoción de Halloween · Por tiempo limitado · Termina en:
       <span id="countdown-bar" class="countdown-clock">24:00:00</span>
     </div>
 
@@ -105,6 +107,17 @@
     <main id="top">
       <!-- HERO -->
       <section class="hero" id="mapa">
+        <!-- Decoración de Halloween -->
+        <div class="hw-sky" aria-hidden="true">
+          <span class="hw-moon"></span>
+          <img class="hw-web hw-web-l" src="hw-web.svg" alt="" />
+          <img class="hw-web hw-web-r" src="hw-web.svg" alt="" />
+          <span class="hw-bat hw-bat-1"><img src="hw-bat.svg" alt="" /></span>
+          <span class="hw-bat hw-bat-2"><img src="hw-bat.svg" alt="" /></span>
+          <span class="hw-bat hw-bat-3"><img src="hw-bat.svg" alt="" /></span>
+          <span class="hw-bat hw-bat-4"><img src="hw-bat.svg" alt="" /></span>
+          <span class="hw-ground"></span>
+        </div>
         <div class="hero-inner">
           <div class="hero-copy">
             <h1>
@@ -115,13 +128,30 @@
               +300 mapas mentales ilustrados que ordenan el inglés paso a paso, para estudiar solo 15 minutos al día.
             </p>
 
-            <div class="hero-offer">
-              <p class="hero-offer-line">Hoy te llevas los <strong>+300 mapas</strong> y <strong>5 bonos</strong> de regalo</p>
-              <p class="hero-offer-prices">
-                <span class="hero-offer-old">Valor total US$ 87</span>
-                <span class="hero-offer-now">US$ 10</span>
+            <div class="hero-offer hw-offer" id="hw-offer">
+              <p class="hw-badge">
+                <span class="hw-badge-title">Promoción de Halloween</span>
+                <span class="hw-badge-sub">🎃 Por tiempo limitado</span>
               </p>
-              <p class="hero-offer-note">Pago único · Acceso inmediato · Garantía de 7 días</p>
+              <p class="hero-offer-line">Hoy te llevas los <strong>+300 mapas</strong> y <strong>5 bonos</strong> de regalo</p>
+              <p class="hw-value">Valor total <span class="hw-value-num">US$ 87</span></p>
+              <div class="hw-wheel-block">
+                <p class="hw-wheel-title">Gira la ruleta y descubre tu descuento de Halloween 👇</p>
+                <div class="hw-wheel-wrap">
+                  <span class="hw-pointer" id="hw-pointer"></span>
+                  <svg class="hw-wheel" id="hw-wheel" viewBox="0 0 300 300" role="img" aria-label="Ruleta de descuentos de Halloween"></svg>
+                  <button type="button" class="hw-hub" id="hw-hub" aria-label="Girar la ruleta">GIRAR</button>
+                </div>
+                <button type="button" class="hw-spin-btn" id="hw-spin-btn">🎃 Girar la ruleta</button>
+              </div>
+              <div class="hw-result" aria-live="polite">
+                <p class="hw-result-kicker">🎉 ¡Felicidades! Te tocó el precio de Halloween</p>
+                <p class="hero-offer-prices">
+                  <span class="hero-offer-old">Valor total US$ 87</span>
+                  <span class="hero-offer-now">US$ 10</span>
+                </p>
+                <p class="hero-offer-note">Pago único · Acceso inmediato · Garantía de 7 días</p>
+              </div>
             </div>
             <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta">Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
@@ -139,6 +169,7 @@
 
       <!-- DOLOR -->
       <section class="section muted reveal" id="dolor">
+        <span class="hw-spider" aria-hidden="true"></span>
         <div class="section-inner narrow">
           <div class="section-head center">
             <span class="accent"></span>
@@ -1027,6 +1058,7 @@
       <section id="comprar" class="section reveal">
         <div class="section-inner narrow">
           <div class="price-stack">
+            <span class="hw-ribbon">🎃 Promoción de Halloween</span>
             <h2 class="price-stack-title">Todo lo que recibes hoy</h2>
             <ul class="stack-list">
               <li class="stack-item stack-main">
@@ -1065,7 +1097,7 @@
               <span class="price-total-value">US$ 87</span>
             </div>
             <div class="price-final-row">
-              <span>Hoy:</span>
+              <span>Precio de Halloween:</span>
               <span class="price-final-value">US$ 10</span>
               <span class="price-final-note">pago único</span>
             </div>
@@ -1180,7 +1212,7 @@
           <span class="accent"></span>
           <h2>Puedes seguir estudiando inglés en desorden… o empezar hoy con un mapa.</h2>
           <p class="section-sub">
-            ⏳ Precio de lanzamiento por tiempo limitado. La oferta de US$ 10 termina en:
+            🎃 Promoción de Halloween por tiempo limitado. Termina en:
             <span id="countdown-final" class="countdown-clock">24:00:00</span>
           </p>
           <p class="hero-price"><strong>Hoy US$ 10</strong></p>
@@ -1208,6 +1240,11 @@
           Este sitio no está afiliado a Facebook/Meta ni a ninguna de sus entidades. La compra de este material no
           garantiza ningún resultado específico; los resultados varían según la dedicación de cada estudiante.
         </p>
+        <p class="hw-disclaimer">
+          🎃 Sobre la ruleta de Halloween: es un elemento interactivo de esta página y siempre se detiene en el
+          mismo resultado (US$ 10). No es un sorteo: todas las personas reciben el mismo precio de la promoción,
+          giren o no la ruleta.
+        </p>
         <p class="footer-copyright">© 2026 Activa tu Inglés. Todos los derechos reservados.</p>
         <!-- TODO: enlazar estas páginas cuando existan. -->
         <p class="footer-links">
@@ -1216,6 +1253,12 @@
       </div>
     </footer>
 
+    <div class="hw-page-bats" aria-hidden="true">
+      <span class="hw-bat hw-bat-1"><img src="hw-bat.svg" alt="" /></span>
+      <span class="hw-bat hw-bat-2"><img src="hw-bat.svg" alt="" /></span>
+    </div>
+
     <script src="script.js"></script>
+    <script src="halloween.js"></script>
   </body>
 </html>

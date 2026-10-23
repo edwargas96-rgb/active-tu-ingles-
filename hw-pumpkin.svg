@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><radialGradient id="pg" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#ffb347"/><stop offset=".6" stop-color="#ff7a1a"/><stop offset="1" stop-color="#c9480c"/></radialGradient></defs>
+<path d="M29 15C29 9 31 6 35 3l3 3c-3 2-4 5-4 9z" fill="#4c7d2c"/>
+<ellipse cx="20" cy="37" rx="14" ry="19" fill="url(#pg)"/><ellipse cx="44" cy="37" rx="14" ry="19" fill="url(#pg)"/><ellipse cx="32" cy="37" rx="15" ry="22" fill="url(#pg)"/>
+<g fill="#ffd23f"><path d="M19 32l5-8 5 8z"/><path d="M35 32l5-8 5 8z"/><path d="M30 38l2-4 2 4z"/><path d="M16 42Q32 56 48 42l-3 3-3-2-3 4-3-3-4 4-3-4-3 3-3-4-3 2z"/></g></svg>
