@@ -68,33 +68,26 @@
     return 360 - (GANADOR * PASO + PASO / 2);
   }
 
-  // Sonidos: fantasma mientras gira, "tic" en cada casilla y risa de bruja al ganar.
+  // Sonidos: fantasma mientras gira, "tic" en cada casilla y cuervos al ganar.
+  // Los mp3 se descargan cuando la ruleta se acerca a la pantalla y el audio se
+  // activa recién con el toque de la persona, para no pesar en la carga inicial.
+  var SONIDOS = ["fantasma", "tic", "cuervos"];
   var audio = null;
+  var datos = null;
   var buffers = {};
-  function crearAudio() {
-    if (audio) return audio;
-    var Ctx = window.AudioContext || window.webkitAudioContext;
-    if (!Ctx) return null;
-    audio = new Ctx();
-    ["fantasma", "tic", "ganaste"].forEach(function (n) {
-      fetch("hw-" + n + ".mp3")
+  var pendiente = {};
+
+  function precargar() {
+    if (datos) return;
+    datos = {};
+    SONIDOS.forEach(function (n) {
+      datos[n] = fetch("hw-" + n + ".mp3")
         .then(function (r) { return r.arrayBuffer(); })
-        .then(function (b) {
-          audio.decodeAudioData(b, function (buf) { buffers[n] = buf; }, function () {});
-        })
-        .catch(function () {});
+        .catch(function () { return null; });
     });
-    return audio;
   }
 
-  // Se llama dentro del toque de la persona (requisito de los navegadores para sonar).
-  function activarAudio() {
-    var a = crearAudio();
-    if (a && a.state === "suspended") a.resume();
-  }
-
-  function tocar(nombre, vol) {
-    if (!audio || !buffers[nombre]) return;
+  function reproducir(nombre, vol) {
     try {
       var src = audio.createBufferSource();
       var g = audio.createGain();
@@ -106,6 +99,37 @@
     } catch (e) {
       // Sin audio: la ruleta funciona igual.
     }
+  }
+
+  // Se llama dentro del toque de la persona (requisito de los navegadores para sonar).
+  function activarAudio() {
+    precargar();
+    if (!audio) {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      audio = new Ctx();
+      SONIDOS.forEach(function (n) {
+        datos[n].then(function (ab) {
+          if (!ab) return;
+          audio.decodeAudioData(ab, function (buf) {
+            buffers[n] = buf;
+            var p = pendiente[n];
+            delete pendiente[n];
+            if (p && performance.now() - p.t < 700) reproducir(n, p.vol);
+          }, function () {});
+        });
+      });
+    }
+    if (audio.state === "suspended") audio.resume();
+  }
+
+  function tocar(nombre, vol) {
+    if (!audio) return;
+    if (!buffers[nombre]) {
+      if (nombre !== "tic") pendiente[nombre] = { t: performance.now(), vol: vol };
+      return;
+    }
+    reproducir(nombre, vol);
   }
 
   function confeti() {
@@ -185,7 +209,7 @@
       // localStorage no disponible: no pasa nada.
     }
     if (animado) {
-      tocar("ganaste", 0.95);
+      tocar("cuervos", 0.9);
       confeti();
       if (navigator.vibrate) navigator.vibrate([30, 40, 60]);
     }
@@ -260,9 +284,15 @@
   );
 
   dibujar();
-  window.addEventListener("load", function () {
-    setTimeout(crearAudio, 1200);
-  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        precargar();
+        io.disconnect();
+      }
+    }, { rootMargin: "400px" });
+    io.observe(offer);
+  }
   hub.addEventListener("click", girar);
   btn.addEventListener("click", girar);
 

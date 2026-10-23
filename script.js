@@ -227,9 +227,19 @@ function setupCarousels() {
     var last = 0;
     var down = null;
     var moved = false;
+    var visible = true;
+    var running = false;
+    var gw = 0;
+    var gwAt = 0;
 
+    // El ancho se mide como máximo una vez por segundo (no en cada cuadro).
     function width() {
-      return group.offsetWidth;
+      var now = Date.now();
+      if (!gw || now - gwAt > 1000) {
+        gw = group.offsetWidth;
+        gwAt = now;
+      }
+      return gw;
     }
 
     function wrap() {
@@ -245,6 +255,12 @@ function setupCarousels() {
     }
 
     function tick(t) {
+      // Fuera de la pantalla el carrusel se detiene para no gastar batería.
+      if (!visible) {
+        running = false;
+        last = 0;
+        return;
+      }
       var dt = last ? Math.min(t - last, 64) : 16;
       last = t;
       var g = width();
@@ -317,7 +333,17 @@ function setupCarousels() {
 
     function start() {
       if (!init()) return;
+      running = true;
       requestAnimationFrame(tick);
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          visible = entries[0].isIntersecting;
+          if (visible && !running) {
+            running = true;
+            requestAnimationFrame(tick);
+          }
+        }).observe(el);
+      }
     }
     if (document.readyState === "complete") start();
     else window.addEventListener("load", start);

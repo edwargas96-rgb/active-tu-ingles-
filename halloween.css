@@ -380,10 +380,18 @@ body {
   aspect-ratio: 1;
 }
 
+.hw-wheel-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 1%;
+  border-radius: 50%;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.5);
+}
+
 .hw-wheel {
+  position: relative;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.5));
   will-change: transform;
 }
 
