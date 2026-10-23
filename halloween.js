@@ -7,7 +7,7 @@
   var SEGMENTOS = [
     { top: "10%", bottom: "OFF" },
     { top: "25%", bottom: "OFF" },
-    { top: "US$ 10", bottom: "🎃", win: true },
+    { top: "US$ 10", bottom: "", win: true },
     { top: "40%", bottom: "OFF" },
     { top: "15%", bottom: "OFF" },
     { top: "50%", bottom: "OFF" },
@@ -49,7 +49,10 @@
       var big = s.win ? 21 : 26;
       svg += '<g transform="rotate(' + (a0 + PASO / 2) + ' 150 150)">' +
         '<text x="150" y="' + (s.win ? 52 : 54) + '" text-anchor="middle" font-size="' + big + '" fill="' + color + '">' + s.top + "</text>" +
-        '<text x="150" y="' + (s.win ? 76 : 72) + '" text-anchor="middle" font-size="' + (s.win ? 20 : 14) + '" fill="' + color + '">' + s.bottom + "</text></g>";
+        (s.win
+          ? '<image href="hw-pumpkin.svg" x="137" y="58" width="26" height="26"/>'
+          : '<text x="150" y="72" text-anchor="middle" font-size="14" fill="' + color + '">' + s.bottom + "</text>") +
+        "</g>";
     });
     for (var k = 0; k < 16; k++) {
       var b = polar(141, k * 22.5 + 11.25);
@@ -65,29 +68,44 @@
     return 360 - (GANADOR * PASO + PASO / 2);
   }
 
+  // Sonidos: fantasma mientras gira, "tic" en cada casilla y risa de bruja al ganar.
   var audio = null;
-  function sonido(freq, dur, tipo, vol) {
+  var buffers = {};
+  function crearAudio() {
+    if (audio) return audio;
+    var Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    audio = new Ctx();
+    ["fantasma", "tic", "ganaste"].forEach(function (n) {
+      fetch("hw-" + n + ".mp3")
+        .then(function (r) { return r.arrayBuffer(); })
+        .then(function (b) {
+          audio.decodeAudioData(b, function (buf) { buffers[n] = buf; }, function () {});
+        })
+        .catch(function () {});
+    });
+    return audio;
+  }
+
+  // Se llama dentro del toque de la persona (requisito de los navegadores para sonar).
+  function activarAudio() {
+    var a = crearAudio();
+    if (a && a.state === "suspended") a.resume();
+  }
+
+  function tocar(nombre, vol) {
+    if (!audio || !buffers[nombre]) return;
     try {
-      if (!audio) audio = new (window.AudioContext || window.webkitAudioContext)();
-      var o = audio.createOscillator();
+      var src = audio.createBufferSource();
       var g = audio.createGain();
-      o.type = tipo || "square";
-      o.frequency.value = freq;
-      g.gain.setValueAtTime(vol || 0.05, audio.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + dur);
-      o.connect(g);
+      src.buffer = buffers[nombre];
+      g.gain.value = vol;
+      src.connect(g);
       g.connect(audio.destination);
-      o.start();
-      o.stop(audio.currentTime + dur);
+      src.start();
     } catch (e) {
       // Sin audio: la ruleta funciona igual.
     }
-  }
-
-  function fanfarria() {
-    [523, 659, 784, 1046].forEach(function (f, i) {
-      setTimeout(function () { sonido(f, 0.28, "triangle", 0.09); }, i * 110);
-    });
   }
 
   function confeti() {
@@ -103,7 +121,11 @@
     var ctx = c.getContext("2d");
     ctx.scale(dpr, dpr);
     var cols = ["#ff7a1a", "#ffc93c", "#7bd94b", "#9b5de5", "#ffffff"];
-    var emojis = ["🎃", "🦇", "👻", "🍬"];
+    var figuras = ["hw-pumpkin.svg", "hw-bat.svg"].map(function (src) {
+      var im = new Image();
+      im.src = src;
+      return im;
+    });
     var box = wheel.getBoundingClientRect();
     var ox = box.left + box.width / 2;
     var oy = box.top + box.height / 2;
@@ -116,7 +138,7 @@
         r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.3,
         w: 6 + Math.random() * 6, h: 4 + Math.random() * 4,
         c: cols[i % cols.length],
-        e: i % 9 === 0 ? emojis[(i / 9) % emojis.length | 0] : null,
+        e: i % 9 === 0 ? figuras[(i / 9) % figuras.length | 0] : null,
       });
     }
     var t0 = performance.now();
@@ -134,8 +156,7 @@
         ctx.translate(p.x, p.y);
         ctx.rotate(p.r);
         if (p.e) {
-          ctx.font = "26px serif";
-          ctx.fillText(p.e, -13, 9);
+          if (p.e.complete) ctx.drawImage(p.e, -15, -15, 30, 30);
         } else {
           ctx.fillStyle = p.c;
           ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
@@ -152,7 +173,7 @@
     offer.classList.add("hw-won");
     document.documentElement.classList.add("hw-unlocked");
     hub.disabled = true;
-    hub.textContent = "🎃";
+    hub.innerHTML = '<img src="hw-pumpkin.svg" alt="" />';
     if (heroCta) {
       heroCta.classList.add("hw-pulse");
       var txt = heroCta.firstChild;
@@ -164,7 +185,7 @@
       // localStorage no disponible: no pasa nada.
     }
     if (animado) {
-      fanfarria();
+      tocar("ganaste", 0.95);
       confeti();
       if (navigator.vibrate) navigator.vibrate([30, 40, 60]);
     }
@@ -174,6 +195,8 @@
   function girar() {
     if (girando || offer.classList.contains("hw-won")) return;
     girando = true;
+    activarAudio();
+    tocar("fantasma", 0.55);
     btn.disabled = true;
     hub.disabled = true;
     var reducido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -191,7 +214,7 @@
       var seg = Math.floor(rot / PASO);
       if (seg !== ultimo) {
         ultimo = seg;
-        sonido(1400, 0.03, "square", 0.035);
+        tocar("tic", 0.35);
         pointer.classList.add("tick");
         setTimeout(function () { pointer.classList.remove("tick"); }, 60);
       }
@@ -230,12 +253,16 @@
       if (!a) return;
       e.preventDefault();
       e.stopPropagation();
+      activarAudio();
       irARuleta();
     },
     true
   );
 
   dibujar();
+  window.addEventListener("load", function () {
+    setTimeout(crearAudio, 1200);
+  });
   hub.addEventListener("click", girar);
   btn.addEventListener("click", girar);
 

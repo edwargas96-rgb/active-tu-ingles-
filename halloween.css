@@ -204,6 +204,102 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
+/* ---------- Gancho de Halloween ---------- */
+.hw-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--hw-gold);
+}
+
+.hw-kicker::before,
+.hw-kicker::after {
+  content: "";
+  width: 34px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255, 122, 26, 0), var(--hw-orange));
+}
+
+.hw-kicker::after {
+  transform: scaleX(-1);
+}
+
+.hero-inner h1.hw-hook {
+  margin-top: 10px;
+  max-width: 660px;
+  font-size: 31px;
+  line-height: 1.14;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hw-hook-main {
+  display: block;
+}
+
+.hw-llorona {
+  font-family: var(--font-spooky);
+  font-weight: 400;
+  font-size: 1.14em;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: #ff8a2a;
+  text-shadow: 0 0 18px rgba(255, 122, 26, 0.45), 0 3px 0 #000;
+}
+
+.hw-hook-sub {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.6em;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--hw-text);
+}
+
+.hw-metodo {
+  white-space: nowrap;
+  color: #fff;
+  background: linear-gradient(transparent 60%, rgba(255, 122, 26, 0.6) 60%);
+  padding: 0 1px;
+}
+
+.hw-ghost {
+  position: absolute;
+  top: 70px;
+  right: -24px;
+  width: 130px;
+  opacity: 0.13;
+  filter: drop-shadow(0 0 14px rgba(220, 230, 255, 0.9));
+  animation: hw-float 7s ease-in-out infinite;
+}
+
+@keyframes hw-float {
+  0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+  50% { transform: translate(-14px, 14px) rotate(2deg); }
+}
+
+@media (min-width: 900px) {
+  .hero-inner h1.hw-hook {
+    font-size: 42px;
+  }
+  .hw-kicker {
+    font-size: 14px;
+  }
+  .hw-ghost {
+    top: 150px;
+    right: 6%;
+    width: 170px;
+    opacity: 0.16;
+  }
+}
+
 /* ---------- Tarjeta de oferta + ruleta ---------- */
 .hero-offer.hw-offer {
   position: relative;
@@ -363,6 +459,33 @@ body {
   cursor: pointer;
   box-shadow: 0 8px 0 #b7841a, 0 14px 24px rgba(0, 0, 0, 0.35);
   animation: hw-nudge 1.6s ease-in-out infinite;
+}
+
+.hw-spin-btn,
+.hw-ribbon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hw-spin-btn::before,
+.hw-ribbon::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(hw-pumpkin.svg) center / contain no-repeat;
+}
+
+.hw-ribbon::before {
+  width: 18px;
+  height: 18px;
+}
+
+.hw-hub img {
+  width: 44px;
+  height: 44px;
+  margin: auto;
 }
 
 .hw-spin-btn:active {
@@ -529,12 +652,13 @@ html:not(.hw-js) .hw-value {
 }
 
 .hw-spider::after {
-  content: "🕷️";
+  content: "";
   position: absolute;
-  bottom: -22px;
-  left: -13px;
-  font-size: 26px;
-  line-height: 1;
+  bottom: -26px;
+  left: -15px;
+  width: 32px;
+  height: 32px;
+  background: url(hw-spider.svg) center / contain no-repeat;
 }
 
 @keyframes hw-dangle {
@@ -553,7 +677,6 @@ html:not(.hw-js) .hw-value {
 
 /* Bloque de precio */
 .hw-ribbon {
-  display: block;
   width: fit-content;
   margin: 0 auto 12px;
   padding: 6px 16px;
@@ -712,6 +835,7 @@ html:not(.hw-js) .hw-value {
 @media (prefers-reduced-motion: reduce) {
   .hw-bat,
   .hw-bat img,
+  .hw-ghost,
   .hw-sky::before,
   .hw-spider,
   .hw-bulb,
