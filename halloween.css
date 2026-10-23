@@ -381,6 +381,30 @@ body {
   50% { transform: scale(1.03); }
 }
 
+/* Precios: US$ 87 hasta girar la ruleta, US$ 10 después (sin JavaScript, US$ 10 directo). */
+.hw-js:not(.hw-unlocked) .hw-post,
+.hw-unlocked .hw-pre,
+html:not(.hw-js) .hw-pre {
+  display: none !important;
+}
+
+.hw-js:not(.hw-unlocked) .price-total-row {
+  display: none;
+}
+
+.hw-hint {
+  margin: 8px 0 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--hw-orange-dark);
+}
+
+.final-cta .hw-hint {
+  color: var(--hw-gold);
+}
+
 /* Resultado: oculto hasta girar (si no hay JavaScript, se ve directo). */
 .hw-js .hw-result {
   display: none;

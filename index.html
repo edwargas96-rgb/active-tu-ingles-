@@ -75,7 +75,7 @@
     <link rel="preload" as="image" href="hero-poster.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="halloween.css" />
-    <script>document.documentElement.classList.add("hw-js");</script>
+    <script>document.documentElement.classList.add("hw-js");try{if(localStorage.getItem("att_ruleta_halloween")==="1")document.documentElement.classList.add("hw-unlocked")}catch(e){}</script>
   </head>
   <body>
     <!-- Franja de urgencia: contador de 24h que se reinicia por sesión/visitante (localStorage), nunca una fecha límite fija engañosa. -->
@@ -1097,10 +1097,11 @@
               <span class="price-total-value">US$ 87</span>
             </div>
             <div class="price-final-row">
-              <span>Precio de Halloween:</span>
-              <span class="price-final-value">US$ 10</span>
-              <span class="price-final-note">pago único</span>
+              <span><span class="hw-pre">Valor total:</span><span class="hw-post">Precio de Halloween:</span></span>
+              <span class="price-final-value"><span class="hw-pre">US$ 87</span><span class="hw-post">US$ 10</span></span>
+              <span class="price-final-note hw-post">pago único</span>
             </div>
+            <p class="hw-pre hw-hint">🎃 Gira la ruleta de Halloween y recibe tu descuento</p>
 
             <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta cta-block" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}">
               Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -1192,7 +1193,7 @@
             </details>
             <details class="faq-item">
               <summary>¿El pago es único o es una suscripción?</summary>
-              <p>Pago único de US$ 10. Sin mensualidades, acceso de por vida.</p>
+              <p><span class="hw-pre">Pago único: pagas una sola vez, sin mensualidades, y tienes acceso de por vida.</span><span class="hw-post">Pago único de US$ 10. Sin mensualidades, acceso de por vida.</span></p>
             </details>
             <details class="faq-item">
               <summary>¿Los bonos están incluidos?</summary>
@@ -1215,7 +1216,8 @@
             🎃 Promoción de Halloween por tiempo limitado. Termina en:
             <span id="countdown-final" class="countdown-clock">24:00:00</span>
           </p>
-          <p class="hero-price"><strong>Hoy US$ 10</strong></p>
+          <p class="hero-price"><strong><span class="hw-pre">Valor total US$ 87</span><span class="hw-post">Hoy US$ 10</span></strong></p>
+          <p class="hw-pre hw-hint">🎃 Gira la ruleta de Halloween y recibe tu descuento</p>
 
           <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:7.99,currency:'USD'});}">
             Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -1227,7 +1229,7 @@
 
     <!-- Barra fija (solo celular): aparece al pasar el hero -->
     <div class="sticky-buy" id="sticky-buy" aria-hidden="true">
-      <span class="sticky-buy-text"><strong>US$ 10</strong> · Garantía 7 días</span>
+      <span class="sticky-buy-text"><strong><span class="hw-pre">US$ 87</span><span class="hw-post">US$ 10</span></strong> · Garantía 7 días</span>
       <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta" tabindex="-1">Comprar</a>
     </div>
 
@@ -1241,9 +1243,9 @@
           garantiza ningún resultado específico; los resultados varían según la dedicación de cada estudiante.
         </p>
         <p class="hw-disclaimer">
-          🎃 Sobre la ruleta de Halloween: es un elemento interactivo de esta página y siempre se detiene en el
-          mismo resultado (US$ 10). No es un sorteo: todas las personas reciben el mismo precio de la promoción,
-          giren o no la ruleta.
+          🎃 Sobre la ruleta de Halloween: es un elemento interactivo de esta página. Antes de girarla, la página
+          muestra el valor total del paquete (US$ 87), y la ruleta siempre se detiene en el mismo resultado (US$ 10).
+          No es un sorteo: el precio de la promoción es US$ 10 para todas las personas.
         </p>
         <p class="footer-copyright">© 2026 Activa tu Inglés. Todos los derechos reservados.</p>
         <!-- TODO: enlazar estas páginas cuando existan. -->

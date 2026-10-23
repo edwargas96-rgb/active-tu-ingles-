@@ -150,6 +150,7 @@
 
   function ganar(animado) {
     offer.classList.add("hw-won");
+    document.documentElement.classList.add("hw-unlocked");
     hub.disabled = true;
     hub.textContent = "🎃";
     if (heroCta) {
@@ -202,6 +203,37 @@
     }
     requestAnimationFrame(frame);
   }
+
+  // Mientras no haya girado, cualquier botón de compra lleva a la ruleta y la gira sola.
+  function irARuleta() {
+    var reducido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var wrap = offer.querySelector(".hw-wheel-wrap");
+    wrap.scrollIntoView({ behavior: reducido ? "auto" : "smooth", block: "center" });
+    var ultimoY = -1;
+    var quieto = 0;
+    var t0 = performance.now();
+    function esperar() {
+      var y = window.scrollY;
+      quieto = Math.abs(y - ultimoY) < 1 ? quieto + 1 : 0;
+      ultimoY = y;
+      if (quieto >= 6 || performance.now() - t0 > 1800) setTimeout(girar, 150);
+      else requestAnimationFrame(esperar);
+    }
+    requestAnimationFrame(esperar);
+  }
+
+  window.addEventListener(
+    "click",
+    function (e) {
+      if (offer.classList.contains("hw-won")) return;
+      var a = e.target.closest ? e.target.closest("a[data-checkout]") : null;
+      if (!a) return;
+      e.preventDefault();
+      e.stopPropagation();
+      irARuleta();
+    },
+    true
+  );
 
   dibujar();
   hub.addEventListener("click", girar);
