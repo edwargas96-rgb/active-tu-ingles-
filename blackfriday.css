@@ -1,5 +1,6 @@
 /* ============================================================
-   Tema Black Friday anticipado (temporal).
+   Black Friday anticipado (temporal): la página usa sus colores
+   originales y solo la tarjeta de la ruleta lleva la estética negra y dorada.
    Reutiliza las clases hw-* del tema de Halloween para no tocar el
    resto de la página. Para volver a la página normal: quitar
    blackfriday.css y blackfriday.js del index.html y el bloque de la
@@ -19,71 +20,6 @@
   --font-spooky: "Anton", "Baloo 2", sans-serif;
 }
 
-body {
-  background-color: #faf8f3;
-  background-image: radial-gradient(circle, #ebe5d8 1px, transparent 1px);
-}
-
-/* ---------- Franja superior ---------- */
-.urgency-bar {
-  background: var(--hw-ink);
-  color: #fff;
-}
-
-.urgency-bar .countdown-clock {
-  color: var(--hw-orange);
-}
-
-.topbar {
-  background: repeating-linear-gradient(-45deg, var(--hw-orange) 0 12px, var(--hw-ink) 12px 24px);
-}
-
-/* ---------- Botones: se mantiene el rojo de la marca, que resalta sobre negro y blanco ---------- */
-
-/* El separador de los títulos pasa a ser dorado */
-.accent {
-  background: var(--hw-gold);
-}
-
-/* ---------- HERO nocturno ---------- */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 56px;
-  background:
-    radial-gradient(70% 40% at 50% 105%, rgba(255, 201, 60, 0.16), transparent 70%),
-    radial-gradient(120% 90% at 85% 0%, #2a2618 0%, var(--hw-night-2) 40%, var(--hw-night) 100%);
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  color: #fff;
-}
-
-.hero .h1-accent {
-  color: var(--hw-gold);
-}
-
-.hero .h1-rest {
-  color: var(--hw-text);
-}
-
-.hero .sub {
-  color: var(--hw-text-soft);
-}
-
-.hero .sub strong {
-  color: #fff;
-}
-
-.hero-video-wrap {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
 /* ---------- Gancho Black Friday ---------- */
 .hw-kicker {
   display: flex;
@@ -95,7 +31,7 @@ body {
   font-weight: 800;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--hw-gold);
+  color: #16215c;
 }
 
 .hw-kicker::before,
@@ -116,8 +52,7 @@ body {
   max-width: 660px;
   font-size: 31px;
   line-height: 1.14;
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  color: #16215c;
 }
 
 .hw-hook-main {
@@ -132,7 +67,9 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--hw-gold);
-  text-shadow: 0 3px 0 #000;
+  background: #0b0b0b;
+  border-radius: 8px;
+  padding: 0 10px;
 }
 
 .hw-hook-sub {
@@ -141,13 +78,13 @@ body {
   font-size: 0.6em;
   font-weight: 700;
   line-height: 1.4;
-  color: var(--hw-text);
+  color: #565f7a;
 }
 
 .hw-metodo {
   white-space: nowrap;
-  color: #fff;
-  background: linear-gradient(transparent 60%, rgba(230, 57, 70, 0.75) 60%);
+  color: #16215c;
+  background: linear-gradient(transparent 60%, rgba(230, 57, 70, 0.35) 60%);
   padding: 0 1px;
 }
 
@@ -393,10 +330,6 @@ html:not(.hw-js) .hw-pre {
   color: #a37a0a;
 }
 
-.final-cta .hw-hint {
-  color: var(--hw-gold);
-}
-
 /* Resultado: oculto hasta girar (si no hay JavaScript, se ve directo). */
 .hw-js .hw-result {
   display: none;
@@ -472,24 +405,6 @@ html:not(.hw-js) .hw-value {
   50% { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(255, 201, 60, 0.3), 0 18px 34px rgba(230, 57, 70, 0.45); }
 }
 
-/* ---------- Secciones ---------- */
-.section.muted {
-  position: relative;
-  overflow: hidden;
-  background: #f3f0e8;
-  border-color: #e4ddcc;
-}
-
-.section.muted > .section-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.ejemplos-dark {
-  background:
-    linear-gradient(180deg, var(--hw-night) 0%, var(--hw-night-2) 100%);
-}
-
 /* Bloque de precio */
 .hw-ribbon {
   width: fit-content;
@@ -503,85 +418,6 @@ html:not(.hw-js) .hw-value {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.price-final-value {
-  color: #e63946 !important;
-}
-
-/* CTA final nocturno */
-.final-cta {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(80% 50% at 50% 110%, rgba(255, 201, 60, 0.16), transparent 70%),
-    linear-gradient(180deg, var(--hw-night-2) 0%, var(--hw-night) 100%);
-}
-
-.final-cta > .section-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.final-cta h2 {
-  color: #fff;
-}
-
-.final-cta .section-sub,
-.final-cta .cta-microcopy {
-  color: var(--hw-text-soft);
-}
-
-.final-cta .hero-price strong {
-  color: var(--hw-gold);
-}
-
-.final-cta .countdown-clock {
-  color: var(--hw-orange);
-}
-
-/* Pie de página */
-.footer {
-  background: var(--hw-night);
-  border-top: 0;
-}
-
-.footer-inner p {
-  color: var(--hw-text-soft);
-}
-
-.footer-legal,
-.footer-copyright {
-  color: #8f8a7e !important;
-}
-
-.footer-links a {
-  color: var(--hw-text) !important;
-}
-
-.footer-logo-img {
-  border-radius: 12px;
-}
-
-.hw-disclaimer {
-  max-width: 640px;
-  margin: 18px auto 0 !important;
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 201, 60, 0.35);
-  border-radius: 12px;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  letter-spacing: normal !important;
-  text-transform: none !important;
-  line-height: 1.55;
-  color: var(--hw-text) !important;
-}
-
-/* Barra fija del celular */
-@media (max-width: 767px) {
-  .sticky-buy-text strong {
-    color: #e63946;
-  }
 }
 
 @media (min-width: 900px) {
@@ -598,30 +434,15 @@ html:not(.hw-js) .hw-value {
   }
 }
 
-/* Cabecera integrada al tema oscuro: en el celular se oculta (solo tenía el logo
-   y empujaba el contenido hacia abajo); en la computadora queda negra con el
-   logo en una pastilla blanca. */
-.nav {
-  background: #0a0a0a;
-  border-bottom: 1px solid rgba(255, 196, 0, 0.18);
-}
-
-.nav-links a {
-  color: #f2f2f2;
-}
-
-.nav .logo {
-  background: #fff;
+.hw-disclaimer {
+  max-width: 640px;
+  margin: 18px auto 0 !important;
+  padding: 12px 14px;
+  border: 1px solid #dfe3f2;
   border-radius: 12px;
-  padding: 4px 8px;
-}
-
-.nav-logo-img {
-  height: 34px;
-}
-
-@media (max-width: 767px) {
-  .nav {
-    display: none;
-  }
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  line-height: 1.55;
 }
