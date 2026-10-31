@@ -1,0 +1,599 @@
+/* ============================================================
+   Tema Black Friday anticipado (temporal).
+   Reutiliza las clases hw-* del tema de Halloween para no tocar el
+   resto de la página. Para volver a la página normal: quitar
+   blackfriday.css y blackfriday.js del index.html y el bloque de la
+   ruleta del hero.
+   ============================================================ */
+
+:root {
+  /* Nombres heredados del tema de Halloween: "orange" ahora es el dorado. */
+  --hw-orange: #ffc93c;
+  --hw-orange-dark: #c99a12;
+  --hw-gold: #ffc93c;
+  --hw-night: #0b0b0b;
+  --hw-night-2: #1a1a1a;
+  --hw-ink: #0b0b0b;
+  --hw-text: #e7e3d8;
+  --hw-text-soft: #b3ada0;
+  --font-spooky: "Anton", "Baloo 2", sans-serif;
+}
+
+body {
+  background-color: #faf8f3;
+  background-image: radial-gradient(circle, #ebe5d8 1px, transparent 1px);
+}
+
+/* ---------- Franja superior ---------- */
+.urgency-bar {
+  background: var(--hw-ink);
+  color: #fff;
+}
+
+.urgency-bar .countdown-clock {
+  color: var(--hw-orange);
+}
+
+.topbar {
+  background: repeating-linear-gradient(-45deg, var(--hw-orange) 0 12px, var(--hw-ink) 12px 24px);
+}
+
+/* ---------- Botones: se mantiene el rojo de la marca, que resalta sobre negro y blanco ---------- */
+
+/* El separador de los títulos pasa a ser dorado */
+.accent {
+  background: var(--hw-gold);
+}
+
+/* ---------- HERO nocturno ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56px;
+  background:
+    radial-gradient(70% 40% at 50% 105%, rgba(255, 201, 60, 0.16), transparent 70%),
+    radial-gradient(120% 90% at 85% 0%, #2a2618 0%, var(--hw-night-2) 40%, var(--hw-night) 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  color: #fff;
+}
+
+.hero .h1-accent {
+  color: var(--hw-gold);
+}
+
+.hero .h1-rest {
+  color: var(--hw-text);
+}
+
+.hero .sub {
+  color: var(--hw-text-soft);
+}
+
+.hero .sub strong {
+  color: #fff;
+}
+
+.hero-video-wrap {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Gancho Black Friday ---------- */
+.hw-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--hw-gold);
+}
+
+.hw-kicker::before,
+.hw-kicker::after {
+  content: "";
+  width: 34px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255, 201, 60, 0), var(--hw-gold));
+}
+
+.hw-kicker::after {
+  transform: scaleX(-1);
+}
+
+.hero-inner h1.hw-hook {
+  margin-top: 10px;
+  max-width: 660px;
+  font-size: 31px;
+  line-height: 1.14;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hw-hook-main {
+  display: block;
+}
+
+.hw-llorona {
+  font-family: var(--font-spooky);
+  font-weight: 400;
+  font-size: 1.08em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--hw-gold);
+  text-shadow: 0 3px 0 #000;
+}
+
+.hw-hook-sub {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.6em;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--hw-text);
+}
+
+.hw-metodo {
+  white-space: nowrap;
+  color: #fff;
+  background: linear-gradient(transparent 60%, rgba(230, 57, 70, 0.75) 60%);
+  padding: 0 1px;
+}
+
+@media (min-width: 900px) {
+  .hero-inner h1.hw-hook {
+    font-size: 42px;
+  }
+  .hw-kicker {
+    font-size: 14px;
+  }
+}
+
+/* ---------- Tarjeta de oferta + ruleta ---------- */
+.hero-offer.hw-offer {
+  position: relative;
+  text-align: center;
+  padding: 18px 16px 18px;
+  border: 2px solid var(--hw-orange);
+  background: rgba(16, 16, 16, 0.9);
+  box-shadow: 0 0 0 4px rgba(255, 201, 60, 0.12), 0 20px 44px rgba(0, 0, 0, 0.5);
+  color: var(--hw-text);
+}
+
+.hw-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.hw-badge-title {
+  font-family: var(--font-spooky);
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--hw-gold);
+  text-shadow: 0 3px 0 #000;
+}
+
+.hw-badge-sub {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--hw-orange);
+  color: var(--hw-ink);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hw-offer .hero-offer-line {
+  margin-top: 12px !important;
+  color: var(--hw-text);
+}
+
+.hw-offer .hero-offer-line strong {
+  color: #fff;
+}
+
+.hw-value {
+  margin-top: 8px !important;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hw-text-soft);
+}
+
+.hw-value-num {
+  display: block;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.hw-wheel-title {
+  margin-top: 10px !important;
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+}
+
+.hw-wheel-wrap {
+  position: relative;
+  width: min(290px, 100%);
+  margin: 14px auto 0;
+  aspect-ratio: 1;
+}
+
+.hw-wheel-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 1%;
+  border-radius: 50%;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.5);
+}
+
+.hw-wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.hw-wheel text {
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.hw-bulb {
+  fill: #ffe9a8;
+  animation: hw-bulb 0.9s steps(1) infinite;
+}
+
+.hw-bulb.alt {
+  animation-delay: 0.45s;
+}
+
+@keyframes hw-bulb {
+  0% { fill: #fff3c4; }
+  50% { fill: #8a5a10; }
+}
+
+.hw-pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 2;
+  width: 34px;
+  height: 44px;
+  margin-left: -17px;
+  background: linear-gradient(180deg, #fff6d6, var(--hw-gold));
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.5));
+  transform-origin: 50% 0;
+  transition: transform 0.08s ease-out;
+}
+
+.hw-pointer.tick {
+  transform: rotate(-16deg);
+}
+
+.hw-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  border: 4px solid var(--hw-ink);
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #ff6b75, #e63946 60%, #a5161f);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45), inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.hw-spin-btn {
+  margin-top: 16px;
+  width: 100%;
+  min-height: 52px;
+  border: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fff1c2 0%, var(--hw-gold) 100%);
+  color: var(--hw-ink);
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #b7841a, 0 14px 24px rgba(0, 0, 0, 0.35);
+  animation: hw-nudge 1.6s ease-in-out infinite;
+}
+
+.hw-spin-btn,
+.hw-ribbon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hw-spin-btn::before,
+.hw-ribbon::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(bf-tag.svg) center / contain no-repeat;
+}
+
+.hw-ribbon::before {
+  width: 18px;
+  height: 18px;
+}
+
+.hw-hub img {
+  width: 44px;
+  height: 44px;
+  margin: auto;
+}
+
+.hw-spin-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #b7841a;
+}
+
+.hw-spin-btn:disabled,
+.hw-hub:disabled {
+  cursor: default;
+  animation: none;
+}
+
+@keyframes hw-nudge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Precios: US$ 87 hasta girar la ruleta, US$ 10 después (sin JavaScript, US$ 10 directo). */
+.hw-js:not(.hw-unlocked) .hw-post,
+.hw-unlocked .hw-pre,
+html:not(.hw-js) .hw-pre {
+  display: none !important;
+}
+
+.hw-js:not(.hw-unlocked) .price-total-row {
+  display: none;
+}
+
+.hw-hint {
+  margin: 8px 0 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  color: #a37a0a;
+}
+
+.final-cta .hw-hint {
+  color: var(--hw-gold);
+}
+
+/* Resultado: oculto hasta girar (si no hay JavaScript, se ve directo). */
+.hw-js .hw-result {
+  display: none;
+}
+
+html:not(.hw-js) .hw-wheel-block,
+html:not(.hw-js) .hw-value {
+  display: none;
+}
+
+.hw-won .hw-result {
+  display: block;
+  animation: hw-pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.hw-won .hw-value,
+.hw-won .hw-wheel-title {
+  display: none;
+}
+
+.hw-won .hw-spin-btn {
+  display: none;
+}
+
+.hw-result {
+  margin-top: 14px;
+}
+
+.hw-result-kicker {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--hw-gold);
+}
+
+.hw-offer .hero-offer-prices {
+  justify-content: center;
+}
+
+.hw-offer .hero-offer-old {
+  color: var(--hw-text-soft);
+  font-size: 18px;
+}
+
+.hw-offer .hero-offer-now {
+  font-size: 60px;
+  color: var(--hw-gold);
+  text-shadow: 0 4px 0 #000;
+}
+
+.hw-offer .hero-offer-note {
+  color: var(--hw-text-soft);
+}
+
+@keyframes hw-pop {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.hw-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.cta.hw-pulse {
+  animation: hw-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes hw-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 14px 28px rgba(230, 57, 70, 0.35); }
+  50% { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(255, 201, 60, 0.3), 0 18px 34px rgba(230, 57, 70, 0.45); }
+}
+
+/* ---------- Secciones ---------- */
+.section.muted {
+  position: relative;
+  overflow: hidden;
+  background: #f3f0e8;
+  border-color: #e4ddcc;
+}
+
+.section.muted > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.ejemplos-dark {
+  background:
+    linear-gradient(180deg, var(--hw-night) 0%, var(--hw-night-2) 100%);
+}
+
+/* Bloque de precio */
+.hw-ribbon {
+  width: fit-content;
+  margin: 0 auto 12px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--hw-ink);
+  color: var(--hw-orange);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.price-final-value {
+  color: #e63946 !important;
+}
+
+/* CTA final nocturno */
+.final-cta {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 50% at 50% 110%, rgba(255, 201, 60, 0.16), transparent 70%),
+    linear-gradient(180deg, var(--hw-night-2) 0%, var(--hw-night) 100%);
+}
+
+.final-cta > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta h2 {
+  color: #fff;
+}
+
+.final-cta .section-sub,
+.final-cta .cta-microcopy {
+  color: var(--hw-text-soft);
+}
+
+.final-cta .hero-price strong {
+  color: var(--hw-gold);
+}
+
+.final-cta .countdown-clock {
+  color: var(--hw-orange);
+}
+
+/* Pie de página */
+.footer {
+  background: var(--hw-night);
+  border-top: 0;
+}
+
+.footer-inner p {
+  color: var(--hw-text-soft);
+}
+
+.footer-legal,
+.footer-copyright {
+  color: #8f8a7e !important;
+}
+
+.footer-links a {
+  color: var(--hw-text) !important;
+}
+
+.footer-logo-img {
+  border-radius: 12px;
+}
+
+.hw-disclaimer {
+  max-width: 640px;
+  margin: 18px auto 0 !important;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 201, 60, 0.35);
+  border-radius: 12px;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  line-height: 1.55;
+  color: var(--hw-text) !important;
+}
+
+/* Barra fija del celular */
+@media (max-width: 767px) {
+  .sticky-buy-text strong {
+    color: #e63946;
+  }
+}
+
+@media (min-width: 900px) {
+  .hw-offer .hw-wheel-wrap {
+    width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-bulb,
+  .hw-spin-btn,
+  .cta.hw-pulse {
+    animation: none !important;
+  }
+}
