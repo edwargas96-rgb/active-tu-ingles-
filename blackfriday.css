@@ -491,3 +491,42 @@ html:not(.hw-js) .hw-value {
 .hw-tapes + .cta {
   margin-top: 14px;
 }
+
+/* Celular: logo y "Black Friday anticipado" en una sola línea para ocupar menos espacio */
+@media (max-width: 767px) {
+  .nav-inner {
+    padding: 8px 16px;
+    gap: 12px;
+  }
+  .nav-logo-img {
+    height: 34px;
+  }
+  .nav-inner::after {
+    content: "BLACK FRIDAY ANTICIPADO";
+    flex: 1;
+    text-align: right;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: #16215c;
+  }
+  .hero-inner .hw-kicker {
+    display: none;
+  }
+  .hero {
+    padding-top: 16px;
+  }
+}
+
+/* Cinta negra y amarilla como detalle en toda la página */
+.topbar {
+  height: 8px;
+  background: repeating-linear-gradient(-45deg, #ffc93c 0 12px, #0b0b0b 12px 24px);
+}
+
+main > section + section,
+.footer {
+  border-top: 10px solid #0b0b0b;
+  border-image: repeating-linear-gradient(-45deg, #ffc93c 0 14px, #0b0b0b 14px 28px) 10;
+}
