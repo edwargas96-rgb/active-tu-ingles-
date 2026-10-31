@@ -446,3 +446,48 @@ html:not(.hw-js) .hw-value {
   text-transform: none !important;
   line-height: 1.55;
 }
+
+/* Detalle: dos cintas negras y amarillas cruzadas por detrás de la ruleta */
+.hw-tapes {
+  position: relative;
+  isolation: isolate;
+  max-width: 460px;
+}
+
+.hw-tapes::before,
+.hw-tapes::after {
+  content: "";
+  position: absolute;
+  left: -40px;
+  right: -40px;
+  height: 26px;
+  z-index: -1;
+  background: repeating-linear-gradient(-45deg, #ffc93c 0 18px, #0b0b0b 18px 36px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.hw-tapes::before {
+  top: 24%;
+  transform: rotate(-7deg);
+}
+
+.hw-tapes::after {
+  bottom: 22%;
+  transform: rotate(6deg);
+}
+
+.hero {
+  overflow-x: hidden;
+}
+
+@media (max-width: 899px) {
+  .hero-inner .hw-tapes {
+    order: 4;
+    max-width: none;
+  }
+}
+
+.hw-tapes + .cta {
+  margin-top: 14px;
+}
