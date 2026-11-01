@@ -769,3 +769,118 @@ html:not(.hw-js) .hw-value {
     animation: none;
   }
 }
+
+/* ============ Toques de Black Friday: cinta negra y amarilla como detalle ============ */
+:root {
+  --bf-tape: repeating-linear-gradient(-45deg, #ffc93c 0 10px, #0b0b0b 10px 20px);
+}
+
+/* Tarjeta de la ruleta "sellada" con cinta arriba y abajo */
+.hero-offer.hw-offer {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.hero-offer.hw-offer::before,
+.hero-offer.hw-offer::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  height: 10px;
+  background: var(--bf-tape);
+  pointer-events: none;
+}
+
+.hero-offer.hw-offer::before {
+  top: -2px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.hero-offer.hw-offer::after {
+  bottom: -2px;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+/* Pedacitos de cinta en las esquinas de algunas secciones, como detalle */
+#dolor,
+#incluye,
+#bonos,
+#comprar,
+#garantia,
+#cta-final {
+  position: relative;
+  overflow-x: clip;
+}
+
+#dolor > .section-inner,
+#incluye > .section-inner,
+#bonos > .section-inner,
+#comprar > .section-inner,
+#garantia > .section-inner,
+#cta-final > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+#dolor::before,
+#incluye::before,
+#bonos::before,
+#comprar::before,
+#garantia::before,
+#cta-final::before,
+#cta-final::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  width: 120px;
+  height: 14px;
+  background: var(--bf-tape);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* izquierda */
+#dolor::before,
+#bonos::before,
+#garantia::before,
+#cta-final::before {
+  left: -34px;
+  transform: rotate(-32deg);
+}
+
+/* derecha */
+#incluye::before,
+#comprar::before,
+#cta-final::after {
+  right: -34px;
+  transform: rotate(32deg);
+}
+
+@media (min-width: 900px) {
+  #dolor::before,
+  #incluye::before,
+  #bonos::before,
+  #comprar::before,
+  #garantia::before,
+  #cta-final::before,
+  #cta-final::after {
+    top: 26px;
+    width: 220px;
+    height: 20px;
+  }
+  #dolor::before,
+  #bonos::before,
+  #garantia::before,
+  #cta-final::before {
+    left: -50px;
+  }
+  #incluye::before,
+  #comprar::before,
+  #cta-final::after {
+    right: -50px;
+  }
+}

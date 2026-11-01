@@ -35,8 +35,10 @@
   }
 
   function dibujar() {
-    var svg = '<circle cx="150" cy="150" r="149" fill="#0f1a4d"/>' +
-      '<circle cx="150" cy="150" r="141" fill="none" stroke="#ffffff" stroke-width="3"/>';
+    // Aro exterior con cinta negra y amarilla de Black Friday
+    var svg = '<circle cx="150" cy="150" r="149" fill="#0b0b0b"/>' +
+      '<circle cx="150" cy="150" r="144" fill="none" stroke="#ffc93c" stroke-width="9" stroke-dasharray="11.31 11.31" transform="rotate(4 150 150)"/>' +
+      '<circle cx="150" cy="150" r="137" fill="#0f1a4d" stroke="#ffffff" stroke-width="2.5"/>';
     SEGMENTOS.forEach(function (s, i) {
       var a0 = i * PASO;
       var a1 = a0 + PASO;
@@ -55,10 +57,6 @@
           : '<text x="150" y="72" text-anchor="middle" font-size="14" fill="' + color + '">' + s.bottom + "</text>") +
         "</g>";
     });
-    for (var k = 0; k < 16; k++) {
-      var b = polar(141, k * 22.5 + 11.25);
-      svg += '<circle class="hw-bulb' + (k % 2 ? " alt" : "") + '" cx="' + b[0].toFixed(2) + '" cy="' + b[1].toFixed(2) + '" r="4.2"/>';
-    }
     wheel.innerHTML =
       '<defs><linearGradient id="hw-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset="1" stop-color="#ffc93c"/></linearGradient></defs>' +
       svg;
