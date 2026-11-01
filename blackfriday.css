@@ -902,3 +902,9 @@ html:not(.hw-js) .hw-value {
 .hw-spin-btn:active {
   box-shadow: 0 4px 0 #9a9aa3;
 }
+
+/* "Otro giro": el título se destaca en amarillo mientras espera el segundo giro */
+.hw-retry .hw-wheel-title {
+  color: #ffc93c;
+  animation: hw-pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
