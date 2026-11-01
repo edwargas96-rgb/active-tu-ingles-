@@ -15,7 +15,7 @@
     { top: "30%", bottom: "OFF" },
     { top: "60%", bottom: "OFF" },
   ];
-  var COLORES = ["#ffffff", "#1f2d75", "#dbe6fb", "#e63946"];
+  var COLORES = ["#e63946", "#ffffff"];
   var STORAGE_KEY = "att_ruleta_blackfriday";
   var N = SEGMENTOS.length;
   var PASO = 360 / N;
@@ -35,10 +35,9 @@
   }
 
   function dibujar() {
-    // Aro exterior con cinta negra y amarilla de Black Friday
-    var svg = '<circle cx="150" cy="150" r="149" fill="#0b0b0b"/>' +
-      '<circle cx="150" cy="150" r="144" fill="none" stroke="#ffc93c" stroke-width="9" stroke-dasharray="11.31 11.31" transform="rotate(4 150 150)"/>' +
-      '<circle cx="150" cy="150" r="137" fill="#0f1a4d" stroke="#ffffff" stroke-width="2.5"/>';
+    // Aro negro con luces, como un letrero de evento
+    var svg = '<circle cx="150" cy="150" r="149" fill="#111111"/>' +
+      '<circle cx="150" cy="150" r="136" fill="none" stroke="#2a2a2a" stroke-width="2"/>';
     SEGMENTOS.forEach(function (s, i) {
       var a0 = i * PASO;
       var a1 = a0 + PASO;
@@ -47,8 +46,8 @@
       var fill = s.win ? "url(#hw-gold)" : COLORES[i % COLORES.length];
       svg += '<path d="M150 150 L' + p0[0].toFixed(2) + " " + p0[1].toFixed(2) +
         " A132 132 0 0 1 " + p1[0].toFixed(2) + " " + p1[1].toFixed(2) +
-        ' Z" fill="' + fill + '" stroke="#0f1a4d" stroke-width="2"/>';
-      var color = s.win ? "#16215c" : i % 2 === 0 ? "#16215c" : "#ffffff";
+        ' Z" fill="' + fill + '" stroke="#111111" stroke-width="2"/>';
+      var color = s.win ? "#111111" : COLORES[i % COLORES.length] === "#ffffff" ? "#c1121f" : "#ffffff";
       var big = s.win ? 21 : 26;
       svg += '<g transform="rotate(' + (a0 + PASO / 2) + ' 150 150)">' +
         '<text x="150" y="' + (s.win ? 52 : 54) + '" text-anchor="middle" font-size="' + big + '" fill="' + color + '">' + s.top + "</text>" +
@@ -57,6 +56,10 @@
           : '<text x="150" y="72" text-anchor="middle" font-size="14" fill="' + color + '">' + s.bottom + "</text>") +
         "</g>";
     });
+    for (var k = 0; k < 20; k++) {
+      var b = polar(141.5, k * 18 + 9);
+      svg += '<circle class="hw-bulb' + (k % 2 ? " alt" : "") + '" cx="' + b[0].toFixed(2) + '" cy="' + b[1].toFixed(2) + '" r="3.8"/>';
+    }
     wheel.innerHTML =
       '<defs><linearGradient id="hw-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset="1" stop-color="#ffc93c"/></linearGradient></defs>' +
       svg;
@@ -166,7 +169,7 @@
     c.height = H * dpr;
     var ctx = c.getContext("2d");
     ctx.scale(dpr, dpr);
-    var cols = ["#e63946", "#16215c", "#ffffff", "#3a86ff", "#ffc93c"];
+    var cols = ["#e63946", "#ffffff", "#ffc93c", "#ff8a8a"];
     var figuras = ["bf-tag.svg"].map(function (src) {
       var im = new Image();
       im.src = src;

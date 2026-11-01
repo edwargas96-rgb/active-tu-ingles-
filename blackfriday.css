@@ -775,35 +775,6 @@ html:not(.hw-js) .hw-value {
   --bf-tape: repeating-linear-gradient(-45deg, #ffc93c 0 10px, #0b0b0b 10px 20px);
 }
 
-/* Tarjeta de la ruleta "sellada" con cinta arriba y abajo */
-.hero-offer.hw-offer {
-  padding-top: 26px;
-  padding-bottom: 26px;
-}
-
-.hero-offer.hw-offer::before,
-.hero-offer.hw-offer::after {
-  content: "";
-  position: absolute;
-  left: -2px;
-  right: -2px;
-  height: 10px;
-  background: var(--bf-tape);
-  pointer-events: none;
-}
-
-.hero-offer.hw-offer::before {
-  top: -2px;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-
-.hero-offer.hw-offer::after {
-  bottom: -2px;
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
-}
-
 /* Pedacitos de cinta en las esquinas de algunas secciones, como detalle */
 #dolor,
 #incluye,
@@ -883,4 +854,51 @@ html:not(.hw-js) .hw-value {
   #cta-final::after {
     right: -50px;
   }
+}
+
+/* ============ Ruleta "evento" Black Friday: tarjeta oscura, rojo y blanco ============ */
+.hero-offer.hw-offer {
+  background:
+    radial-gradient(120% 55% at 50% 0%, rgba(230, 57, 70, 0.28), transparent 70%),
+    #0e0e10;
+  border-color: #0e0e10;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+  color: #d9d9de;
+}
+
+.hw-offer .hero-offer-line,
+.hw-value,
+.hw-offer .hero-offer-note,
+.hw-offer .hero-offer-old {
+  color: #c4c4cc;
+}
+
+.hw-badge-title,
+.hw-value-num,
+.hw-wheel-title,
+.hw-offer .hero-offer-line strong {
+  color: #fff;
+}
+
+.hw-bulb {
+  animation-name: hw-bulb-bf;
+}
+
+@keyframes hw-bulb-bf {
+  0% { fill: #fff6d6; }
+  50% { fill: #5a4a1a; }
+}
+
+.hw-hub {
+  border-color: #111;
+}
+
+.hw-spin-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #ececf0 100%);
+  color: #111;
+  box-shadow: 0 8px 0 #9a9aa3, 0 14px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hw-spin-btn:active {
+  box-shadow: 0 4px 0 #9a9aa3;
 }
