@@ -15,7 +15,7 @@
     { top: "30%", bottom: "OFF" },
     { top: "60%", bottom: "OFF" },
   ];
-  var COLORES = ["#f4f1ea", "#151515", "#f4f1ea", "#262626"];
+  var COLORES = ["#ffffff", "#1f2d75", "#dbe6fb", "#e63946"];
   var STORAGE_KEY = "att_ruleta_blackfriday";
   var N = SEGMENTOS.length;
   var PASO = 360 / N;
@@ -35,8 +35,8 @@
   }
 
   function dibujar() {
-    var svg = '<circle cx="150" cy="150" r="149" fill="#0b0b0b"/>' +
-      '<circle cx="150" cy="150" r="141" fill="none" stroke="#ffc93c" stroke-width="3"/>';
+    var svg = '<circle cx="150" cy="150" r="149" fill="#0f1a4d"/>' +
+      '<circle cx="150" cy="150" r="141" fill="none" stroke="#ffffff" stroke-width="3"/>';
     SEGMENTOS.forEach(function (s, i) {
       var a0 = i * PASO;
       var a1 = a0 + PASO;
@@ -45,8 +45,8 @@
       var fill = s.win ? "url(#hw-gold)" : COLORES[i % COLORES.length];
       svg += '<path d="M150 150 L' + p0[0].toFixed(2) + " " + p0[1].toFixed(2) +
         " A132 132 0 0 1 " + p1[0].toFixed(2) + " " + p1[1].toFixed(2) +
-        ' Z" fill="' + fill + '" stroke="#0b0b0b" stroke-width="2"/>';
-      var color = s.win ? "#0b0b0b" : i % 2 === 0 ? "#0b0b0b" : "#ffc93c";
+        ' Z" fill="' + fill + '" stroke="#0f1a4d" stroke-width="2"/>';
+      var color = s.win ? "#16215c" : i % 2 === 0 ? "#16215c" : "#ffffff";
       var big = s.win ? 21 : 26;
       svg += '<g transform="rotate(' + (a0 + PASO / 2) + ' 150 150)">' +
         '<text x="150" y="' + (s.win ? 52 : 54) + '" text-anchor="middle" font-size="' + big + '" fill="' + color + '">' + s.top + "</text>" +
@@ -168,7 +168,7 @@
     c.height = H * dpr;
     var ctx = c.getContext("2d");
     ctx.scale(dpr, dpr);
-    var cols = ["#ffc93c", "#fff1c2", "#e63946", "#ffffff", "#151515"];
+    var cols = ["#e63946", "#16215c", "#ffffff", "#3a86ff", "#ffc93c"];
     var figuras = ["bf-tag.svg"].map(function (src) {
       var im = new Image();
       im.src = src;
@@ -329,4 +329,28 @@
     wheel.style.transform = "rotate(" + anguloGanador() + "deg)";
     ganar(false);
   }
+})();
+
+// Barra fija del celular: aparece al empezar a bajar, mientras la ruleta todavía
+// no está en pantalla y la persona no giró; al tocarla la lleva a la ruleta.
+(function () {
+  var bar = document.getElementById("hw-go");
+  var offer = document.getElementById("hw-offer");
+  if (!bar || !offer) return;
+  var ruletaVisible = false;
+  function actualizar() {
+    var girada = document.documentElement.classList.contains("hw-unlocked");
+    var mostrar = !girada && !ruletaVisible && window.scrollY > 120 && offer.getBoundingClientRect().top > 0;
+    bar.classList.toggle("is-visible", mostrar);
+    bar.setAttribute("aria-hidden", mostrar ? "false" : "true");
+    bar.tabIndex = mostrar ? 0 : -1;
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) {
+      ruletaVisible = e[0].isIntersecting;
+      actualizar();
+    }, { threshold: 0.25 }).observe(offer);
+  }
+  window.addEventListener("scroll", actualizar, { passive: true });
+  actualizar();
 })();
