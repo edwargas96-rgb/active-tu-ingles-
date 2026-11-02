@@ -903,3 +903,161 @@ html:not(.hw-js) .hw-value {
 .hw-spin-btn:active {
   box-shadow: 0 4px 0 #9a9aa3;
 }
+
+/* ============ "Especial para ti": entre el video y la ruleta ============ */
+.hw-especial {
+  text-align: center;
+  max-width: 460px;
+  margin: 6px auto 10px;
+}
+
+.hw-especial-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #e63946;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 0 #a3161f;
+  animation: hw-especial-pop 2.4s ease-in-out infinite;
+}
+
+@keyframes hw-especial-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.hw-especial-title {
+  margin: 12px 0 4px;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #16215c;
+}
+
+.hw-especial-title span {
+  color: #e63946;
+}
+
+.hw-especial-sub {
+  margin: 0;
+  font-size: 15px;
+  color: #4a5270;
+}
+
+@media (min-width: 900px) {
+  .hw-especial {
+    margin: 22px 0 14px;
+    max-width: 460px;
+  }
+}
+
+/* ============ Prueba social más grande con foto de cada persona ============ */
+.hw-testi {
+  margin-top: 26px;
+}
+
+.hw-testi-title {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.hw-testi .testimonial-slide.hw-tcard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid #e3e7f3;
+  box-shadow: 0 10px 24px rgba(22, 33, 92, 0.1);
+}
+
+.hw-t-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hw-t-avatar {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #e63946;
+}
+
+.hw-tcard figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0;
+  text-align: left;
+}
+
+.hw-tcard .t-name {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  color: #16215c;
+}
+
+.hw-t-meta {
+  font-size: 12.5px;
+  color: #5b6383;
+}
+
+.hw-tcard .stars {
+  font-size: 14px;
+  color: #ffb400;
+  letter-spacing: 1px;
+}
+
+.hw-tcard blockquote {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #2a3150;
+  font-style: normal;
+  text-align: left;
+}
+
+.hw-t-photo {
+  height: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.hw-t-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 899px) {
+  .hero-inner .hw-especial {
+    order: 4;
+  }
+  .hero-inner .hw-testi {
+    order: 6;
+    margin-top: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-especial-tag {
+    animation: none;
+  }
+}
