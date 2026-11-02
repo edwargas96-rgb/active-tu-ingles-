@@ -617,7 +617,7 @@ html:not(.hw-js) .hw-value {
   margin: 0 0 10px;
   text-align: center;
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: #16215c;
 }
@@ -636,17 +636,17 @@ html:not(.hw-js) .hw-value {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 290px;
-  max-width: 290px;
-  padding: 10px;
+  min-width: 320px;
+  max-width: 320px;
+  padding: 12px;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(22, 33, 92, 0.08);
 }
 
 .hw-testi .testimonial-photo-wrap {
   flex: none;
-  width: 84px;
-  height: 84px;
+  width: 104px;
+  height: 104px;
   aspect-ratio: auto;
   border-radius: 12px;
   overflow: hidden;
@@ -663,10 +663,10 @@ html:not(.hw-js) .hw-value {
 
 .hw-testi .testimonial-body blockquote {
   margin: 2px 0 0;
-  font-size: 12.5px;
-  line-height: 1.4;
+  font-size: 13.5px;
+  line-height: 1.45;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -688,7 +688,8 @@ html:not(.hw-js) .hw-value {
 
 @media (max-width: 899px) {
   .hero-inner .hw-testi {
-    order: 3;
+    order: 4;
+    margin-top: 18px;
   }
   .hero-inner .sub {
     display: none;
