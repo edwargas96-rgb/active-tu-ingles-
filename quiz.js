@@ -8,10 +8,10 @@
 // ============================================================
 (function () {
   var T = {
-    maria: { img: "avatar-maria.jpg", name: "María José", city: "Bogotá, Colombia", text: "Siempre me perdía entre tantos cursos. El sistema de mapas me mostró exactamente qué estudiar cada semana. En un mes ya entendía videos sin subtítulos." },
-    franco: { img: "avatar-franco.jpg", name: "Franco Ríos", city: "Buenos Aires, Argentina", text: "Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método de inglés." },
-    carla: { img: "avatar-carla.jpg", name: "Carla Andrade", city: "Ciudad de México, México", text: "Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué aprender primero." },
-    yohana: { img: "avatar-yohana.jpg", name: "Yohana Pérez", city: "Caracas, Venezuela", text: "Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y series sin traducir todo." },
+    maria: { img: "avatar-maria.webp", name: "María José", city: "Bogotá, Colombia", text: "Siempre me perdía entre tantos cursos. El sistema de mapas me mostró exactamente qué estudiar cada semana. En un mes ya entendía videos sin subtítulos." },
+    franco: { img: "avatar-franco.webp", name: "Franco Ríos", city: "Buenos Aires, Argentina", text: "Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método de inglés." },
+    carla: { img: "avatar-carla.webp", name: "Carla Andrade", city: "Ciudad de México, México", text: "Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué aprender primero." },
+    yohana: { img: "avatar-yohana.webp", name: "Yohana Pérez", city: "Caracas, Venezuela", text: "Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y series sin traducir todo." },
   };
 
   var LEER_MS = 5000; // tiempo de lectura del testimonio antes de poder avanzar
@@ -219,7 +219,7 @@
         plus +
         '<div class="qz-card qz-map">' +
         '<p class="qz-card-t">🔓 ' + esc(c.t) + "</p>" +
-        '<img src="mapa-preview-' + c.img + '.jpg" alt="Mapa mental: ' + esc(c.name) + '" />' +
+        '<img src="mapa-preview-' + c.img + '.webp" alt="Mapa mental: ' + esc(c.name) + '" />' +
         '<p class="qz-map-n">Mapa mental: <b>' + esc(c.name) + "</b> · uno de los +300</p>" +
         '<p class="qz-card-p">' + c.b + "</p>" +
         "</div>" +
@@ -269,7 +269,7 @@
     body.innerHTML =
       cabecera(Q.length) +
       '<div class="qz-load">' +
-      '<div class="qz-deck">' + GRID.map(function (n, k) { return '<img src="mapa-preview-' + n + '.jpg" alt="" style="opacity:0" data-k="' + k + '" />'; }).join("") + "</div>" +
+      '<div class="qz-deck">' + GRID.map(function (n, k) { return '<img src="mapa-preview-' + n + '.webp" alt="" style="opacity:0" data-k="' + k + '" />'; }).join("") + "</div>" +
       '<div class="qz-ring"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="46" fill="none" stroke="#eef0fa" stroke-width="10"/><circle id="qz-arc" cx="55" cy="55" r="46" fill="none" stroke="#e63946" stroke-width="10" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + C + '"/></svg><div class="qz-ring-num" id="qz-pct">0%</div></div>' +
       '<p class="qz-q" style="margin:0 0 8px;font-size:22px">Analizando tus respuestas…</p><ul class="qz-steps">' +
       etapas.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") +
@@ -326,7 +326,7 @@
       '<div class="qz-match"><svg viewBox="0 0 170 170"><circle cx="85" cy="85" r="72" fill="none" stroke="#eef0fa" stroke-width="14"/><circle id="qz-marc" cx="85" cy="85" r="72" fill="none" stroke="#21b573" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + C + '"/></svg><div class="qz-match-num"><span id="qz-mnum">0%</span><small>combina contigo</small></div></div>' +
       '<p class="qz-big">¡Activa tu Inglés es para ti!</p>' +
       '<div class="qz-score"><div><b>' + xp + '</b><span>XP</span></div><div><b>' + Q.length + "/" + Q.length + '</b><span>Respuestas</span></div><div><b>' + esc(nivel) + '</b><span>Empiezas en</span></div></div>' +
-      '<p class="qz-sub">Algunos de tus +300 mapas</p><div class="qz-grid">' + GRID.map(function (n, k) { return '<img src="mapa-preview-' + n + '.jpg" alt="" style="animation-delay:' + (0.15 + k * 0.08) + 's" />'; }).join("") + "</div>" +
+      '<p class="qz-sub">Algunos de tus +300 mapas</p><div class="qz-grid">' + GRID.map(function (n, k) { return '<img src="mapa-preview-' + n + '.webp" alt="" style="animation-delay:' + (0.15 + k * 0.08) + 's" />'; }).join("") + "</div>" +
       '<p class="qz-more">…y +290 mapas más, del A1 al C2</p>' +
       '<div class="qz-chips"><div class="qz-chip"><span>Tu meta</span><b>' + esc(meta) + '</b></div><div class="qz-chip"><span>Tu ritmo</span><b>' + esc(tiempo) + "</b></div></div>" +
       '<ul class="qz-why">' + why.map(function (w) { return "<li>" + w + "</li>"; }).join("") + "</ul>" +
