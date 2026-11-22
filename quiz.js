@@ -14,7 +14,7 @@
     yohana: { img: "avatar-yohana.jpg", name: "Yohana Pérez", city: "Caracas, Venezuela", text: "Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y series sin traducir todo." },
   };
 
-  var LEER_MS = 5000; // tiempo de lectura del testimonio antes de pasar solo
+  var LEER_MS = 5000; // tiempo de lectura del testimonio antes de poder avanzar
 
   // Cada opción: [emoji, texto, puntos, valor para el perfil]
   // Cada pregunta muestra después: {tipo:"testi"} | {tipo:"mapa"} | {tipo:"bene"}
@@ -213,7 +213,7 @@
         '<div class="qz-who"><img src="' + w.img + '" alt="" width="64" height="64" /><div><strong>' + esc(w.name) + '</strong><span>' + esc(w.city) + '</span><span class="qz-st">★★★★★</span></div></div>' +
         '<blockquote>“' + esc(w.text) + "”</blockquote>" +
         "</div>" +
-        '<div class="qz-auto"><div class="qz-auto-bar"><i id="qz-auto"></i></div><p>' + (ultimo ? "Preparando tu resultado…" : "Siguiente pregunta en un momento…") + "</p></div>";
+        '<button type="button" class="qz-next qz-wait" id="qz-wait" disabled><span class="qz-fill" id="qz-fill"></span><span class="qz-lbl" id="qz-lbl">Leyendo… 0%</span></button>';
     } else if (c.tipo === "mapa") {
       html =
         plus +
@@ -236,14 +236,23 @@
     area.innerHTML = '<div class="qz-fb">' + html + "</div>";
     sheet.scrollTop = 0;
     if (c.tipo === "testi") {
-      var bar = document.getElementById("qz-auto");
+      // El botón se va llenando mientras la persona lee; al llegar a 100% se puede tocar.
+      var btn = document.getElementById("qz-wait");
+      var fill = document.getElementById("qz-fill");
+      var lbl = document.getElementById("qz-lbl");
       var t0 = performance.now();
       (function f(now) {
         var q = Math.min(1, (now - t0) / LEER_MS);
-        if (bar) bar.style.width = q * 100 + "%";
-        if (q < 1) raf = requestAnimationFrame(f);
+        fill.style.width = q * 100 + "%";
+        if (q < 1) {
+          lbl.textContent = "Leyendo… " + Math.round(q * 100) + "%";
+          raf = requestAnimationFrame(f);
+        } else {
+          btn.disabled = false;
+          btn.classList.add("ready");
+          lbl.textContent = (ultimo ? "Ver mi resultado" : "Siguiente pregunta") + " →";
+        }
       })(t0);
-      timers.push(setTimeout(siguiente, LEER_MS));
     }
   }
 
@@ -325,7 +334,7 @@
       '<p class="qz-micro">Pago único · Acceso inmediato · Garantía de 7 días</p>' +
       '<p class="qz-note">Resultado orientativo según tus respuestas.</p></div>';
     sheet.scrollTop = 0;
-    if (window.CHECKOUT_URL) body.querySelector(".qz-cta").href = window.CHECKOUT_URL;
+    body.querySelector(".qz-cta").href = enlaceCompra();
     var t0 = performance.now();
     var arc = document.getElementById("qz-marc");
     var num = document.getElementById("qz-mnum");
@@ -338,6 +347,15 @@
     }
     raf = requestAnimationFrame(frame);
     confeti();
+  }
+
+  // Usa el mismo enlace que los botones de la página (ya con los UTM que agrega
+  // el script de UTMify), para que la venta que sale del test se atribuya igual.
+  function enlaceCompra() {
+    var a = document.querySelector("a[data-checkout]:not(.qz-cta)");
+    var h = a ? a.getAttribute("href") || "" : "";
+    if (/^https?:\/\//.test(h)) return h;
+    return window.CHECKOUT_URL || "#comprar";
   }
 
   function confeti() {
@@ -385,7 +403,11 @@
   window.addEventListener(
     "click",
     function (e) {
-      if (e.target.closest && e.target.closest(".qz-cta")) close();
+      var cta = e.target.closest ? e.target.closest(".qz-cta") : null;
+      if (cta) {
+        cta.href = enlaceCompra();
+        close();
+      }
     },
     true
   );

@@ -947,3 +947,32 @@ html.qz-lock body {
     margin-top: 40px;
   }
 }
+
+/* Botón que se llena mientras se lee el testimonio */
+.qz-next.qz-wait {
+  position: relative;
+  overflow: hidden;
+  background: #f6c6ca;
+  box-shadow: none;
+  cursor: default;
+}
+
+.qz-next.qz-wait .qz-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--red);
+}
+
+.qz-next.qz-wait .qz-lbl {
+  position: relative;
+}
+
+.qz-next.qz-wait.ready {
+  background: var(--red);
+  box-shadow: 0 10px 22px rgba(230, 57, 70, 0.3);
+  cursor: pointer;
+  animation: qz-bump 0.45s ease;
+}
