@@ -41,7 +41,7 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" /></noscript>
-    <link rel="preload" as="image" href="hero-poster-bf.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="hero-mockup.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="blackfriday.css" />
     <link rel="stylesheet" href="quiz.css" />
@@ -84,27 +84,26 @@
               <span class="h1-rest">No eres tú: es que nadie te lo explicó en orden.</span></h1> -->
             <p class="hw-kicker">Black Friday anticipado</p>
             <h1 class="hw-hook">
-              <span class="hw-hook-main">El <span class="hw-llorona">Black Friday</span> llegó antes para tu inglés.</span>
-              <span class="hw-hook-sub">Cada mes que esperas es otro mes sin hablar inglés. Empieza hoy con el <span class="hw-metodo">Método Activa</span>.</span>
+              <span class="hw-hook-main">Aprende inglés <span class="hw-llorona">en orden</span> con +300 mapas mentales.</span>
+              <span class="hw-hook-sub">Del A1 al C2, en solo 15 minutos al día. Y por el <span class="hw-metodo">Black Friday anticipado</span>, tu precio especial te espera.</span>
             </h1>
             <p class="sub">
               +300 mapas mentales ilustrados que ordenan el inglés paso a paso, para estudiar solo 15 minutos al día.
             </p>
+            <ul class="hero-bullets">
+              <li><b>+300 mapas mentales</b> del A1 al C2</li>
+              <li>Solo <b>15 minutos</b> al día</li>
+              <li>En el <b>celular</b>, la tablet o <b>impreso</b></li>
+              <li><b>5 bonos</b> de regalo</li>
+            </ul>
 
             
-            <!-- Llamado especial entre el video y la ruleta -->
-            <div class="hw-especial">
-              <p class="hw-especial-title">Gira y <span>gana</span> tu descuento de Black Friday</p>
-              <p class="hw-especial-sub">Es solo un giro y tu precio aparece al instante</p>
-            </div>
             <div class="hw-tapes">
             <div class="hero-offer hw-offer" id="hw-offer">
               <p class="hw-badge">
                 <span class="hw-badge-title">Black Friday</span>
                 <span class="hw-badge-sub">Precio anticipado</span>
               </p>
-              <p class="hero-offer-line">Hoy te llevas los <strong>+300 mapas</strong> y <strong>5 bonos</strong> de regalo</p>
-              <p class="hw-value">Valor total <span class="hw-value-num">US$ 87</span></p>
               <div class="hw-wheel-block">
                 <p class="hw-wheel-title">Gira la ruleta y descubre tu precio Black Friday</p>
                 <div class="hw-wheel-wrap">
@@ -254,11 +253,9 @@
           </div>
 
           <div class="hero-visual">
-            <!-- Video: carga junto con la página. Si falta hero-mapas.mp4, se muestra el póster. -->
-            <div class="hero-video-wrap">
-              <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster-bf.jpg" aria-label="Vista previa de los mapas mentales">
-                <source src="hero-blackfriday.mp4" type="video/mp4" />
-              </video>
+            <!-- Foto del producto: los mapas y los 5 bonos en computadora, tablet y celular -->
+            <div class="hero-video-wrap hero-photo">
+              <img src="hero-mockup.jpg" alt="+300 Mapas Mentales de Inglés y los 5 bonos en computadora, tablet y celular" width="900" height="675" fetchpriority="high" decoding="async" />
             </div>
           </div>
         </div>
@@ -1158,7 +1155,7 @@
     </a>
 
     <div class="sticky-buy" id="sticky-buy" aria-hidden="true">
-      <span class="sticky-buy-text"><strong><span class="hw-pre">US$ 87</span><span class="hw-post">US$ 10</span></strong> · Garantía 7 días</span>
+      <span class="sticky-buy-text"><span class="hw-pre">🎁 <strong>Gira y descubre tu precio</strong></span><span class="hw-post"><strong>US$ 10</strong> · Garantía 7 días</span></span>
       <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta" tabindex="-1">Comprar</a>
     </div>
 

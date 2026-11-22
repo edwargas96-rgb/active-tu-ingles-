@@ -864,3 +864,86 @@ html.qz-lock body {
 .qz-bene .qz-why b {
   color: var(--navy);
 }
+
+/* ============================================================
+   Hero (prueba): foto del producto + bullets antes de la ruleta
+   ============================================================ */
+.hero-photo {
+  aspect-ratio: 4 / 3;
+  max-width: 520px;
+  background: #fff;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bullets {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.hero-bullets li {
+  position: relative;
+  padding-left: 32px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--fg);
+}
+
+.hero-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 22px;
+  text-align: center;
+}
+
+@media (max-width: 899px) {
+  .hero-inner .hero-photo {
+    order: 2;
+    max-width: none;
+  }
+  .hero-inner .hero-bullets {
+    order: 3;
+    margin: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+  }
+  .hero-inner .hero-bullets li {
+    font-size: 14.5px;
+    padding-left: 28px;
+  }
+}
+
+/* La frase .sub repite los bullets: se oculta también en computadora */
+.hero-copy .hero-bullets ~ .sub,
+.hero-copy .sub {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .hero-inner {
+    align-items: flex-start;
+  }
+  .hero-visual {
+    align-self: flex-start;
+    position: sticky;
+    top: 110px;
+    margin-top: 40px;
+  }
+}
