@@ -116,57 +116,35 @@ function setupReveal() {
   });
 }
 
-// Contador de oferta: 24h que se reinician por sesión/visitante (localStorage),
-// nunca una fecha límite fija engañosa.
+// Cuenta regresiva real hasta el Black Friday: 27/11/2026 a las 00:00 en
+// Bogotá (UTC-5). Es la misma fecha para todas las personas.
 function setupCountdown() {
   var elBar = document.getElementById("countdown-bar");
   var elFinal = document.getElementById("countdown-final");
   if (!elBar && !elFinal) return;
 
-  var STORAGE_KEY = "atiOfferDeadline";
-  var DURATION_MS = 24 * 60 * 60 * 1000;
-
-  function readDeadline() {
-    try {
-      return Number(window.localStorage.getItem(STORAGE_KEY)) || 0;
-    } catch (e) {
-      return 0;
-    }
-  }
-
-  function writeDeadline(value) {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, String(value));
-    } catch (e) {
-      // localStorage no disponible (modo privado, etc.) — el contador sigue
-      // funcionando en memoria durante esta visita.
-    }
-  }
-
-  var deadline = readDeadline();
-  if (!deadline || deadline < Date.now()) {
-    deadline = Date.now() + DURATION_MS;
-    writeDeadline(deadline);
-  }
+  var DEADLINE = Date.UTC(2026, 10, 27, 5, 0, 0);
 
   function pad(n) {
     return n < 10 ? "0" + n : String(n);
   }
 
   function tick() {
-    var remaining = deadline - Date.now();
+    var remaining = DEADLINE - Date.now();
+    var text;
     if (remaining <= 0) {
-      deadline = Date.now() + DURATION_MS;
-      writeDeadline(deadline);
-      remaining = DURATION_MS;
+      text = "¡Es hoy!";
+    } else {
+      var totalSeconds = Math.floor(remaining / 1000);
+      var days = Math.floor(totalSeconds / 86400);
+      var clock =
+        pad(Math.floor((totalSeconds % 86400) / 3600)) +
+        ":" +
+        pad(Math.floor((totalSeconds % 3600) / 60)) +
+        ":" +
+        pad(totalSeconds % 60);
+      text = days > 0 ? days + (days === 1 ? " día " : " días ") + clock : clock;
     }
-    var totalSeconds = Math.floor(remaining / 1000);
-    var text =
-      pad(Math.floor(totalSeconds / 3600)) +
-      ":" +
-      pad(Math.floor((totalSeconds % 3600) / 60)) +
-      ":" +
-      pad(totalSeconds % 60);
     if (elBar) elBar.textContent = text;
     if (elFinal) elFinal.textContent = text;
   }

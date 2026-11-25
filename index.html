@@ -37,19 +37,20 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Creepster&family=Nunito:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preload" as="image" href="hero-poster.jpg" fetchpriority="high" />
+    <!-- Fuentes sin bloquear el primer dibujo de la página -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" /></noscript>
+    <link rel="preload" as="image" href="hero-mockup.webp" imagesrcset="hero-mockup-640.webp 640w, hero-mockup-760.webp 760w, hero-mockup.webp 900w" imagesizes="(min-width: 900px) 520px, 70vw" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="halloween.css" />
-    <script>document.documentElement.classList.add("hw-js");try{if(localStorage.getItem("att_ruleta_halloween")==="1")document.documentElement.classList.add("hw-unlocked")}catch(e){}</script>
+    <link rel="stylesheet" href="blackfriday.css" />
+    <link rel="stylesheet" href="quiz.css" />
+    <script>document.documentElement.classList.add("hw-js");try{if(localStorage.getItem("att_ruleta_blackfriday")==="1")document.documentElement.classList.add("hw-unlocked")}catch(e){}</script>
   </head>
   <body>
-    <!-- Franja de urgencia: contador de 24h que se reinicia por sesión/visitante (localStorage), nunca una fecha límite fija engañosa. -->
+    <!-- Franja de urgencia: cuenta regresiva real hasta el Black Friday (27/11/2026, hora de Bogotá), igual para todos. -->
     <div class="urgency-bar">
-      Promoción de Halloween · Por tiempo limitado · Termina en:
+      Black Friday anticipado · Faltan para el Black Friday:
       <span id="countdown-bar" class="countdown-clock">24:00:00</span>
     </div>
 
@@ -76,50 +77,46 @@
     <main id="top">
       <!-- HERO -->
       <section class="hero" id="mapa">
-        <!-- Decoración de Halloween -->
-        <div class="hw-sky" aria-hidden="true">
-          <span class="hw-moon"></span>
-          <img class="hw-ghost" src="hw-llorona.svg" alt="" />
-          <img class="hw-web hw-web-l" src="hw-web.svg" alt="" />
-          <img class="hw-web hw-web-r" src="hw-web.svg" alt="" />
-          <span class="hw-bat hw-bat-1"><img src="hw-bat.svg" alt="" /></span>
-          <span class="hw-bat hw-bat-2"><img src="hw-bat.svg" alt="" /></span>
-          <span class="hw-bat hw-bat-3"><img src="hw-bat.svg" alt="" /></span>
-          <span class="hw-bat hw-bat-4"><img src="hw-bat.svg" alt="" /></span>
-          <span class="hw-ground"></span>
-        </div>
         <div class="hero-inner">
           <div class="hero-copy">
             <!-- Título normal (fuera de Halloween):
               <h1><span class="h1-accent">Llevas años estudiando inglés y sigues sin entenderlo.</span>
               <span class="h1-rest">No eres tú: es que nadie te lo explicó en orden.</span></h1> -->
-            <p class="hw-kicker">Especial de Halloween</p>
+            <p class="hw-kicker">Black Friday anticipado</p>
             <h1 class="hw-hook">
-              <span class="hw-hook-main">El inglés no es un monstruo como <span class="hw-llorona">La Llorona</span>.</span>
-              <span class="hw-hook-sub">No tienes que tenerle miedo. Lo que te falta es el <span class="hw-metodo">Método Activa</span>.</span>
+              <span class="hw-hook-main">Aprende inglés <span class="hw-llorona">en orden</span> con +300 mapas mentales.</span>
+              <span class="hw-hook-sub">Del A1 al C2, en solo 15 minutos al día. Y por el <span class="hw-metodo">Black Friday anticipado</span>, tu precio especial te espera.</span>
             </h1>
             <p class="sub">
               +300 mapas mentales ilustrados que ordenan el inglés paso a paso, para estudiar solo 15 minutos al día.
             </p>
+            <ul class="hero-bullets">
+              <li><b>+300 mapas mentales</b> del A1 al C2</li>
+              <li>Solo <b>15 minutos</b> al día</li>
+              <li>En el <b>celular</b>, la tablet o <b>impreso</b></li>
+              <li><b>5 bonos</b> de regalo</li>
+              <li>Acceso <b>inmediato y de por vida</b></li>
+              <li><b>Garantía</b> de 7 días</li>
+            </ul>
 
+            
+            <div class="hw-tapes">
             <div class="hero-offer hw-offer" id="hw-offer">
               <p class="hw-badge">
-                <span class="hw-badge-title">Promoción de Halloween</span>
-                <span class="hw-badge-sub">Por tiempo limitado</span>
+                <span class="hw-badge-title">Black Friday</span>
+                <span class="hw-badge-sub">Precio anticipado</span>
               </p>
-              <p class="hero-offer-line">Hoy te llevas los <strong>+300 mapas</strong> y <strong>5 bonos</strong> de regalo</p>
-              <p class="hw-value">Valor total <span class="hw-value-num">US$ 87</span></p>
               <div class="hw-wheel-block">
-                <p class="hw-wheel-title">Gira la ruleta y descubre tu descuento de Halloween</p>
+                <p class="hw-wheel-title">Gira la ruleta y descubre tu precio Black Friday</p>
                 <div class="hw-wheel-wrap">
                   <span class="hw-pointer" id="hw-pointer"></span>
-                  <svg class="hw-wheel" id="hw-wheel" viewBox="0 0 300 300" role="img" aria-label="Ruleta de descuentos de Halloween"></svg>
+                  <svg class="hw-wheel" id="hw-wheel" viewBox="0 0 300 300" role="img" aria-label="Ruleta de descuentos de Black Friday"></svg>
                   <button type="button" class="hw-hub" id="hw-hub" aria-label="Girar la ruleta">GIRAR</button>
                 </div>
                 <button type="button" class="hw-spin-btn" id="hw-spin-btn">Girar la ruleta</button>
               </div>
               <div class="hw-result" aria-live="polite">
-                <p class="hw-result-kicker">¡Felicidades! Te tocó el precio de Halloween</p>
+                <p class="hw-result-kicker">¡Listo! Desbloqueaste tu precio Black Friday</p>
                 <p class="hero-offer-prices">
                   <span class="hero-offer-old">Valor total US$ 87</span>
                   <span class="hero-offer-now">US$ 10</span>
@@ -127,15 +124,140 @@
                 <p class="hero-offer-note">Pago único · Acceso inmediato · Garantía de 7 días</p>
               </div>
             </div>
+            </div>
             <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta">Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            <!-- Test opcional: "¿Activa es para ti?" (quiz.css + quiz.js) -->
+            <button type="button" class="qz-line" id="qz-open">¿Aún no estás seguro? <u>Descubre si Activa es para ti</u> 🎯</button>
+            <!-- Prueba social: después del botón de compra que sigue a la ruleta -->
+            <div class="hw-testi" id="testimonios">
+              <p class="hw-testi-title">Quien compra, <span>recomienda</span></p>
+              <div class="preview-carousel testi-carousel">
+                <div class="carousel-track">
+              <div class="carousel-group testi-group">
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-maria.webp" width="240" height="240" loading="lazy" decoding="async" alt="María José" />
+                    <figcaption>
+                      <span class="t-name">María José</span>
+                      <span class="hw-t-meta">Bogotá, Colombia</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Siempre me perdía entre tantos cursos. El sistema de mapas me mostró exactamente qué estudiar cada semana. En un mes ya entendía videos sin subtítulos.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-1.webp" width="720" loading="lazy" decoding="async" alt="María José usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-franco.webp" width="240" height="240" loading="lazy" decoding="async" alt="Franco Ríos" />
+                    <figcaption>
+                      <span class="t-name">Franco Ríos</span>
+                      <span class="hw-t-meta">Buenos Aires, Argentina</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método de inglés.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-2.webp" width="720" loading="lazy" decoding="async" alt="Franco Ríos usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-carla.webp" width="240" height="240" loading="lazy" decoding="async" alt="Carla Andrade" />
+                    <figcaption>
+                      <span class="t-name">Carla Andrade</span>
+                      <span class="hw-t-meta">Ciudad de México, México</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué aprender primero.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-3.webp" width="720" loading="lazy" decoding="async" alt="Carla Andrade usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-yohana.webp" width="240" height="240" loading="lazy" decoding="async" alt="Yohana Pérez" />
+                    <figcaption>
+                      <span class="t-name">Yohana Pérez</span>
+                      <span class="hw-t-meta">Caracas, Venezuela</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y series sin traducir todo.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-4.webp" width="720" loading="lazy" decoding="async" alt="Yohana Pérez usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+              </div>
+              <div class="carousel-group testi-group" aria-hidden="true">
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-maria.webp" width="240" height="240" loading="lazy" decoding="async" alt="María José" />
+                    <figcaption>
+                      <span class="t-name">María José</span>
+                      <span class="hw-t-meta">Bogotá, Colombia</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Siempre me perdía entre tantos cursos. El sistema de mapas me mostró exactamente qué estudiar cada semana. En un mes ya entendía videos sin subtítulos.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-1.webp" width="720" loading="lazy" decoding="async" alt="María José usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-franco.webp" width="240" height="240" loading="lazy" decoding="async" alt="Franco Ríos" />
+                    <figcaption>
+                      <span class="t-name">Franco Ríos</span>
+                      <span class="hw-t-meta">Buenos Aires, Argentina</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método de inglés.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-2.webp" width="720" loading="lazy" decoding="async" alt="Franco Ríos usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-carla.webp" width="240" height="240" loading="lazy" decoding="async" alt="Carla Andrade" />
+                    <figcaption>
+                      <span class="t-name">Carla Andrade</span>
+                      <span class="hw-t-meta">Ciudad de México, México</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué aprender primero.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-3.webp" width="720" loading="lazy" decoding="async" alt="Carla Andrade usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+                <figure class="testimonial-slide hw-tcard">
+                  <div class="hw-t-head">
+                    <img class="hw-t-avatar" src="avatar-yohana.webp" width="240" height="240" loading="lazy" decoding="async" alt="Yohana Pérez" />
+                    <figcaption>
+                      <span class="t-name">Yohana Pérez</span>
+                      <span class="hw-t-meta">Caracas, Venezuela</span>
+                      <span class="stars" aria-label="5 estrellas">★★★★★</span>
+                    </figcaption>
+                  </div>
+                  <blockquote>Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y series sin traducir todo.</blockquote>
+                  <div class="hw-t-photo">
+                    <img src="testimonial-4.webp" width="720" loading="lazy" decoding="async" alt="Yohana Pérez usando los Mapas Mentales de Inglés" />
+                  </div>
+                </figure>
+              </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="hero-visual">
-            <!-- Video: carga junto con la página. Si falta hero-mapas.mp4, se muestra el póster. -->
-            <div class="hero-video-wrap">
-              <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-label="Vista previa de los mapas mentales">
-                <source src="hero-mapas.mp4" type="video/mp4" />
-              </video>
+            <!-- Foto del producto: los mapas y los 5 bonos en computadora, tablet y celular -->
+            <div class="hero-video-wrap hero-photo">
+              <img src="hero-mockup.webp" srcset="hero-mockup-640.webp 640w, hero-mockup-760.webp 760w, hero-mockup.webp 900w" sizes="(min-width: 900px) 520px, 70vw" alt="+300 Mapas Mentales de Inglés y los 5 bonos en computadora, tablet y celular" width="900" height="675" fetchpriority="high" decoding="async" />
             </div>
           </div>
         </div>
@@ -143,8 +265,7 @@
 
       <!-- DOLOR -->
       <section class="section muted reveal" id="dolor">
-        <span class="hw-spider" aria-hidden="true"></span>
-        <div class="section-inner narrow">
+                <div class="section-inner narrow">
           <div class="section-head center">
             <span class="accent"></span>
             <h2>¿Te suena familiar?</h2>
@@ -173,209 +294,37 @@
           <div class="carousel-track">
             <!-- Grupo 1 -->
             <div class="carousel-group">
-              <div class="carousel-slide"><img src="mapa-preview-1.jpg" alt="Mapa mental de inglés: Nacionalidades" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-2.jpg" alt="Mapa mental de inglés: Partes de la Casa" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-3.jpg" alt="Mapa mental de inglés: Profesiones" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-4.jpg" alt="Mapa mental de inglés: Países" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-5.jpg" alt="Mapa mental de inglés: La Familia" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-6.jpg" alt="Mapa mental de inglés: Personas" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-7.jpg" alt="Mapa mental de inglés: Singular y Plural" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-8.jpg" alt="Mapa mental de inglés: This, That, These y Those" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-9.jpg" alt="Mapa mental de inglés: There is y There are" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-10.jpg" alt="Mapa mental de inglés: Artículos A, AN y THE" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-11.jpg" alt="Mapa mental de inglés: Verbo To Be: Preguntas" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-12.jpg" alt="Mapa mental de inglés: Contracciones con To Be" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-13.jpg" alt="Mapa mental de inglés: Adjetivos Posesivos" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-14.jpg" alt="Mapa mental de inglés: Pronombres Posesivos" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-1.webp" alt="Mapa mental de inglés: Nacionalidades" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-2.webp" alt="Mapa mental de inglés: Partes de la Casa" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-3.webp" alt="Mapa mental de inglés: Profesiones" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-4.webp" alt="Mapa mental de inglés: Países" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-5.webp" alt="Mapa mental de inglés: La Familia" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-6.webp" alt="Mapa mental de inglés: Personas" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-7.webp" alt="Mapa mental de inglés: Singular y Plural" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-8.webp" alt="Mapa mental de inglés: This, That, These y Those" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-9.webp" alt="Mapa mental de inglés: There is y There are" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-10.webp" alt="Mapa mental de inglés: Artículos A, AN y THE" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-11.webp" alt="Mapa mental de inglés: Verbo To Be: Preguntas" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-12.webp" alt="Mapa mental de inglés: Contracciones con To Be" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-13.webp" alt="Mapa mental de inglés: Adjetivos Posesivos" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-14.webp" alt="Mapa mental de inglés: Pronombres Posesivos" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
             </div>
             <!-- Grupo 2: copia exacta del grupo 1, necesaria para el loop infinito sin salto -->
             <div class="carousel-group" aria-hidden="true">
-              <div class="carousel-slide"><img src="mapa-preview-1.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-2.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-3.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-4.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-5.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-6.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-7.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-8.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-9.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-10.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-11.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-12.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-13.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-              <div class="carousel-slide"><img src="mapa-preview-14.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section-inner">
-          <div class="section-cta">
-            <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta">Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- DEPOIMENTOS -->
-      <section class="section muted reveal" id="testimonios">
-        <div class="section-inner">
-          <div class="section-head center">
-            <span class="accent"></span>
-            <h2>Estudiantes que ya lo están usando</h2>
-            <p class="section-sub">
-              Historias reales de personas en toda Latinoamérica aprendiendo inglés con los mapas mentales.
-            </p>
-          </div>
-        </div>
-
-        <div class="preview-carousel testi-carousel">
-          <div class="carousel-track">
-            <!-- Grupo 1 -->
-            <div class="carousel-group testi-group">
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-1.jpg" width="720" loading="lazy" decoding="async" alt="María José usando los Mapas Mentales de Inglés" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Siempre me perdía entre tantos cursos. El sistema de mapas me mostró exactamente qué estudiar cada
-                    semana. En un mes ya entendía videos sin subtítulos.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">María José</span>
-                    <span class="t-place">Bogotá, Colombia</span>
-                  </figcaption>
-                </div>
-              </figure>
-
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-2.jpg" width="720" loading="lazy" decoding="async" alt="Franco Ríos usando los Mapas Mentales de Inglés" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método
-                    de inglés.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">Franco Ríos</span>
-                    <span class="t-place">Buenos Aires, Argentina</span>
-                  </figcaption>
-                </div>
-              </figure>
-
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-3.jpg" width="720" loading="lazy" decoding="async" alt="Carla Andrade usando los Mapas Mentales de Inglés" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué
-                    aprender primero.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">Carla Andrade</span>
-                    <span class="t-place">Ciudad de México, México</span>
-                  </figcaption>
-                </div>
-              </figure>
-
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-4.jpg" width="720" loading="lazy" decoding="async" alt="Yohana Pérez usando los Mapas Mentales de Inglés" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y
-                    series sin traducir todo.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">Yohana Pérez</span>
-                    <span class="t-place">Caracas, Venezuela</span>
-                  </figcaption>
-                </div>
-              </figure>
-            </div>
-            <!-- Grupo 2: copia exacta del grupo 1, necesaria para el loop infinito sin salto -->
-            <div class="carousel-group testi-group" aria-hidden="true">
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-1.jpg" width="720" loading="lazy" decoding="async" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Siempre me perdía entre tantos cursos. El sistema de mapas me mostró exactamente qué estudiar cada
-                    semana. En un mes ya entendía videos sin subtítulos.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">María José</span>
-                    <span class="t-place">Bogotá, Colombia</span>
-                  </figcaption>
-                </div>
-              </figure>
-
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-2.jpg" width="720" loading="lazy" decoding="async" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Lo uso 15 minutos por día antes de trabajar. Es tan simple que por fin no abandoné un método
-                    de inglés.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">Franco Ríos</span>
-                    <span class="t-place">Buenos Aires, Argentina</span>
-                  </figcaption>
-                </div>
-              </figure>
-
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-3.jpg" width="720" loading="lazy" decoding="async" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Me ayudó muchísimo para mi entrevista de trabajo en inglés. El mapa deja clarísimo qué
-                    aprender primero.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">Carla Andrade</span>
-                    <span class="t-place">Ciudad de México, México</span>
-                  </figcaption>
-                </div>
-              </figure>
-
-              <figure class="testimonial-slide">
-                <div class="testimonial-photo-wrap">
-                  <img src="testimonial-4.jpg" width="720" loading="lazy" decoding="async" alt="" class="testimonial-photo" onerror="this.closest('.testimonial-photo-wrap').classList.add('img-error')" />
-                  <div class="testimonial-photo-fallback">Imagen próximamente</div>
-                </div>
-                <div class="testimonial-body">
-                  <div class="stars">★★★★★</div>
-                  <blockquote>
-                    Es el primer método que realmente pude seguir de principio a fin. Ahora entiendo canciones y
-                    series sin traducir todo.
-                  </blockquote>
-                  <figcaption>
-                    <span class="t-name">Yohana Pérez</span>
-                    <span class="t-place">Caracas, Venezuela</span>
-                  </figcaption>
-                </div>
-              </figure>
+              <div class="carousel-slide"><img src="mapa-preview-1.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-2.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-3.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-4.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-5.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-6.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-7.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-8.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-9.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-10.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-11.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-12.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-13.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
+              <div class="carousel-slide"><img src="mapa-preview-14.webp" alt="" width="1000" height="750" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('slide-missing')" /><span class="slide-level">Nivel A1</span></div>
             </div>
           </div>
         </div>
@@ -990,35 +939,35 @@
           </div>
           <div class="bonus-grid">
             <div class="bonus-card">
-              <img src="bonus-500-frases.jpg" alt="Portada: 500 Frases Más Usadas en Inglés" class="bonus-image" loading="lazy" decoding="async" />
+              <img src="bonus-500-frases.webp" alt="Portada: 500 Frases Más Usadas en Inglés" class="bonus-image" loading="lazy" decoding="async" />
               <span class="bonus-kicker">Bono #1</span>
               <h3>500 Frases Más Usadas en Inglés <small>(con pronunciación en español)</small></h3>
               <p>Aprende frases útiles para conversaciones, viajes, trabajo, mensajes y situaciones del día a día.</p>
               <p class="bonus-price"><span class="price-old">Valor US$ 15</span> → <strong>GRATIS</strong></p>
             </div>
             <div class="bonus-card">
-              <img src="bonus-rota-fluencia.jpg" alt="Portada: Ruta de Fluencia" class="bonus-image" loading="lazy" decoding="async" />
+              <img src="bonus-rota-fluencia.webp" alt="Portada: Ruta de Fluencia" class="bonus-image" loading="lazy" decoding="async" />
               <span class="bonus-kicker">Bono #2</span>
               <h3>Ruta de Fluencia <small>(Plan de Estudio Paso a Paso)</small></h3>
               <p>Descubre exactamente qué estudiar cada día y avanza sin sentirte perdido.</p>
               <p class="bonus-price"><span class="price-old">Valor US$ 9</span> → <strong>GRATIS</strong></p>
             </div>
             <div class="bonus-card">
-              <img src="bonus-phrasal-verbs.jpg" alt="Portada: 100 Phrasal Verbs Esenciales" class="bonus-image" loading="lazy" decoding="async" />
+              <img src="bonus-phrasal-verbs.webp" alt="Portada: 100 Phrasal Verbs Esenciales" class="bonus-image" loading="lazy" decoding="async" />
               <span class="bonus-kicker">Bono #3</span>
               <h3>100 Phrasal Verbs Esenciales</h3>
               <p>Aprende los phrasal verbs más usados en el inglés real, con significado, ejemplos y aplicación práctica.</p>
               <p class="bonus-price"><span class="price-old">Valor US$ 8</span> → <strong>GRATIS</strong></p>
             </div>
             <div class="bonus-card">
-              <img src="bonus-expresiones.jpg" alt="Portada: 150 Expresiones y Giros" class="bonus-image" loading="lazy" decoding="async" />
+              <img src="bonus-expresiones.webp" alt="Portada: 150 Expresiones y Giros" class="bonus-image" loading="lazy" decoding="async" />
               <span class="bonus-kicker">Bono #4</span>
               <h3>150 Expresiones y Giros <small>(Usados por Nativos)</small></h3>
               <p>Aprende cómo hablan realmente los nativos, con expresiones naturales, abreviaciones y ejemplos para el día a día.</p>
               <p class="bonus-price"><span class="price-old">Valor US$ 7</span> → <strong>GRATIS</strong></p>
             </div>
             <div class="bonus-card bonus-card-featured">
-              <img src="bonus-biblioteca.jpg" alt="Portada: Biblioteca Inglés Fácil, +80 ebooks en inglés" class="bonus-image" loading="lazy" decoding="async" />
+              <img src="bonus-biblioteca.webp" alt="Portada: Biblioteca Inglés Fácil, +80 ebooks en inglés" class="bonus-image" loading="lazy" decoding="async" />
               <span class="bonus-kicker">Bono #5</span>
               <h3>Biblioteca Inglés Fácil <small>(+80 ebooks cortos de práctica)</small></h3>
               <p>Lectura, vocabulario, comprensión y pronunciación en +80 ebooks cortos, con textos en inglés y explicaciones en español, para practicar un poco cada día.</p>
@@ -1032,36 +981,36 @@
       <section id="comprar" class="section reveal">
         <div class="section-inner narrow">
           <div class="price-stack">
-            <span class="hw-ribbon">Promoción de Halloween</span>
+            <span class="hw-ribbon">Black Friday anticipado</span>
             <h2 class="price-stack-title">Todo lo que recibes hoy</h2>
             <ul class="stack-list">
               <li class="stack-item stack-main">
-                <img src="hero-mockup.jpg" alt="+300 Mapas Mentales de Inglés y los 5 bonos" width="1448" height="1086" loading="lazy" decoding="async" />
+                <img src="hero-mockup.webp" alt="+300 Mapas Mentales de Inglés y los 5 bonos" width="1448" height="1086" loading="lazy" decoding="async" />
                 <span class="stack-name">+300 Mapas Mentales de Inglés <small>del básico al avanzado</small></span>
                 <span class="stack-value">US$ 29</span>
               </li>
               <li class="stack-item">
-                <img src="bonus-500-frases.jpg" alt="Portada: 500 Frases Más Usadas en Inglés" width="600" height="450" loading="lazy" decoding="async" />
+                <img src="bonus-500-frases.webp" alt="Portada: 500 Frases Más Usadas en Inglés" width="600" height="450" loading="lazy" decoding="async" />
                 <span class="stack-name">Bono 1: 500 Frases Más Usadas en Inglés <small>con pronunciación en español</small></span>
                 <span class="stack-value">US$ 15</span>
               </li>
               <li class="stack-item">
-                <img src="bonus-rota-fluencia.jpg" alt="Portada: Ruta de Fluencia" width="600" height="450" loading="lazy" decoding="async" />
+                <img src="bonus-rota-fluencia.webp" alt="Portada: Ruta de Fluencia" width="600" height="450" loading="lazy" decoding="async" />
                 <span class="stack-name">Bono 2: Ruta de Fluencia <small>Plan de Estudio Paso a Paso</small></span>
                 <span class="stack-value">US$ 9</span>
               </li>
               <li class="stack-item">
-                <img src="bonus-phrasal-verbs.jpg" alt="Portada: 100 Phrasal Verbs Esenciales" width="600" height="450" loading="lazy" decoding="async" />
+                <img src="bonus-phrasal-verbs.webp" alt="Portada: 100 Phrasal Verbs Esenciales" width="600" height="450" loading="lazy" decoding="async" />
                 <span class="stack-name">Bono 3: 100 Phrasal Verbs Esenciales</span>
                 <span class="stack-value">US$ 8</span>
               </li>
               <li class="stack-item">
-                <img src="bonus-expresiones.jpg" alt="Portada: 150 Expresiones y Giros" width="600" height="450" loading="lazy" decoding="async" />
+                <img src="bonus-expresiones.webp" alt="Portada: 150 Expresiones y Giros" width="600" height="450" loading="lazy" decoding="async" />
                 <span class="stack-name">Bono 4: 150 Expresiones y Giros <small>Usados por Nativos</small></span>
                 <span class="stack-value">US$ 7</span>
               </li>
                           <li class="stack-item">
-                <img src="bonus-biblioteca.jpg" alt="Portada: Biblioteca Inglés Fácil" width="900" height="675" loading="lazy" decoding="async" />
+                <img src="bonus-biblioteca.webp" alt="Portada: Biblioteca Inglés Fácil" width="900" height="675" loading="lazy" decoding="async" />
                 <span class="stack-name">Bono 5: Biblioteca Inglés Fácil <small>+80 ebooks cortos de práctica</small></span>
                 <span class="stack-value">US$ 19</span>
               </li>
@@ -1071,11 +1020,11 @@
               <span class="price-total-value">US$ 87</span>
             </div>
             <div class="price-final-row">
-              <span><span class="hw-pre">Valor total:</span><span class="hw-post">Precio de Halloween:</span></span>
+              <span><span class="hw-pre">Valor total:</span><span class="hw-post">Precio Black Friday:</span></span>
               <span class="price-final-value"><span class="hw-pre">US$ 87</span><span class="hw-post">US$ 10</span></span>
               <span class="price-final-note hw-post">pago único</span>
             </div>
-            <p class="hw-pre hw-hint">Gira la ruleta de Halloween y recibe tu descuento</p>
+            <p class="hw-pre hw-hint">Gira la ruleta de Black Friday y descubre tu precio</p>
 
             <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta cta-block" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:10,currency:'USD'});}">
               Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -1187,11 +1136,11 @@
           <span class="accent"></span>
           <h2>Puedes seguir estudiando inglés en desorden… o empezar hoy con un mapa.</h2>
           <p class="section-sub">
-            Promoción de Halloween por tiempo limitado. Termina en:
+            Precio Black Friday anticipado. Faltan para el Black Friday:
             <span id="countdown-final" class="countdown-clock">24:00:00</span>
           </p>
           <p class="hero-price"><strong><span class="hw-pre">Valor total US$ 87</span><span class="hw-post">Hoy US$ 10</span></strong></p>
-          <p class="hw-pre hw-hint">Gira la ruleta de Halloween y recibe tu descuento</p>
+          <p class="hw-pre hw-hint">Gira la ruleta de Black Friday y descubre tu precio</p>
 
           <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:10,currency:'USD'});}">
             Sí, quiero mis mapas <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -1202,8 +1151,13 @@
     </main>
 
     <!-- Barra fija (solo celular): aparece al pasar el hero -->
+    <!-- Barra fija (celular): invita a bajar a la ruleta mientras no se ve -->
+    <a href="#comprar" data-checkout target="_blank" rel="noopener" class="hw-go" id="hw-go" aria-hidden="true" tabindex="-1">
+      <span class="hw-go-shine"></span><span>🎁 <strong>Tu descuento te espera</strong> · Gira la ruleta</span><span class="hw-go-arrow">▼</span>
+    </a>
+
     <div class="sticky-buy" id="sticky-buy" aria-hidden="true">
-      <span class="sticky-buy-text"><strong><span class="hw-pre">US$ 87</span><span class="hw-post">US$ 10</span></strong> · Garantía 7 días</span>
+      <span class="sticky-buy-text"><span class="hw-pre">🎁 <strong>Gira y descubre tu precio</strong></span><span class="hw-post"><strong>US$ 10</strong> · Garantía 7 días</span></span>
       <a href="#comprar" data-checkout target="_blank" rel="noopener" class="cta" tabindex="-1">Comprar</a>
     </div>
 
@@ -1217,7 +1171,7 @@
           garantiza ningún resultado específico; los resultados varían según la dedicación de cada estudiante.
         </p>
         <p class="hw-disclaimer">
-          Sobre la ruleta de Halloween: es un elemento interactivo de esta página. Antes de girarla, la página
+          Sobre la ruleta de Black Friday: es un elemento interactivo de esta página. Antes de girarla, la página
           muestra el valor total del paquete (US$ 87), y la ruleta siempre se detiene en el mismo resultado (US$ 10).
           No es un sorteo: el precio de la promoción es US$ 10 para todas las personas.
         </p>
@@ -1229,12 +1183,8 @@
       </div>
     </footer>
 
-    <div class="hw-page-bats" aria-hidden="true">
-      <span class="hw-bat hw-bat-1"><img src="hw-bat.svg" alt="" /></span>
-      <span class="hw-bat hw-bat-2"><img src="hw-bat.svg" alt="" /></span>
-    </div>
-
     <script src="script.js"></script>
-    <script src="halloween.js"></script>
+    <script src="blackfriday.js"></script>
+    <script src="quiz.js"></script>
   </body>
 </html>
